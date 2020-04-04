@@ -6,7 +6,7 @@ function App()
   {
     return(
       <BrowserRouter>
-        <Route exact path="/" component={tempo} />
+        <Route exact path="/peliculas" component={tempo} />
       </BrowserRouter>
     )
   }
