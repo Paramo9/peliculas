@@ -1,12 +1,12 @@
 import React from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
-import tempo from './tempo'
+import Login from './Login'
 
 function App()
   {
     return(
       <BrowserRouter>
-        <Route exact path="/peliculas" component={tempo} />
+        <Route exact path="/peliculas" component={Login} />
       </BrowserRouter>
     )
   }
