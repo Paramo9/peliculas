@@ -5,9 +5,11 @@ import tempo from './tempo'
 function App()
   {
     return(
-      <BrowserRouter>
-        <Route exact path="/" component={tempo} />
-      </BrowserRouter>
+      <div>
+        <h1>
+          Hola
+        </h1>
+      </div>
     )
   }
 
