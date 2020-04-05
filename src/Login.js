@@ -29,9 +29,7 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                this.usuarios.on('value', snap => {
-                    alert(snap.val())
-                })
+                this.usuarios.push({usuario: 0})
             }
 
         render()
