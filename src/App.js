@@ -7,6 +7,7 @@ function App()
     return(
       <BrowserRouter>
         <Route exact path="/peliculas" component={Login} />
+        <Route exact path="/login" component={Login} />
       </BrowserRouter>
     )
   }
