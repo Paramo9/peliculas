@@ -25,7 +25,29 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                alert("En desarrollo");
+                const data = new FormData(event.target);
+                let url = 'https://paramo9.github.io/servletspeliculas/login?email=' + this.state.email + '&password=' + this.state.password;
+                fetch(url).then(response => response.text()).then(data => 
+                    {
+                        alert(data)
+                        if(data == "-1")
+                            {
+                                <Redirect to={"/login_incorrecto"} />
+                            }
+                        else
+                            {
+                                var datos = data.split(",");
+                                var dato1 = datos[0];
+                                var dato2 = datos[1];
+                                var dato3 = datos[2];
+                                var dato4 = datos[3];
+                                localStorage.setItem("nombre", dato1);
+                                localStorage.setItem("email", dato2);
+                                localStorage.setItem("password", dato3);
+                                localStorage.setItem("nivel", dato4);
+                                <Redirect to={"/inicio"} />
+                            }
+                    });
             }
 
         render()
