@@ -26,7 +26,7 @@ class Login extends React.Component
             {
                 event.preventDefault();
                 const data = new FormData(event.target);
-                let url = 'https://paramo9.github.io/servletspeliculas/login?email=' + this.state.email + '&password=' + this.state.password;
+                let url = 'https://Paramo9.github.io/servletspeliculas/login?email=' + this.state.email + '&password=' + this.state.password;
                 fetch(url).then(response => response.text()).then(data => 
                     {
                         alert(data)
