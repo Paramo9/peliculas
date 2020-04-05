@@ -34,7 +34,7 @@ class Login extends React.Component
                     <div>
                         <h1 align="center">Películas Páramo</h1><br />
                         <h2 align="center">Inicia Sesión</h2><br />
-                        <from onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit}>
                             <div align="center">
                                 <h3>
                                     Correo electrónico:<br /><br />
@@ -44,7 +44,7 @@ class Login extends React.Component
                                     <input type="submit" value="Ingresar" /><br /><br />
                                 </h3>
                             </div>
-                        </from>
+                        </form>
                     </div>
                 )
             }
