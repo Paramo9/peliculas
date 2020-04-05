@@ -28,8 +28,7 @@ class Login extends React.Component
                 const Datastore = require('nedb')
                 const database = new Datastore('usuarios.db')
                 database.loadDatabase()
-                database.insert({email: this.state.email, password: this.password})
-                database.insert({email: this.email, password: this.state.password})
+                alert(database.count({}))
             }
 
         render()
