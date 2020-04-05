@@ -14,7 +14,7 @@ class Login extends React.Component
 
         handleChangeEmail(event)
             {
-                this.setState({mobile: event.target.value})
+                this.setState({email: event.target.value})
             }
 
         handleChangePassword(event)
