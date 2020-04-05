@@ -1,5 +1,7 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
+import firebase from 'firebase'
+import {dbconfig} from './Config'
 
 class Login extends React.Component
     {
@@ -10,6 +12,8 @@ class Login extends React.Component
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
+                this.app = firebase.initializeApp(dbconfig)
+                this.usuarios = this.app.database().ref().child('usuarios')
             }
 
         handleChangeEmail(event)
@@ -25,10 +29,9 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                const Datastore = require('nedb')
-                const database = new Datastore('usuarios.db')
-                database.loadDatabase()
-                alert(database.count({}))
+                this.usuarios.on('value', snap => {
+                    alert(snap.val)
+                })
             }
 
         render()
