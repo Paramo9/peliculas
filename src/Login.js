@@ -6,7 +6,7 @@ class Login extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {email: '', password: ''}
+                this.state = {email: '', password: '', r1: false, r2: false}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,7 +32,7 @@ class Login extends React.Component
                         alert(data)
                         if(data == "-1")
                             {
-                                <Redirect to={"/login_incorrecto"} />
+                                this.setState({r1: true})
                             }
                         else
                             {
@@ -45,13 +45,21 @@ class Login extends React.Component
                                 localStorage.setItem("email", dato2);
                                 localStorage.setItem("password", dato3);
                                 localStorage.setItem("nivel", dato4);
-                                <Redirect to={"/inicio"} />
+                                this.setState({r2: true})
                             }
                     });
             }
 
         render()
             {
+                if(this.state.r1)
+                    {
+                        return <Redirect to={"/login_incorrecto"} />
+                    }
+                if(this.state.r2)
+                    {
+                        return <Redirect to={"/inicio"} />
+                    }
                 return(
                     <div>
                         <h1 align="center">Películas Páramo</h1><br />
