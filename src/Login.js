@@ -25,29 +25,9 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                const data = new FormData(event.target);
-                let url = 'https://Paramo9.github.io/servletspeliculas/login?email=' + this.state.email + '&password=' + this.state.password;
-                fetch(url).then(response => response.text()).then(data => 
-                    {
-                        alert(data)
-                        if(data == "-1")
-                            {
-                                this.setState({r1: true})
-                            }
-                        else
-                            {
-                                var datos = data.split(",");
-                                var dato1 = datos[0];
-                                var dato2 = datos[1];
-                                var dato3 = datos[2];
-                                var dato4 = datos[3];
-                                localStorage.setItem("nombre", dato1);
-                                localStorage.setItem("email", dato2);
-                                localStorage.setItem("password", dato3);
-                                localStorage.setItem("nivel", dato4);
-                                this.setState({r2: true})
-                            }
-                    });
+                const Datastore = require('nedb')
+                const database = new Datastore('usuarios.db')
+                database.loadDatabase()
             }
 
         render()
