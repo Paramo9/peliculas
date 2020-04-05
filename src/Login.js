@@ -30,7 +30,7 @@ class Login extends React.Component
             {
                 event.preventDefault();
                 this.usuarios.on('value', snap => {
-                    alert(snap.val)
+                    alert(snap.val())
                 })
             }
 
