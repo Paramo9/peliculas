@@ -13,7 +13,7 @@ class Login extends React.Component
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
                 this.app = firebase.initializeApp(dbconfig)
-                this.usuarios = this.app.database().ref().child('usuarios').ref
+                this.usuarios = this.app.database().ref().child('usuarios')
             }
 
         handleChangeEmail(event)
@@ -29,7 +29,8 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                this.usuarios.push({nombre: "Paramo", email: "trollol.lapr@gmail.com", password: "Paramo82025840&", nivel: "Administrador"})
+                var tempo = this.app.database().ref().toJSON()
+                alert(tempo)
             }
 
         render()
