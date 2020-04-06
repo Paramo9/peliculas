@@ -59,19 +59,22 @@ class Login extends React.Component
                         return <Redirect to={"/inicio"} />
                     }
                 return(
-                    <div className="wrapper fadeInDown">
-                        <div id="formContent">
-                            <h2 align="center">Inicia Sesión</h2><br />
-                            <form onSubmit={this.handleSubmit}>
-                                <div align="center">
-                                    <h3>
-                                        <input id="login" className="fadeIn second" name="login" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                        <input id="password" className="fadeIn third" name="login" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                        <input type="submit" value="Ingresar" className="fadeIn fourth" /><br /><br />
-                                    </h3>
-                                </div>
-                            </form>
-                            <div id="formFooter"><h3 align="center" className="astyle underlineHover">Regístrate aquí</h3></div>
+                    <div>
+                        <h1 align="center">Películas Antonio</h1>
+                        <div className="wrapper fadeInDown">
+                            <div id="formContent">
+                                <h2 align="center">Inicia Sesión</h2><br />
+                                <form onSubmit={this.handleSubmit}>
+                                    <div align="center">
+                                        <h3>
+                                            <input id="login" className="fadeIn second" name="login" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
+                                            <input id="password" className="fadeIn third" name="login" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                            <input type="submit" value="Ingresar" className="fadeIn fourth" /><br /><br />
+                                        </h3>
+                                    </div>
+                                </form>
+                                <div id="formFooter"><h3 align="center" className="astyle underlineHover">Regístrate aquí</h3></div>
+                            </div>
                         </div>
                     </div>
                 )
