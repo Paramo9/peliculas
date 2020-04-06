@@ -40,6 +40,7 @@ class Login extends React.Component
                         niveles.push(doc.get('nivel'))
                     })
                     var t = 0
+                    alert(emails)
                     alert(passwords)
                     /*for(var i=0; i<emails.length; i++)
                         {
