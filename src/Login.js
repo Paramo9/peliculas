@@ -32,9 +32,9 @@ class Login extends React.Component
                 this.app.firestore().collection('usuarios').get().then((data) => {
                     let usuarios = []
                     data.forEach((doc) => {
-                        usuarios.push(doc.data())
+                        usuarios.push(doc.get('nombre'))
                     })
-                    alert(usuarios[0])
+                    alert(usuarios)
                 })
             }
 
