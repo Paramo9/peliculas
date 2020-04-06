@@ -13,7 +13,6 @@ class Login extends React.Component
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
                 this.app = firebase.initializeApp(dbconfig)
-                this.usuarios = this.app.database().ref().child('usuarios')
             }
 
         handleChangeEmail(event)
@@ -30,11 +29,24 @@ class Login extends React.Component
             {
                 event.preventDefault();
                 this.app.firestore().collection('usuarios').get().then((data) => {
-                    let usuarios = []
+                    let emails = []
+                    let passwords = []
+                    let nombres = []
+                    let niveles = []
                     data.forEach((doc) => {
-                        usuarios.push(doc.get('nombre'))
+                        usuarios.push(doc.get('email'))
+                        passwords.push(doc.get('password'))
+                        nombres.push(doc.get('nombre'))
+                        niveles.push(doc.get('nivel'))
                     })
-                    alert(usuarios)
+                    for(let i=0; i<emails.length; i++)
+                        {
+                            if(emails[i] == this.state.email && passwords[i] == this.state.password)
+                                {
+                                    <Redirect to = {"/Inicio"} />
+                                }
+                        }
+                    <Redirect to={"/login_incorrecto"} />
                 })
             }
 
