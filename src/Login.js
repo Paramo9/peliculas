@@ -69,7 +69,7 @@ class Login extends React.Component
                                     <input type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
                                     Contraseña:<br />
                                     <input type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                    <input type="submit" value="Ingresar" /><br /><br />
+                                    <input type="submit" value="Ingresar" className="fadeIn fourth" /><br /><br />
                                 </h3>
                             </div>
                         </form>
