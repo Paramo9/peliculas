@@ -28,36 +28,34 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
+                let emails = []
+                let passwords = []
+                let nombres = []
+                let niveles = []
                 this.app.firestore().collection('usuarios').get().then((data) => {
-                    let emails = []
-                    let passwords = []
-                    let nombres = []
-                    let niveles = []
                     data.forEach((doc) => {
                         emails.push(doc.get('email'))
                         passwords.push(doc.get('password'))
                         nombres.push(doc.get('nombre'))
                         niveles.push(doc.get('nivel'))
                     })
-                    var t = 0
-                    alert(emails)
-                    alert(passwords)
-                    /*for(var i=0; i<emails.length; i++)
-                        {
-                            if(emails[i] == this.state.email && passwords[i] == this.state.password)
-                                {
-                                    t = 1
-                                }
-                        }
-                    if(t==1)
-                        {
-                            this.setState({r1: true})
-                        }
-                    else
-                        {
-                            this.setState({r2: true})
-                        }*/
                 })
+                var t = 0
+                for(var i=0; i<emails.length; i++)
+                    {
+                        if(emails[i] == this.state.email && passwords[i] == this.state.password)
+                            {
+                                t = 1
+                            }
+                    }
+                if(t==1)
+                    {
+                        this.setState({r1: true})
+                    }
+                else
+                    {
+                        this.setState({r2: true})
+                    }
             }
 
         render()
