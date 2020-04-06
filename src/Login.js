@@ -34,7 +34,7 @@ class Login extends React.Component
                     let nombres = []
                     let niveles = []
                     data.forEach((doc) => {
-                        usuarios.push(doc.get('email'))
+                        emails.push(doc.get('email'))
                         passwords.push(doc.get('password'))
                         nombres.push(doc.get('nombre'))
                         niveles.push(doc.get('nivel'))
