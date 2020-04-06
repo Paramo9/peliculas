@@ -41,10 +41,7 @@ class Login extends React.Component
                     })
                     var t = 0
                     alert(emails)
-                    alert(passwords)
-                    alert(nombres)
-                    alert(niveles)
-                    for(var i=0; i<emails.length; i++)
+                    /*for(var i=0; i<emails.length; i++)
                         {
                             if(emails[i] == this.state.email && passwords[i] == this.state.password)
                                 {
@@ -58,7 +55,7 @@ class Login extends React.Component
                     else
                         {
                             this.setState({r2: true})
-                        }
+                        }*/
                 })
             }
 
