@@ -29,8 +29,7 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                var lol = this.usuarios.child('')
-                alert(lol)
+                alert(this.usuarios)
             }
 
         render()
