@@ -60,7 +60,6 @@ class Login extends React.Component
                     }
                 return(
                     <div className="wrapper fadeInDown">
-                        <h1 align="center">Películas Páramo</h1><br />
                         <div id="formContent">
                             <h2 align="center">Inicia Sesión</h2><br />
                             <form onSubmit={this.handleSubmit}>
