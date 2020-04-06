@@ -28,34 +28,23 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                var emails = []
-                var passwords = []
-                var nombres = []
-                var niveles = []
-                var i = 0
                 this.app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
-                        emails[i] = doc.get('email')
-                        passwords[i] = doc.get('password')
-                        nombres[i] = doc.get('nombre')
-                        niveles[i] = doc.get('nivel')
-                        i = i + 1
+                        var emaili = doc.get('email')
+                        var passwordi = doc.get('password')
+                        var nombrei = doc.get('nombre')
+                        var niveli = doc.get('nivel')
+                        if(emaili = this.state.email && passwordi == this.state.password)
+                            {
+                                localStorage.setItem("nombre", nombrei)
+                                localStorage.setItem("password", passwordi)
+                                localStorage.setItem("email", emaili)
+                                localStorage.setItem("nivel", niveli)
+                                this.setState({r2: true})
+                            }
                     })
+                    this.setState({r1: true})
                 })
-                var e = 0
-                var p = 0
-                for(var j=0; j<emails.length; j++)
-                    {
-                        alert(emails[i])
-                    }
-                if(p==1 && e==1)
-                    {
-                        this.setState({r2: true})
-                    }
-                else
-                    {
-                        this.setState({r1: true})
-                    }
             }
 
         render()
