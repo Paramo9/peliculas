@@ -39,14 +39,14 @@ class Login extends React.Component
                         nombres.push(doc.get('nombre'))
                         niveles.push(doc.get('nivel'))
                     })
-                    for(let i=0; i<emails.length; i++)
+                    for(var i=0; i<emails.length; i++)
                         {
                             if(emails[i] == this.state.email && passwords[i] == this.state.password)
                                 {
                                     this.setState({r1: true})
                                 }
                         }
-                        this.setState({r1: false})
+                    this.setState({r2: true})
                 })
             }
 
