@@ -31,7 +31,10 @@ class Login extends React.Component
                 event.preventDefault();
                 this.app.firestore().collection('usuarios').get().then((data) => {
                     let usuarios = []
-                    alert(data.docs.toString())
+                    data.forEach((doc) => {
+                        usuarios.push(doc.data())
+                    })
+                    alert(usuarios[0])
                 })
             }
 
