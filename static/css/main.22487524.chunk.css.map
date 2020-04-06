@@ -1,0 +1,1 @@
+{"version":3,"sources":["login.css"],"names":[],"mappings":"AAAA,MACI,aAAc,CACd,oBAAoB,CACpB,oBAAqB,CACrB,eACF","file":"main.22487524.chunk.css","sourcesContent":[".link {\n    color: #92badd;\n    display:inline-block;\n    text-decoration: none;\n    font-weight: 400;\n  }"]}
