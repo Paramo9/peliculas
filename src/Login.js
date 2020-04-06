@@ -2,6 +2,7 @@ import React from 'react'
 import {Redirect} from 'react-router-dom'
 import firebase from 'firebase'
 import {dbconfig} from './Config'
+import './login.css'
 
 class Login extends React.Component
     {
@@ -72,6 +73,7 @@ class Login extends React.Component
                                 </h3>
                             </div>
                         </form>
+                        <h3 align="center" className="link">Regístrate aquí</h3>
                     </div>
                 )
             }
