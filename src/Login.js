@@ -29,7 +29,7 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                alert(firebase.storage().ref().child('usuarios').listAll())
+                alert(firebase.database().ref().child('usuarios').child().toString())
             }
 
         render()
