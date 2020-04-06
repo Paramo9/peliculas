@@ -50,11 +50,11 @@ class Login extends React.Component
                     }
                 if(t==1)
                     {
-                        this.setState({r1: true})
+                        this.setState({r2: true})
                     }
                 else
                     {
-                        this.setState({r2: true})
+                        this.setState({r1: true})
                     }
             }
 
