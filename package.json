@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "firebase": "^7.13.2",
+    "firebase-tools": "^8.0.1",
     "gh-pages": "^2.2.0",
     "nedb": "^1.8.0",
     "react-router-dom": "^5.1.2"
