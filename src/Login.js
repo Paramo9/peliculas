@@ -43,10 +43,10 @@ class Login extends React.Component
                         {
                             if(emails[i] == this.state.email && passwords[i] == this.state.password)
                                 {
-                                    <Redirect to = {"/Inicio"} />
+                                    this.setState({r1: true})
                                 }
                         }
-                    <Redirect to={"/login_incorrecto"} />
+                        this.setState({r1: false})
                 })
             }
 
