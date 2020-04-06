@@ -73,7 +73,7 @@ class Login extends React.Component
                                 </h3>
                             </div>
                         </form>
-                        <div className="formFooter"><h3 align="center" className="link underlineHover">Regístrate aquí</h3></div>
+                        <div id="formFooter"><h3 align="center" className="link underlineHover">Regístrate aquí</h3></div>
                     </div>
                 )
             }
