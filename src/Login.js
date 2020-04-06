@@ -29,8 +29,8 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                var tempo = this.app.database().ref().child('usuarios').toJSON()
-                alert(tempo)
+                var lol = this.usuarios.child('')
+                alert(lol)
             }
 
         render()
