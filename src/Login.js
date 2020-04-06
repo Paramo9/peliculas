@@ -29,7 +29,7 @@ class Login extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                var tempo = this.app.database().ref().toJSON()
+                var tempo = this.app.database().ref().toJSON
                 alert(tempo)
             }
 
