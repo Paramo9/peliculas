@@ -9,7 +9,7 @@ class Barra_Navegacion extends React.Component
                 return(
                     <header>
                         <input type="checkbox" id="btn-menu" />
-                        <label htmlFor="btn-menu"><img src={imagenMenu} alt="" /></label>
+                        <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
                         <nav className="menu">
                             <ul>
                                 <li><a href="">Películas</a></li>
