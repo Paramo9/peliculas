@@ -1,5 +1,5 @@
 import React from 'react'
-import './login.css'
+import './registrar.css'
 
 class Registrar extends React.Component
     {
