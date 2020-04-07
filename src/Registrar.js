@@ -1,6 +1,4 @@
 import React from 'react'
-import firebase from 'firebase'
-import {dbconfig} from './Config'
 import './login.css'
 
 class Registrar extends React.Component
@@ -13,7 +11,6 @@ class Registrar extends React.Component
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleChangeName = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
-                this.app = firebase.initializeApp(dbconfig)
             }
 
         handleChangeEmail(event)
@@ -35,7 +32,22 @@ class Registrar extends React.Component
             {
                 return(
                     <div>
-                        oooo
+                        <h1 align="center">El Club de la Película</h1>
+                        <div className="wrapper fadeInDown">
+                            <div id="formContent">
+                                <h2 align="center">Registro</h2><br />
+                                <form onSubmit={this.handleSubmit}>
+                                    <div align="center">
+                                        <h3>
+                                            <input className="fadeIn second" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
+                                            <input className="fadeIn third" placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
+                                            <input className="fadeIn fourth" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                            <input type="submit" value="Registrar" className="fadeIn fifth" /><br /><br />
+                                        </h3>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 )
             }
