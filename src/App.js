@@ -9,7 +9,7 @@ function App()
   {
     return(
       <BrowserRouter>
-        <Route exact path="/peliculas" component={Registrar} />
+        <Route exact path="/peliculas" component={Login} />
         <Route exact path="/peliculas/login" component={Login} />
         <Route exact path="/peliculas/inicio" component={Inicio} />
         <Route exact path="/peliculas/login_incorrecto" component={Login_Incorrecto} />
