@@ -43,7 +43,7 @@ class Registrar extends React.Component
 
         render()
             {
-                if(this.setState.r1)
+                if(this.state.r1)
                     {
                         return <Redirect to={"/peliculas/login"} />
                     }
