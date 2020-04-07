@@ -43,8 +43,8 @@ class Registro extends React.Component
                     {
                         var app= firebase.app("firestore")
                     }
-                var t = 0
                 app.firestore().collection('usuarios').get().then((data) => {
+                    var t = 0
                     data.forEach((doc) => {
                         var emailf = doc.get('email')
                         if(emailf == this.state.email)
@@ -52,15 +52,15 @@ class Registro extends React.Component
                                 t = 1
                             }
                     })
+                    if(t==1)
+                        {
+                            alert("Ese correo ya está registrado")
+                        }
+                    else
+                        {
+                            app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                        }
                 })
-                if(t==1)
-                    {
-                        alert("Ese correo ya está registrado")
-                    }
-                else
-                    {
-                        app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
-                    }
             }
         
         handleClickRegresar(event)
