@@ -47,9 +47,9 @@ class Registrar extends React.Component
                 app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
                         var emailf = doc.get('email')
-                        alert(emailf)
                         if(emailf == this.state.email)
                             {
+                                alert("entra")
                                 t = 1
                             }
                     })
