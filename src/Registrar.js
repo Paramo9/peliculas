@@ -37,7 +37,11 @@ class Registrar extends React.Component
                 event.preventDefault();
                 if(!firebase.apps.length)
                     {
-                        var app = firebase.initializeApp(dbconfig)
+                        var app = firebase.initializeApp(dbconfig, "firestore")
+                    }
+                else
+                    {
+                        var app= firebase.app("firestore")
                     }
                 var t = 0
                 app.firestore().collection('usuarios').get().then((data) => {

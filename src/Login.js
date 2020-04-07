@@ -32,7 +32,7 @@ class Login extends React.Component
                 event.preventDefault();
                 if(!firebase.apps.length)
                     {
-                        var app = firebase.initializeApp(dbconfig)
+                        var app = firebase.initializeApp(dbconfig, "firestore")
                     }
                 app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
