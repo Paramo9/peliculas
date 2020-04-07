@@ -43,21 +43,17 @@ header label:hover
     {
         text-align: center;
         flex-grow: 1;
-    }
-
-.menu li:hover
-    {
-        background: rgba(0, 0, 0, 0.3);
-    }
-
-.menu li a
-    {
         display: block;
         padding: 15px 20px;
         color: #fff;
         text-decoration: none;
     }
 
+.menu li:hover
+    {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
 @media (max-width: 768px)
     {
         header label
