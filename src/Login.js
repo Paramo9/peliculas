@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import firebase from 'firebase'
 import {dbconfig} from './Config'
 import './login.css'
@@ -74,7 +74,7 @@ class Login extends React.Component
                                     </div>
                                 </form>
                                 <div id="formFooter">
-                                    <h3 align="center" className="astyle underlineHover">Regístrate aquí</h3>
+                                    <h3 align="center" className="astyle underlineHover"><Link to="/registrar">Regístrate aquí</Link></h3>
                                 </div>
                             </div>
                         </div>
