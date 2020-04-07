@@ -13,7 +13,7 @@ class Login extends React.Component
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
-                this.handleClickRegistrar ) this.handleClickRegistrar.bind(this)
+                this.handleClickRegistrar = this.handleClickRegistrar.bind(this)
                 this.app = firebase.initializeApp(dbconfig)
             }
 
