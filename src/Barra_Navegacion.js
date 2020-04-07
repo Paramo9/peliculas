@@ -7,7 +7,7 @@ class Barra_Navegacion extends React.Component
             {
                 return(
                     <div>
-                        <nav class="menu">
+                        <nav className="menu">
                             <ol>
                                 <a href="#0">Películas</a>
                                 <ol className="sub-menu">
