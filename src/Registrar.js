@@ -12,7 +12,7 @@ class Registrar extends React.Component
                 this.state = {email: '', password: '', name: '', r1: false}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
-                this.handleChangeName = this.handleChangePassword.bind(this)
+                this.handleChangeName = this.handleChangeName.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
                 this.handleClickRegresar = this.handleClickRegresar.bind(this)
             }
