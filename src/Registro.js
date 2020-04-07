@@ -54,11 +54,12 @@ class Registro extends React.Component
                     })
                     if(t==1)
                         {
-                            alert("Ese correo ya está registrado")
+                            alert("Lo setimos, ese e-mail ya está registrado.")
                         }
                     else
                         {
                             app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                            alert("¡Te has registrado con éxito!")
                         }
                 })
             }

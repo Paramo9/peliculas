@@ -1,4 +1,5 @@
 import React from 'react'
+import Barra_Navegacion from './Barra_Navegacion'
 
 class Inicio extends React.Component
     {
@@ -6,6 +7,7 @@ class Inicio extends React.Component
             {
                 return(
                     <div>
+                        <Barra_Navegacion />
                         Inicio
                     </div>
                 )
