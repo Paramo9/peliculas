@@ -56,7 +56,7 @@ class Login extends React.Component
                 this.setState({r3: true})
             }
         
-        componentDidMount()
+        componentWillMount()
             {
                 alert("lol")
             }
