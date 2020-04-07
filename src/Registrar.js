@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 import {dbconfig} from './Config'
+import './login.css'
 
 class Registrar extends React.Component
     {
@@ -41,9 +42,9 @@ class Registrar extends React.Component
                                 <form onSubmit={this.handleSubmit}>
                                     <div align="center">
                                         <h3>
-                                            <input id="login" className="fadeIn second" name="login" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                            <input id="login" className="fadeIn third" name="login" placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
-                                            <input id="password" className="fadeIn fourth" name="login" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                            <input className="fadeIn second" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
+                                            <input className="fadeIn third" placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
+                                            <input className="fadeIn fourth" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
                                             <input type="submit" value="Ingresar" className="fadeIn fifth" /><br /><br />
                                         </h3>
                                     </div>

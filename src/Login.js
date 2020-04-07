@@ -2,6 +2,7 @@ import React from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import firebase from 'firebase'
 import {dbconfig} from './Config'
+import './login.css'
 
 
 class Login extends React.Component
