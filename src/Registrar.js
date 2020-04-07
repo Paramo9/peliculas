@@ -41,7 +41,7 @@ class Registrar extends React.Component
                     }
                 else
                     {
-                        var app= firebase.app("firestore")7
+                        var app= firebase.app("firestore")
                     }
                 var t = 0
                 app.firestore().collection('usuarios').get().then((data) => {
