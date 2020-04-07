@@ -10,10 +10,10 @@ function App()
     return(
       <BrowserRouter>
         <Route exact path="/peliculas" component={Login} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/inicio" component={Inicio} />
-        <Route exact path="/login_incorrecto" component={Login_Incorrecto} />
-        <Route exact path="/registrar" component={Registrar} />
+        <Route exact path="/peliculas/login" component={Login} />
+        <Route exact path="/peliculas/inicio" component={Inicio} />
+        <Route exact path="/peliculas/login_incorrecto" component={Login_Incorrecto} />
+        <Route exact path="/peliculas/registrar" component={Registrar} />
       </BrowserRouter>
     )
   }

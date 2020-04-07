@@ -52,11 +52,11 @@ class Login extends React.Component
             {
                 if(this.state.r1)
                     {
-                        return <Redirect to={"/login_incorrecto"} />
+                        return <Redirect to={"/peliculas/login_incorrecto"} />
                     }
                 if(this.state.r2)
                     {
-                        return <Redirect to={"/inicio"} />
+                        return <Redirect to={"/peliculas/inicio"} />
                     }
                 return(
                     <div>
@@ -74,7 +74,7 @@ class Login extends React.Component
                                     </div>
                                 </form>
                                 <div>
-                                    <h3 align="center"><Link to="/registrar">Regístrate aquí</Link></h3>
+                                    <h3 align="center"><Link to="/peliculas/registrar">Regístrate aquí</Link></h3>
                                 </div>
                             </div>
                         </div>
