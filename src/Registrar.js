@@ -1,4 +1,7 @@
 import React from 'react'
+import firebase from 'firebase'
+import {dbconfig} from './Config'
+import './login.css'
 
 class Registrar extends React.Component
     {
