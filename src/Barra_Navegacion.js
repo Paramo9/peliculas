@@ -6,7 +6,8 @@ class Barra_Navegacion extends React.Component
         render()
             {
                 return(
-                        <nav className="menu">
+                    <div className="navegacion">
+                        <nav>
                             <ol>
                                 <li>
                                     Películas
@@ -30,6 +31,7 @@ class Barra_Navegacion extends React.Component
                                 </li>
                             </ol>
                         </nav>
+                    </div>
                 )
             }
     }
