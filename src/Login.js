@@ -15,7 +15,6 @@ class Login extends React.Component
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
                 this.handleClickRegistrar = this.handleClickRegistrar.bind(this)
-                this.app = firebase.initializeApp(dbconfig)
             }
 
         handleChangeEmail(event)
@@ -30,8 +29,12 @@ class Login extends React.Component
 
         handleSubmit(event)
             {
+                if(!firebase.apps.length)
+                    {
+                        var app = firebase.initializeApp(dbconfig)
+                    }
                 event.preventDefault();
-                this.app.firestore().collection('usuarios').get().then((data) => {
+                app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
                         var emaili = doc.get('email')
                         var passwordi = doc.get('password')
