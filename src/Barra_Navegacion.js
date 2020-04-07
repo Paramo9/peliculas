@@ -12,11 +12,11 @@ class Barra_Navegacion extends React.Component
                         <label htmlFor="btn-menu"><img src={imagenMenu} alt="" /></label>
                         <nav className="menu">
                             <ul>
-                                <li>Peliculas</li>
-                                <li>Series</li>
-                                <li>Favoritas</li>
-                                <li>Mi perfil</li>
-                                <li>Actualizar Datos</li>
+                                <li><a href="">Películas</a></li>
+                                <li><a href="">Series</a></li>
+                                <li><a href="">Favoritas</a></li>
+                                <li><a href="">Mi Perfil</a></li>
+                                <li><a href="">Cerrar Sesión</a></li>
                             </ul>
                         </nav>
                     </header>
