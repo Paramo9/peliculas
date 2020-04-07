@@ -1,6 +1,8 @@
 import React from 'react'
 import './registrar.css'
 import { Redirect } from 'react-router-dom'
+import firebase from 'firebase'
+import {dbconfig} from './Config'
 
 class Registrar extends React.Component
     {
@@ -33,6 +35,28 @@ class Registrar extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
+                if(!firebase.apps.length)
+                    {
+                        var app = firebase.initializeApp(dbconfig)
+                    }
+                var t = 0
+                app.firestore().collection('usuarios').get().then((data) => {
+                    data.forEach((doc) => {
+                        var emailf = doc.get('email')
+                        if(emailf = this.state.email)
+                            {
+                                t = 1
+                            }
+                    })
+                })
+                if(t==1)
+                    {
+                        alert("Ese correo ya está registrado")
+                    }
+                else
+                    {
+                        app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                    }
             }
         
         handleClickRegresar(event)

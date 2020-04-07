@@ -29,11 +29,11 @@ class Login extends React.Component
 
         handleSubmit(event)
             {
+                event.preventDefault();
                 if(!firebase.apps.length)
                     {
                         var app = firebase.initializeApp(dbconfig)
                     }
-                event.preventDefault();
                 app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
                         var emaili = doc.get('email')
