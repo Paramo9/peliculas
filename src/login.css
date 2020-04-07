@@ -46,20 +46,6 @@ html {
 }
 
 
-
-/* TABS */
-
-h2.inactive {
-  color: #cccccc;
-}
-
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
-}
-
-
-
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -239,6 +225,12 @@ input[type=password] {
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
+}
+
+.fadeIn.fifth {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 
 /* Simple CSS3 Fade-in Animation */

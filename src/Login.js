@@ -60,7 +60,7 @@ class Login extends React.Component
                     }
                 return(
                     <div>
-                        <h1 align="center">Películas Antonio</h1>
+                        <h1 align="center">El Club de la Película</h1>
                         <div className="wrapper fadeInDown">
                             <div id="formContent">
                                 <h2 align="center">Inicia Sesión</h2><br />
@@ -73,7 +73,9 @@ class Login extends React.Component
                                         </h3>
                                     </div>
                                 </form>
-                                <div id="formFooter"><h3 align="center" className="astyle underlineHover">Regístrate aquí</h3></div>
+                                <div id="formFooter">
+                                    <h3 align="center" className="astyle underlineHover">Regístrate aquí</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
