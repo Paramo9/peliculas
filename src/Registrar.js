@@ -1,16 +1,18 @@
 import React from 'react'
 import './registrar.css'
+import { Redirect } from 'react-router-dom'
 
 class Registrar extends React.Component
     {
         constructor(props)
             {
                 super(props)
-                this.state = {email: '', password: '', name: ''}
+                this.state = {email: '', password: '', name: '', r1: false}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleChangeName = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
+                this.handleClickRegresar = this.handleClickRegresar.bind(this)
             }
 
         handleChangeEmail(event)
@@ -32,9 +34,19 @@ class Registrar extends React.Component
             {
                 event.preventDefault();
             }
+        
+        handleClickRegresar(event)
+            {
+                event.preventDefault();
+                this.setState({r1: true})
+            }
 
         render()
             {
+                if(this.setState.r1)
+                    {
+                        return <Redirect to={"/peliculas/login"} />
+                    }
                 return(
                     <div>
                         <h1 align="center">El Club de la Película</h1>
@@ -48,6 +60,7 @@ class Registrar extends React.Component
                                             <input className="fadeIn third" placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
                                             <input className="fadeIn fourth" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
                                             <input type="submit" value="Registrar" className="fadeIn fifth" /><br /><br />
+                                            <input type="button" value="Regresar" onClick={this.handleClickRegresar} className="fadeIn sixth" /><br /><br />
                                         </h3>
                                     </div>
                                 </form>

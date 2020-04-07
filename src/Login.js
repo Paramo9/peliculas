@@ -55,11 +55,6 @@ class Login extends React.Component
                 event.preventDefault();
                 this.setState({r3: true})
             }
-        
-        componentWillMount()
-            {
-                alert("lol")
-            }
 
         render()
             {
