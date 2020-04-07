@@ -61,20 +61,20 @@ class Login extends React.Component
                 return(
                     <div>
                         <h1 align="center">El Club de la Película</h1>
-                        <div className="wrapper fadeInDown">
-                            <div id="formContent">
+                        <div>
+                            <div>
                                 <h2 align="center">Inicia Sesión</h2><br />
                                 <form onSubmit={this.handleSubmit}>
                                     <div align="center">
                                         <h3>
-                                            <input id="login" className="fadeIn second" name="login" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                            <input id="password" className="fadeIn third" name="login" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                            <input type="submit" value="Ingresar" className="fadeIn fourth" /><br /><br />
+                                            <input type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
+                                            <input type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                            <input type="submit" value="Ingresar" /><br /><br />
                                         </h3>
                                     </div>
                                 </form>
-                                <div id="formFooter">
-                                    <h3 align="center" className="astyle underlineHover"><Link to="/registrar">Regístrate aquí</Link></h3>
+                                <div>
+                                    <h3 align="center"><Link to="/registrar">Regístrate aquí</Link></h3>
                                 </div>
                             </div>
                         </div>
