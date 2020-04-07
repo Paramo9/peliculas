@@ -34,6 +34,10 @@ class Login extends React.Component
                     {
                         var app = firebase.initializeApp(dbconfig, "firestore")
                     }
+                else
+                    {
+                        var app= firebase.app("firestore")7
+                    }
                 app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
                         var emaili = doc.get('email')
