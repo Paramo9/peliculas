@@ -20,7 +20,7 @@ class Login_Incorrecto extends React.Component
             {
                 if(this.state.r1)
                     {
-                        return <Redirect to={"/peliculas"} />
+                        return <Redirect to={"/peliculas/login"} />
                     }
                 return(
                     <div>
