@@ -8,7 +8,7 @@ import Registrar from './Registrar'
 function App()
   {
     return(
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <Route exact path="/peliculas" component={Login} />
         <Route exact path="/peliculas/login" component={Login} />
         <Route exact path="/peliculas/inicio" component={Inicio} />
