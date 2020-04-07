@@ -49,7 +49,6 @@ class Registrar extends React.Component
                         var emailf = doc.get('email')
                         if(emailf == this.state.email)
                             {
-                                alert("entra")
                                 t = 1
                             }
                     })
