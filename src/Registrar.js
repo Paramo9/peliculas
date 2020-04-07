@@ -45,13 +45,10 @@ class Registrar extends React.Component
                                             <input className="fadeIn second" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
                                             <input className="fadeIn third" placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
                                             <input className="fadeIn fourth" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                            <input type="submit" value="Ingresar" className="fadeIn fifth" /><br /><br />
+                                            <input type="submit" value="Registrar" className="fadeIn fifth" /><br /><br />
                                         </h3>
                                     </div>
                                 </form>
-                                <div id="formFooter">
-                                    <h3 align="center" className="astyle underlineHover">Regístrate aquí</h3>
-                                </div>
                             </div>
                         </div>
                     </div>
