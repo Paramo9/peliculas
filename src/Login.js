@@ -59,6 +59,7 @@ class Login extends React.Component
             {
                 if(this.state.r1)
                     {
+                        this.setState({r1: false})
                         return <Redirect to={"/peliculas/login_incorrecto"} />
                     }
                 if(this.state.r2)
