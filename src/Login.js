@@ -35,7 +35,7 @@ class Login extends React.Component
                         var passwordi = doc.get('password')
                         var nombrei = doc.get('nombre')
                         var niveli = doc.get('nivel')
-                        if(emaili = this.state.email && passwordi == this.state.password)
+                        if(emaili == this.state.email && passwordi == this.state.password)
                             {
                                 localStorage.setItem("nombre", nombrei)
                                 localStorage.setItem("password", passwordi)
