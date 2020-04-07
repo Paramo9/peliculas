@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './Login'
 import Inicio from './Inicio'
 import Login_Incorrecto from './Login_Incorrecto'
-import Registrar from './Registrar'
+import Registro from './Registro'
 
 function App()
   {
@@ -13,7 +13,7 @@ function App()
         <Route exact path="/peliculas/login" component={Login} />
         <Route exact path="/peliculas/inicio" component={Inicio} />
         <Route exact path="/peliculas/login_incorrecto" component={Login_Incorrecto} />
-        <Route exact path="/peliculas/registrar" component={Registrar} />
+        <Route exact path="/peliculas/registrar" component={Registro} />
       </BrowserRouter>
     )
   }

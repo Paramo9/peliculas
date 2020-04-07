@@ -29,7 +29,7 @@ class Login_Incorrecto extends React.Component
                         <form onSubmit={this.handleSubmit}>
                             <div align="center"><input type="submit" value="Regresar" /></div><br />
                             <h2 align="center">¿Aún no te has Registrado?</h2>
-                            <h3 align="center"><Link to="/peliculas/registrar">Regístrate aquí</Link></h3>
+                            <h3 align="center"><Link to="/peliculas/registro">Regístrate aquí</Link></h3>
                         </form>
                     </div>
                 )

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import firebase from 'firebase'
 import {dbconfig} from './Config'
 
-class Registrar extends React.Component
+class Registro extends React.Component
     {
         constructor(props)
             {
@@ -99,4 +99,4 @@ class Registrar extends React.Component
             }
     }
 
-export default Registrar
+export default Registro

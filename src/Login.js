@@ -75,7 +75,7 @@ class Login extends React.Component
                     }
                 if(this.state.r3)
                     {
-                        return <Redirect to={"/peliculas/registrar"} />
+                        return <Redirect to={"/peliculas/registro"} />
                     }
                 return(
                     <div>
