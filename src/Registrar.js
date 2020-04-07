@@ -13,6 +13,11 @@ class Registrar extends React.Component
                 this.handleSubmit = this.handleSubmit.bind(this)
             }
 
+        componentDidMount()
+            {
+                alert("entro")
+            }
+
         handleChangeEmail(event)
             {
                 this.setState({email: event.target.value})
