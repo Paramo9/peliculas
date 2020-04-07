@@ -36,7 +36,7 @@ class Login extends React.Component
                     }
                 else
                     {
-                        var app= firebase.app("firestore")7
+                        var app= firebase.app("firestore")
                     }
                 app.firestore().collection('usuarios').get().then((data) => {
                     data.forEach((doc) => {
