@@ -6,7 +6,6 @@ class Barra_Navegacion extends React.Component
         render()
             {
                 return(
-                    <div>
                         <nav className="menu">
                             <ol>
                                 <li className="menu-item"><a href="#0">Home</a></li>
@@ -30,7 +29,6 @@ class Barra_Navegacion extends React.Component
                                 <li className="menu-item"><a href="#0">Contact</a></li>
                             </ol>
                         </nav>
-                    </div>
                 )
             }
     }
