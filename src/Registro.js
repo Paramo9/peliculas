@@ -58,8 +58,16 @@ class Registro extends React.Component
                         }
                     else
                         {
-                            app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
-                            alert("¡Te has registrado con éxito!")
+                            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                            if(emailRegex.test(this.state.email))
+                                {
+                                    app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                                    alert("¡Te has registrado con éxito!")
+                                }
+                            else
+                                {
+                                    alert("Ingresa un e-mail válido")
+                                }
                         }
                 })
             }
