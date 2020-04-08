@@ -6,7 +6,7 @@ class Mi_Perfil extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {nombre: '', password: ''}
+                this.state = {nombre: '', password: '', errorNombre: "", errorPassword: ""}
                 this.handleChangeNombre = this.handleChangeNombre.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,7 +25,57 @@ class Mi_Perfil extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
-                alert("click")
+                if(this.state.nombre.includes(" ") || this.state.nombre.length>21 || this.state.password.length<8 || this.state.password.length>13)
+                    {
+                        if(this.state.nombre.includes(" "))
+                            {
+                                document.getElementById("errorNombreA").style.visibility = "visible"
+                                this.setState({errorNombre: "*El nombre no puede contener espacios."})
+                            }
+                        else if(this.state.nombre.length>21)
+                            {
+                                document.getElementById("errorNombreA").style.visibility = "visible"
+                                this.setState({errorNombre: "*El nombre no puede tener más de 20 caracteres."})
+                            }
+                        else
+                            {
+                                document.getElementById("errorNombreA").style.visibility = "hidden"
+                                this.setState({errorNombre: ""})
+                            }
+                        if(this.state.password.length<8 || this.state.password.length>13)
+                            {
+                                document.getElementById("errorPasswordA").style.visibility = "visible"
+                                this.setState({errorPassword: "*La contraseña debe tener entre 8 y 12 caracteres."})
+                            }
+                        else
+                            {
+                                document.getElementById("errorPasswordA").style.visibility = "hidden"
+                                this.setState({errorPassword: ""})
+                            }
+                    }
+                else
+                    {
+                        if(this.state.nombre == localStorage.getItem("nombre") || this.state.password == localStorage.getItem("password"))
+                            {
+                                if(this.state.nombre == localStorage.getItem("nombre") && this.state.password == localStorage.getItem("password"))
+                                    {
+                                        document.getElementById("errorPasswordA").style.visibility = "visible"
+                                        this.setState({errorPassword: "*Ingresa un nombre o contraseña nueva."})
+                                    }
+                                else if(this.state.nombre == localStorage.getItem("nombre"))
+                                    {
+                                        alert("¡Tu contraseña se ha actualizado con éxito!")
+                                    }
+                                else
+                                    {
+                                        alert("¡Tu nombre se ha actualizado con éxito!")
+                                    }
+                            }
+                        else
+                            {
+                                alert("¡Tu nombre y tu contraseña se han actualizado con éxito!")
+                            }
+                    }
             }
 
         render()
@@ -33,15 +83,17 @@ class Mi_Perfil extends React.Component
                 return(
                     <div>
                         <h1 align="center">{localStorage.getItem("nombre")}</h1><br /><br />
-                        <h3 align="center">Nivel: {localStorage.getItem("nivel")}</h3><br />
+                        <h3 align="center">Nivel: {localStorage.getItem("nivel")}</h3><br /><br />
                         <h2 align="center">Actualizar Datos</h2><br /><br />
                         <div className="wrapper">
                             <div id="formContent">
                                 <form onSubmit={this.handleSubmit}>
                                     <div align="center">
                                         <h3>
-                                        <input required placeholder="E-mail" type="text" value={this.state.nombre} onChange={this.handleChangeNombre} /><br /><br />
+                                        <input required placeholder="Nombre" type="text" value={this.state.nombre} onChange={this.handleChangeNombre} /><br /><br />
+                                        <label id="errorNombreA" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.errorNombre}</label><br />
                                         <input required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                        <label id="errorPasswordA" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.errorPassword}</label><br />
                                         <input type="submit" value="Actualizar" /><br /><br />
                                         </h3>
                                     </div>

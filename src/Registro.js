@@ -70,7 +70,7 @@ class Registro extends React.Component
                                     {
                                         document.getElementById("ErrorPassword").style.visibility = "visible"
                                     }
-                                else if(this.state.name.includes(" "))
+                                else if(this.state.name.includes(" ") || this.state.name.length>21)
                                     {
                                         if(document.getElementById("ErrorPassword").style.visibility == "visible")
                                             {
@@ -130,7 +130,7 @@ class Registro extends React.Component
                                             <input className="fadeIn second" required placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
                                             <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.mensajeError}</label>
                                             <input className="fadeIn third" required placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
-                                            <label id="ErrorName" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >*El nombre no debe contener espacios</label>
+                                            <label id="ErrorName" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >*El nombre no debe contener espacios y debe tener máximo 20 caracteres.</label>
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
                                             <label id="ErrorPassword" style={{visibility: "hidden", color: "red"}} >*La contraseña debe tener entre 8 y 12 caracteres.</label>
                                             <br />
