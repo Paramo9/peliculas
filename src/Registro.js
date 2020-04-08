@@ -120,6 +120,7 @@ class Registro extends React.Component
                 return(
                     <div>
                         <h1 align="center">El Club de la Película</h1>
+                        <h2 algin="center">La primera regla del Club de la Película es no hablar del Club de la Película</h2>
                         <div className="wrapper fadeInDown">
                             <div id="formContent">
                                 <h2 align="center">Registro</h2><br />

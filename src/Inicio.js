@@ -7,7 +7,8 @@ class Inicio extends React.Component
             {
                 return(
                     <div>
-                        Titulo
+                        <h1 align="center">El Club de la Película</h1>
+                        <h2 algin="center">La primera regla del Club de la Película es no hablar del Club de la Película</h2>
                         <Barra_Navegacion />
                         Inicio
                     </div>
