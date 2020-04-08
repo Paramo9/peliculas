@@ -83,8 +83,8 @@ class Mi_Perfil extends React.Component
                                                 if(emailf == this.state.email)
                                                     {
                                                         doc.ref.set({
-                                                            email: this.state.email,
-                                                            nombre: this.state.name,
+                                                            email: localStorage.getItem("email"),
+                                                            nombre: localStorage.getItem("nombre"),
                                                             nivel: "usuario",
                                                             password: this.state.password
                                                         })
