@@ -85,7 +85,7 @@ class Mi_Perfil extends React.Component
                                                         doc.ref.set({
                                                             email: localStorage.getItem("email"),
                                                             nombre: localStorage.getItem("nombre"),
-                                                            nivel: "usuario",
+                                                            nivel: localStorage.getItem("nivel"),
                                                             password: this.state.password
                                                         })
                                                     }
@@ -97,6 +97,20 @@ class Mi_Perfil extends React.Component
                                     {
                                         document.getElementById("errorPasswordA").style.visibility = "hidden"
                                         document.getElementById("errorNombreA").style.visibility = "hidden"
+                                        app.firestore().collection('usuarios').get().then((data) => {
+                                            data.forEach((doc) => {
+                                                var emailf = doc.get('email')
+                                                if(emailf == localStorage.getItem("email"))
+                                                    {
+                                                        doc.ref.set({
+                                                            email: localStorage.getItem("email"),
+                                                            nombre: this.state.nombre,
+                                                            nivel: localStorage.getItem("nivel"),
+                                                            password: localStorage.getItem("password")
+                                                        })
+                                                    }
+                                            })
+                                        })
                                         alert("¡Tu nombre se ha actualizado con éxito!")
                                     }
                             }
@@ -104,6 +118,20 @@ class Mi_Perfil extends React.Component
                             {
                                 document.getElementById("errorPasswordA").style.visibility = "hidden"
                                 document.getElementById("errorNombreA").style.visibility = "hidden"
+                                app.firestore().collection('usuarios').get().then((data) => {
+                                    data.forEach((doc) => {
+                                        var emailf = doc.get('email')
+                                        if(emailf == localStorage.getItem("email"))
+                                            {
+                                                doc.ref.set({
+                                                    email: localStorage.getItem("email"),
+                                                    nombre: this.state.nombre,
+                                                    nivel: localStorage.getItem("nivel"),
+                                                    password: this.state.password
+                                                })
+                                            }
+                                    })
+                                })
                                 alert("¡Tu nombre y tu contraseña se han actualizado con éxito!")
                             }
                     }
