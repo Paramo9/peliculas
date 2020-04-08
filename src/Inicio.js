@@ -24,6 +24,7 @@ class Inicio extends React.Component
         handleMiPerfil(event)
             {
                 event.preventDefault();
+                this.setState({r2: true})
             }
 
         render()
