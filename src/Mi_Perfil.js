@@ -9,6 +9,7 @@ class Mi_Perfil extends React.Component
                 this.state = {nombre: '', password: ''}
                 this.handleChangeNombre = this.handleChangeNombre.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
+                this.handleSubmit = this.handleSubmit.bind(this)
             }
 
         handleChangeNombre(event)
@@ -20,6 +21,12 @@ class Mi_Perfil extends React.Component
             {
                 this.setState({password: event.target.value})
             }
+        
+        handleSubmit(event)
+            {
+                event.preventDefault();
+                alert("click")
+            }
 
         render()
             {
@@ -28,12 +35,12 @@ class Mi_Perfil extends React.Component
                         <h1 align="center">{localStorage.getItem("nombre")}</h1><br /><br />
                         <h3 align="center">Nivel: {localStorage.getItem("nivel")}</h3><br />
                         <h2 align="center">Actualizar Datos</h2><br /><br />
-                        <form>
+                        <form onSubmit={this.handleSubmit}>
                             <div align="center">
                                 <h3>
                                 <input required placeholder="E-mail" type="text" value={this.state.nombre} onChange={this.handleChangeNombre} /><br /><br />
                                 <input required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                <input type="button" value="Actualizar" /><br /><br />
+                                <input type="submit" value="Actualizar" /><br /><br />
                                 </h3>
                             </div>
                         </form>

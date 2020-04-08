@@ -27,6 +27,13 @@ h2
     font-family: COPRGTB;
     font-size: x-large;
   }
+
+h3
+  {
+    font-family: COPRGTB;
+    font-size: larger;
+  }
+
 /* STRUCTURE */
 
 .wrapper {
