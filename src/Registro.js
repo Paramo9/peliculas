@@ -107,6 +107,7 @@ class Registro extends React.Component
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
                                             <label id="ErrorPassword" style={{visibility: "hidden", color: "red"}} >*La contraseña debe tener mínimo 8 caracteres.</label>
                                             <br />
+                                            <br />
                                             <input type="submit" value="Registrar" className="fadeIn fifth" /><br /><br />
                                             <input type="button" value="Regresar" onClick={this.handleClickRegresar} className="fadeIn sixth" /><br /><br />
                                         </h3>
