@@ -14,6 +14,7 @@ class Barra_Navegacion extends React.Component
         
         handleCerrarSesion(event)
             {
+                alert("entra")
                 event.preventDefault();
                 localStorage.clear()
                 this.setState({r1: true})
