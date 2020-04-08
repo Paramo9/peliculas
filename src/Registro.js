@@ -9,7 +9,7 @@ class Registro extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {email: '', password: '', name: '', r1: false}
+                this.state = {email: '', password: '', name: '', r1: false, mensajeError: ""}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleChangeName = this.handleChangeName.bind(this)
@@ -54,7 +54,8 @@ class Registro extends React.Component
                     })
                 if(t==1)
                     {
-                        alert("Lo setimos, ese e-mail ya está registrado.")
+                        document.getElementById("ErrorEmail").style.visibility = "visible"
+                        this.setState({mensajeError: "*Este e-mail ya está registrado."})
                     }
                 else
                     {
@@ -82,6 +83,7 @@ class Registro extends React.Component
                         else
                             {
                                 document.getElementById("ErrorEmail").style.visibility = "visible"
+                                this.setState({mensajeError: "*Este e-mail no es válido."})
                                 if(this.state.password.length<8)
                                     {
                                         document.getElementById("ErrorPassword").style.visibility = "visible"
@@ -113,7 +115,7 @@ class Registro extends React.Component
                                     <div align="center">
                                         <h3>
                                             <input className="fadeIn second" required placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >*Este e-mail no es válido.</label>
+                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.mensajeError}</label>
                                             <input className="fadeIn third" required placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
                                             <br />
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
