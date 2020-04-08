@@ -1,4 +1,6 @@
 import React from 'react'
+import firebase from 'firebase'
+import {dbconfig} from './Config'
 
 class Mi_Perfil extends React.Component
     {
@@ -25,6 +27,14 @@ class Mi_Perfil extends React.Component
         handleSubmit(event)
             {
                 event.preventDefault();
+                if(!firebase.apps.length)
+                    {
+                        var app = firebase.initializeApp(dbconfig, "firestore")
+                    }
+                else
+                    {
+                        var app= firebase.app("firestore")
+                    }
                 if(this.state.nombre.includes(" ") || this.state.nombre.length>21 || this.state.password.length<8 || this.state.password.length>13)
                     {
                         if(this.state.nombre.includes(" "))
@@ -67,6 +77,19 @@ class Mi_Perfil extends React.Component
                                     {
                                         document.getElementById("errorPasswordA").style.visibility = "hidden"
                                         document.getElementById("errorNombreA").style.visibility = "hidden"
+                                        app.firestore().collection('usuarios').get().then((data) => {
+                                            data.forEach((doc) => {
+                                                var emailf = doc.get('email')
+                                                if(emailf == this.state.email)
+                                                    {
+                                                        doc.ref.set({
+                                                            email: this.state.email,
+                                                            nombre: this.state.name,
+                                                            nivel: "usuario",
+                                                            password: this.state.password
+                                                        })
+                                                    }
+                                            })
                                         alert("¡Tu contraseña se ha actualizado con éxito!")
                                     }
                                 else
