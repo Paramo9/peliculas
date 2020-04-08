@@ -10,6 +10,7 @@ class Barra_Navegacion extends React.Component
                 super(props)
                 this.state = {r1: false}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
+                this.handleMiPerfil = this.handleMiPerfil.bind(this)
             }
         
         handleCerrarSesion(event)
@@ -17,6 +18,13 @@ class Barra_Navegacion extends React.Component
                 event.preventDefault();
                 localStorage.clear()
                 this.setState({r1: true})
+            }
+        
+        handleMiPerfil(event)
+            {
+                event.preventDefault();
+                alert("entra")
+                localStorage.setItem("accion", "mi_perfil")
             }
 
         render()
@@ -34,7 +42,7 @@ class Barra_Navegacion extends React.Component
                                 <li>Películas</li>
                                 <li>Series</li>
                                 <li>Favoritas</li>
-                                <li>Mi Perfil</li>
+                                <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                 <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                             </ul>
                         </nav>
