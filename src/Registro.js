@@ -82,6 +82,10 @@ class Registro extends React.Component
                             else
                                 {
                                     document.getElementById("ErrorEmail").style.visibility = "visible"
+                                    if(this.state.password.length<8)
+                                        {
+                                            document.getElementById("ErrorPassword").style.visibility = "visible"
+                                        }
                                 }
                         }
                 })
