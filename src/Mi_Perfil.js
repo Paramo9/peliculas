@@ -25,7 +25,7 @@ class Mi_Perfil extends React.Component
                 return(
                     <div>
                         <h1 align="center">{localStorage.getItem("nombre")}</h1><br /><br />
-                        <h3 align="center">Nivel: {localStorage.getItem("usuario")}</h3><br />
+                        <h3 align="center">Nivel: {localStorage.getItem("nivel")}</h3><br />
                         <h2 align="center">Actualizar Datos</h2><br /><br />
                         <form>
                             <div align="center">
