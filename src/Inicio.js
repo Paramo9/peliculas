@@ -25,6 +25,9 @@ class Inicio extends React.Component
             {
                 event.preventDefault();
                 localStorage.setItem("mi_perfil", "1")
+                localStorage.setItem("peliculas", "0")
+                localStorage.setItem("series", "0")
+                localStorage.setItem("favoritas", "0")
                 this.render()
             }
 

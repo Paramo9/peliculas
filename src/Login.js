@@ -51,7 +51,7 @@ class Login extends React.Component
                                 localStorage.setItem("email", emaili)
                                 localStorage.setItem("nivel", niveli)
                                 localStorage.setItem("mi_perfil", "0")
-                                localStorage.setItem("peliculas", "0")
+                                localStorage.setItem("peliculas", "1")
                                 localStorage.setItem("series", "0")
                                 localStorage.setItem("favoritas", "0")
                                 this.setState({r2: true})
