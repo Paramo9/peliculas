@@ -61,12 +61,20 @@ class Registro extends React.Component
                             const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                             if(emailRegex.test(this.state.email))
                                 {
+                                    if(document.getElementById("ErrorEmail").style.visibility = "visible")
+                                        {
+                                            document.getElementById("ErrorEmail").style.visibility = "hidden"
+                                        }
                                     if(this.state.password.length<8)
                                         {
                                             document.getElementById("ErrorPassword").style.visibility = "visible"
                                         }
                                     else
                                         {
+                                            if(document.getElementById("ErrorPassword").style.visibility == "visible")
+                                                {
+                                                    document.getElementById("ErrorPassword").style.visibility = "hidden"
+                                                }
                                             app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
                                             alert("¡Te has registrado con éxito!")
                                         }
@@ -101,9 +109,7 @@ class Registro extends React.Component
                                     <div align="center">
                                         <h3>
                                             <input className="fadeIn second" required placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red"}} >*Este e-mail no es válido.</label>
-                                            <br />
-                                            <br />
+                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >*Este e-mail no es válido.</label>
                                             <input className="fadeIn third" required placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
                                             <br />
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
