@@ -7,6 +7,7 @@ class Inicio extends React.Component
             {
                 return(
                     <div>
+                        Titulo
                         <Barra_Navegacion />
                         Inicio
                     </div>
