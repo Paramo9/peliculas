@@ -10,7 +10,7 @@ class Login extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {email: '', password: '', r1: false, r2: false, r3: false}
+                this.state = {email: '', password: '', r2: false, r3: false, mensajeError: ""}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
@@ -53,7 +53,17 @@ class Login extends React.Component
                                 this.setState({r2: true})
                             }
                     })
-                    this.setState({r1: true})
+                    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if(emailRegex.test(this.state.email))
+                        {
+                            document.getElementById("errorLogin").style.visibility = "visible"
+                            this.setState({mensajeError: "*Las credenciales no son válidas"})
+                        }
+                    else
+                        {
+                            document.getElementById("errorLogin").style.visibility = "visible"
+                            this.setState({mensajeError: "*Ingresa un e-mail válido."})
+                        }
                 })
             }
 
@@ -65,10 +75,6 @@ class Login extends React.Component
 
         render()
             {
-                if(this.state.r1)
-                    {
-                        return <Redirect to={"/peliculas/login_incorrecto"} />
-                    }
                 if(this.state.r2)
                     {
                         return <Redirect to={"/peliculas/inicio"} />
@@ -88,6 +94,9 @@ class Login extends React.Component
                                         <h3>
                                             <input id="login" required className="fadeIn second" name="login" placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
                                             <input id="password" required className="fadeIn third" name="login" placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
+                                            <label id="errorLogin" style={{visibility: "hidden", color: "red"}} >{this.state.mensajeError}</label>
+                                            <br />
+                                            <br />
                                             <input type="submit" value="Ingresar" className="fadeIn fourth" /><br /><br />
                                         </h3>
                                     </div>

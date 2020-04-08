@@ -52,42 +52,42 @@ class Registro extends React.Component
                                 t = 1
                             }
                     })
-                    if(t==1)
-                        {
-                            alert("Lo setimos, ese e-mail ya está registrado.")
-                        }
-                    else
-                        {
-                            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                            if(emailRegex.test(this.state.email))
-                                {
-                                    if(document.getElementById("ErrorEmail").style.visibility == "visible")
-                                        {
-                                            document.getElementById("ErrorEmail").style.visibility = "hidden"
-                                        }
-                                    if(this.state.password.length<8)
-                                        {
-                                            document.getElementById("ErrorPassword").style.visibility = "visible"
-                                        }
-                                    else
-                                        {
-                                            if(document.getElementById("ErrorPassword").style.visibility == "visible")
-                                                {
-                                                    document.getElementById("ErrorPassword").style.visibility = "hidden"
-                                                }
-                                            app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
-                                            alert("¡Te has registrado con éxito!")
-                                        }
-                                }
-                            else
-                                {
-                                    document.getElementById("ErrorEmail").style.visibility = "visible"
-                                    if(this.state.password.length<8)
-                                        {
-                                            document.getElementById("ErrorPassword").style.visibility = "visible"
-                                        }
-                                }
-                        }
+                if(t==1)
+                    {
+                        alert("Lo setimos, ese e-mail ya está registrado.")
+                    }
+                else
+                    {
+                        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        if(emailRegex.test(this.state.email))
+                            {
+                                if(document.getElementById("ErrorEmail").style.visibility == "visible")
+                                    {
+                                        document.getElementById("ErrorEmail").style.visibility = "hidden"
+                                    }
+                                if(this.state.password.length<8)
+                                    {
+                                        document.getElementById("ErrorPassword").style.visibility = "visible"
+                                    }
+                                else
+                                    {
+                                        if(document.getElementById("ErrorPassword").style.visibility == "visible")
+                                            {
+                                                document.getElementById("ErrorPassword").style.visibility = "hidden"
+                                            }
+                                        app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                                        alert("¡Te has registrado con éxito!")
+                                    }
+                            }
+                        else
+                            {
+                                document.getElementById("ErrorEmail").style.visibility = "visible"
+                                if(this.state.password.length<8)
+                                    {
+                                        document.getElementById("ErrorPassword").style.visibility = "visible"
+                                    }
+                            }
+                    }
                 })
             }
         
