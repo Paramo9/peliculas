@@ -4,6 +4,19 @@ import imagenMenu from './menu.png'
 
 class Barra_Navegacion extends React.Component
     {
+        constructor(props)
+            {
+                super(props)
+                this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
+            }
+        
+        handleCerrarSesion(event)
+            {
+                event.preventDefault();
+                localStorage.clear()
+                localStorage.setItem("accion", "1")
+            }
+
         render()
             {
                 return(
@@ -16,7 +29,7 @@ class Barra_Navegacion extends React.Component
                                 <li>Series</li>
                                 <li>Favoritas</li>
                                 <li>Mi Perfil</li>
-                                <li>Cerrar Sesión</li>
+                                <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                             </ul>
                         </nav>
                     </header>

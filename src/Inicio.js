@@ -1,10 +1,15 @@
 import React from 'react'
 import Barra_Navegacion from './Barra_Navegacion'
+import { Redirect } from 'react-router-dom'
 
 class Inicio extends React.Component
     {
         render()
             {
+                if(localStorage.getItem("accion") == "1")
+                    {
+                        return <Redirect to={"/peliculas/login"} />
+                    }
                 return(
                     <div>
                         <h1 align="center">El Club de la Película</h1>
