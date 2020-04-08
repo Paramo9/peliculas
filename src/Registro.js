@@ -72,6 +72,10 @@ class Registro extends React.Component
                                     }
                                 else if(this.state.name.includes(" "))
                                     {
+                                        if(document.getElementById("ErrorPassword").style.visibility == "visible")
+                                            {
+                                                document.getElementById("ErrorPassword").style.visibility = "hidden"
+                                            }
                                         document.getElementById("ErrorName").style.visibility = "visible"
                                     }
                                 else
@@ -80,9 +84,9 @@ class Registro extends React.Component
                                             {
                                                 document.getElementById("ErrorPassword").style.visibility = "hidden"
                                             }
-                                        if(document.getElementById("ErrorNombre").style.visibility == "visible")
+                                        if(document.getElementById("ErrorName").style.visibility == "visible")
                                             {
-                                                document.getElementById("ErrorNombre").style.visibility = "hidden"
+                                                document.getElementById("ErrorName").style.visibility = "hidden"
                                             }
                                         app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
                                         alert("¡Te has registrado con éxito!")
