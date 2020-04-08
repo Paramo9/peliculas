@@ -51,6 +51,7 @@ header label:hover
 
 .menu li:hover
     {
+        cursor: pointer;
         background: rgba(0, 0, 0, 0.3);
     }
     

@@ -6,7 +6,7 @@ class Mi_Perfil extends React.Component
             {
                 return(
                     <div>
-                        Mi Perfil, {localStorage.getItem("nombre")}, {localStorage.getItem("nivel")}
+                        <h1>Diego</h1>
                     </div>
                 )
             }

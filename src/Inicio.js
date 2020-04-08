@@ -24,7 +24,8 @@ class Inicio extends React.Component
         handleMiPerfil(event)
             {
                 event.preventDefault();
-                this.setState({r2: true})
+                localStorage.setItem("mi_perfil", true)
+                this.render()
             }
 
         render()
@@ -33,7 +34,7 @@ class Inicio extends React.Component
                     {
                         return <Redirect to={"/peliculas/login"} />
                     }
-                if(this.state.r2)
+                if(localStorage.getItem("mi_perfil"))
                     {
                         return(
                             <div>
