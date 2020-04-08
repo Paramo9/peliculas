@@ -28,7 +28,7 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
-                this.render()
+                this.forceUpdate()
             }
 
         render()
