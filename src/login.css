@@ -10,6 +10,17 @@ html {
     background-color: #56baed;
   }
 
+@font-face
+  {
+    font-family: COPRGTB;
+    src: url(fonts/COPRGTB.TTF)
+  }
+
+h1
+  {
+    font-family: COPRGTB;
+  }
+
 /* STRUCTURE */
 
 .wrapper {
