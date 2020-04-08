@@ -90,6 +90,7 @@ class Mi_Perfil extends React.Component
                                                         })
                                                     }
                                             })
+                                        })
                                         alert("¡Tu contraseña se ha actualizado con éxito!")
                                     }
                                 else
