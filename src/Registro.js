@@ -61,7 +61,7 @@ class Registro extends React.Component
                             const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                             if(emailRegex.test(this.state.email))
                                 {
-                                    if(document.getElementById("ErrorEmail").style.visibility = "visible")
+                                    if(document.getElementById("ErrorEmail").style.visibility == "visible")
                                         {
                                             document.getElementById("ErrorEmail").style.visibility = "hidden"
                                         }
