@@ -5,7 +5,8 @@ class Mi_Perfil extends React.Component
 
         constructor(props)
             {
-                this.state = {nombre: "", password: ""}
+                super(props)
+                this.state = {nombre: '', password: ''}
                 this.handleChangeNombre = this.handleChangeNombre.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
             }
