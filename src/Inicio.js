@@ -35,7 +35,7 @@ class Inicio extends React.Component
                         return <Redirect to={"/peliculas/login"} />
                     }
                 if(localStorage.getItem("mi_perfil"))
-                    {
+                    {alert("mi perfil")
                         return(
                             <div>
                                 <h1 align="center">El Club de la Película</h1>
@@ -58,7 +58,7 @@ class Inicio extends React.Component
                         )
                     }
                 else
-                    {
+                    {alert("inicio")
                         return(
                             <div>
                                 <h1 align="center">El Club de la Película</h1>
