@@ -86,7 +86,7 @@ class Login extends React.Component
                 return(
                     <div>
                         <h1 align="center">El Club de la Película</h1>
-                        <h2 align="center">La primera regla del Club de la Película es no hablar del Club de la Película</h2>
+                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                         <div className="wrapper fadeInDown">
                             <div id="formContent">
                                 <h2 align="center">Inicia Sesión</h2><br />
