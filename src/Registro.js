@@ -103,6 +103,7 @@ class Registro extends React.Component
                                             <input className="fadeIn second" required placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
                                             <label id="ErrorEmail" style={{visibility: "hidden", color: "red"}} >*Este e-mail no es válido.</label>
                                             <br />
+                                            <br />
                                             <input className="fadeIn third" required placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
                                             <br />
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
