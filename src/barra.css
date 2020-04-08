@@ -85,6 +85,5 @@ header label:hover
         #btn-menu:checked ~ .menu
             {
                 margin: 0;
-
             }
     }
