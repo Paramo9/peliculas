@@ -64,15 +64,21 @@ class Mi_Perfil extends React.Component
                                     }
                                 else if(this.state.nombre == localStorage.getItem("nombre"))
                                     {
+                                        document.getElementById("errorPasswordA").style.visibility = "hidden"
+                                        document.getElementById("errorNombreA").style.visibility = "hidden"
                                         alert("¡Tu contraseña se ha actualizado con éxito!")
                                     }
                                 else
                                     {
+                                        document.getElementById("errorPasswordA").style.visibility = "hidden"
+                                        document.getElementById("errorNombreA").style.visibility = "hidden"
                                         alert("¡Tu nombre se ha actualizado con éxito!")
                                     }
                             }
                         else
                             {
+                                document.getElementById("errorPasswordA").style.visibility = "hidden"
+                                document.getElementById("errorNombreA").style.visibility = "hidden"
                                 alert("¡Tu nombre y tu contraseña se han actualizado con éxito!")
                             }
                     }
