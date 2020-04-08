@@ -59,6 +59,7 @@ class Mi_Perfil extends React.Component
                             {
                                 if(this.state.nombre == localStorage.getItem("nombre") && this.state.password == localStorage.getItem("password"))
                                     {
+                                        document.getElementById("errorNombreA").style.visibility = "hidden"
                                         document.getElementById("errorPasswordA").style.visibility = "visible"
                                         this.setState({errorPassword: "*Ingresa un nombre o contraseña nueva."})
                                     }
