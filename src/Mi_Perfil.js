@@ -88,10 +88,12 @@ class Mi_Perfil extends React.Component
                                                             nivel: localStorage.getItem("nivel"),
                                                             password: this.state.password
                                                         })
+                                                        localStorage.setItem("password", this.state.password)
                                                     }
                                             })
                                         })
                                         alert("¡Tu contraseña se ha actualizado con éxito!")
+                                        this.forceUpdate()
                                     }
                                 else
                                     {
@@ -108,10 +110,12 @@ class Mi_Perfil extends React.Component
                                                             nivel: localStorage.getItem("nivel"),
                                                             password: localStorage.getItem("password")
                                                         })
+                                                        localStorage.setItem("nombre", this.state.nombre)
                                                     }
                                             })
                                         })
                                         alert("¡Tu nombre se ha actualizado con éxito!")
+                                        this.forceUpdate()
                                     }
                             }
                         else
@@ -129,10 +133,13 @@ class Mi_Perfil extends React.Component
                                                     nivel: localStorage.getItem("nivel"),
                                                     password: this.state.password
                                                 })
+                                                localStorage.setItem("nombre", this.state.nombre)
+                                                localStorage.setItem("password", this.state.password)
                                             }
                                     })
                                 })
                                 alert("¡Tu nombre y tu contraseña se han actualizado con éxito!")
+                                this.forceUpdate()
                             }
                     }
             }
