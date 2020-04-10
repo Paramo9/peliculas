@@ -8,7 +8,7 @@ class Mi_Perfil extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {nombre: '', password: '', errorNombre: "", errorPassword: ""}
+                this.state = {nombre: '', password: '', errorNombre: "", errorPassword: "", nombreTitulo: localStorage.getItem("nombre")}
                 this.handleChangeNombre = this.handleChangeNombre.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleSubmit = this.handleSubmit.bind(this)
@@ -115,6 +115,7 @@ class Mi_Perfil extends React.Component
                                             })
                                         })
                                         alert("¡Tu nombre se ha actualizado con éxito!")
+                                        this.setState({nombreTitulo: this.state.nombre})
                                         this.forceUpdate()
                                     }
                             }
@@ -139,6 +140,7 @@ class Mi_Perfil extends React.Component
                                     })
                                 })
                                 alert("¡Tu nombre y tu contraseña se han actualizado con éxito!")
+                                this.setState({nombreTitulo: this.state.nombre})
                                 this.forceUpdate()
                             }
                     }
@@ -148,7 +150,7 @@ class Mi_Perfil extends React.Component
             {
                 return(
                     <div>
-                        <h1 align="center">{localStorage.getItem("nombre")}</h1><br /><br />
+                        <h1 align="center">{this.state.nombreTitulo}</h1><br /><br />
                         <h3 align="center">Nivel: {localStorage.getItem("nivel")}</h3><br /><br />
                         <h2 align="center">Actualizar Datos</h2><br /><br />
                         <div className="wrapper">
