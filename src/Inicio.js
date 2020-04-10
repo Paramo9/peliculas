@@ -3,6 +3,7 @@ import './barra.css'
 import imagenMenu from './menu.png'
 import { Redirect } from 'react-router-dom'
 import Mi_Perfil from './Mi_Perfil'
+import Peliculas from './Peliculas'
 
 class Inicio extends React.Component
     {
@@ -12,6 +13,7 @@ class Inicio extends React.Component
                 this.state = {r1: false, r2: false}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
+                this.handlePeliculas = this.handlePeliculas.bind(this)
             }
 
         handleCerrarSesion(event)
@@ -26,6 +28,16 @@ class Inicio extends React.Component
                 event.preventDefault();
                 localStorage.setItem("mi_perfil", "1")
                 localStorage.setItem("peliculas", "0")
+                localStorage.setItem("series", "0")
+                localStorage.setItem("favoritas", "0")
+                this.forceUpdate()
+            }
+
+        handlePeliculas(event)
+            {
+                event.preventDefault();
+                localStorage.setItem("mi_perfil", "0")
+                localStorage.setItem("peliculas", "1")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
                 this.forceUpdate()
@@ -48,7 +60,7 @@ class Inicio extends React.Component
                                     <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
                                     <nav className="menu">
                                         <ul>
-                                            <li>Películas</li>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
                                             <li>Series</li>
                                             <li>Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
@@ -71,7 +83,7 @@ class Inicio extends React.Component
                                     <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
                                     <nav className="menu">
                                         <ul>
-                                            <li>Películas</li>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
                                             <li>Series</li>
                                             <li>Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
@@ -79,7 +91,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                Peliculas
+                                <Peliculas />
                             </div>
                         )
                     }
