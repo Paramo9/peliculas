@@ -35,14 +35,14 @@ class Mi_Perfil extends React.Component
                     {
                         var app= firebase.app("firestore")
                     }
-                if(this.state.nombre.includes(" ") || this.state.nombre.length>21 || this.state.password.length<8 || this.state.password.length>13)
+                if(this.state.nombre.includes(" ") || this.state.nombre.length>20 || this.state.password.length<8 || this.state.password.length>12)
                     {
                         if(this.state.nombre.includes(" "))
                             {
                                 document.getElementById("errorNombreA").style.visibility = "visible"
                                 this.setState({errorNombre: "*El nombre no puede contener espacios."})
                             }
-                        else if(this.state.nombre.length>21)
+                        else if(this.state.nombre.length>20)
                             {
                                 document.getElementById("errorNombreA").style.visibility = "visible"
                                 this.setState({errorNombre: "*El nombre no puede tener más de 20 caracteres."})
@@ -52,7 +52,7 @@ class Mi_Perfil extends React.Component
                                 document.getElementById("errorNombreA").style.visibility = "hidden"
                                 this.setState({errorNombre: ""})
                             }
-                        if(this.state.password.length<8 || this.state.password.length>13)
+                        if(this.state.password.length<8 || this.state.password.length>12)
                             {
                                 document.getElementById("errorPasswordA").style.visibility = "visible"
                                 this.setState({errorPassword: "*La contraseña debe tener entre 8 y 12 caracteres."})

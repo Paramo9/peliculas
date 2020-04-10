@@ -9,7 +9,7 @@ class Registro extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {email: '', password: '', name: '', r1: false, mensajeError: ""}
+                this.state = {email: '', password: '', name: '', r1: false, errorEmailR: "", errorNombreR: "", errorPasswordR: ""}
                 this.handleChangeEmail = this.handleChangeEmail.bind(this)
                 this.handleChangePassword = this.handleChangePassword.bind(this)
                 this.handleChangeName = this.handleChangeName.bind(this)
@@ -55,51 +55,53 @@ class Registro extends React.Component
                 if(t==1)
                     {
                         document.getElementById("ErrorEmail").style.visibility = "visible"
-                        this.setState({mensajeError: "*Este e-mail ya está registrado."})
+                        this.setState({errorEmailR: "*Este e-mail ya está registrado."})
                     }
                 else
                     {
                         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        if(emailRegex.test(this.state.email))
+                        if(!emailRegex.test(this.state.email) || this.state.password.length<8 || this.state.password.length>12 || this.state.name.includes(" ") || this.state.name.length>20)
                             {
-                                if(document.getElementById("ErrorEmail").style.visibility == "visible")
+                                if(!emailRegex.test(this.state.email))
                                     {
-                                        document.getElementById("ErrorEmail").style.visibility = "hidden"
-                                    }
-                                if(this.state.password.length<8 || this.state.password.length>13)
-                                    {
-                                        document.getElementById("ErrorPassword").style.visibility = "visible"
-                                    }
-                                else if(this.state.name.includes(" ") || this.state.name.length>21)
-                                    {
-                                        if(document.getElementById("ErrorPassword").style.visibility == "visible")
-                                            {
-                                                document.getElementById("ErrorPassword").style.visibility = "hidden"
-                                            }
-                                        document.getElementById("ErrorName").style.visibility = "visible"
+                                        document.getElementById("ErrorEmail").style.visibility = "visible"
+                                        this.setState({errorEmailR: "*Ingresa un e-mail válido"})
                                     }
                                 else
                                     {
-                                        if(document.getElementById("ErrorPassword").style.visibility == "visible")
-                                            {
-                                                document.getElementById("ErrorPassword").style.visibility = "hidden"
-                                            }
-                                        if(document.getElementById("ErrorName").style.visibility == "visible")
-                                            {
-                                                document.getElementById("ErrorName").style.visibility = "hidden"
-                                            }
-                                        app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
-                                        alert("¡Te has registrado con éxito!")
+                                        document.getElementById("ErrorEmail").style.visibility = "hidden"
+                                        this.setState({errorEmailR: ""})
+                                    }
+                                if(this.state.name.includes(" "))
+                                    {
+                                        document.getElementById("ErrorName").style.visibility = "visible"
+                                        this.setState({errorNombreR: "*El nombre no puede contener espacios."})
+                                    }
+                                else if(this.state.name.length>21)
+                                    {
+                                        document.getElementById("ErrorName").style.visibility = "visible"
+                                        this.setState({errorNombreR: "*El nombre no puede tener más de 20 caracteres."})
+                                    }
+                                else
+                                    {
+                                        document.getElementById("ErrorName").style.visibility = "hidden"
+                                        this.setState({errorNombreR: ""})
+                                    }
+                                if(this.state.password.length<8 || this.state.password.length>12)
+                                    {
+                                        document.getElementById("ErrorPassword").style.visibility = "visible"
+                                        this.setState({errorPasswordR: "*La contraseña debe tener entre 8 y 12 caracteres."})
+                                    }
+                                else
+                                    {
+                                        document.getElementById("ErrorPassword").style.visibility = "hidden"
+                                        this.setState({errorPasswordR: ""})
                                     }
                             }
                         else
                             {
-                                document.getElementById("ErrorEmail").style.visibility = "visible"
-                                this.setState({mensajeError: "*Este e-mail no es válido."})
-                                if(this.state.password.length<8)
-                                    {
-                                        document.getElementById("ErrorPassword").style.visibility = "visible"
-                                    }
+                                app.firestore().collection('usuarios').add({email: this.state.email, nombre: this.state.name, nivel: "usuario", password: this.state.password})
+                                alert("¡Te has registrado con éxito!")
                             }
                     }
                 })
@@ -128,13 +130,11 @@ class Registro extends React.Component
                                     <div align="center">
                                         <h3>
                                             <input className="fadeIn second" required placeholder="E-mail" type="text" value={this.state.email} onChange={this.handleChangeEmail} /><br /><br />
-                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.mensajeError}</label>
+                                            <label id="ErrorEmail" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.errorEmailR}</label><br />
                                             <input className="fadeIn third" required placeholder="Nombre" type="text" value={this.state.name} onChange={this.handleChangeName} /><br /><br />
-                                            <label id="ErrorName" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >*El nombre no debe contener espacios y debe tener máximo 20 caracteres.</label>
+                                            <label id="ErrorName" style={{visibility: "hidden", color: "red", marginBottom: "20px"}} >{this.state.errorNombreR}</label><br />
                                             <input className="fadeIn fourth" required placeholder="Contraseña" type="password" value={this.state.password} onChange={this.handleChangePassword} /><br /><br />
-                                            <label id="ErrorPassword" style={{visibility: "hidden", color: "red"}} >*La contraseña debe tener entre 8 y 12 caracteres.</label>
-                                            <br />
-                                            <br />
+                                            <label id="ErrorPassword" style={{visibility: "hidden", color: "red"}} >{this.state.errorPasswordR}</label><br />
                                             <input type="submit" value="Registrar" className="fadeIn fifth" /><br /><br />
                                             <input type="button" value="Regresar" onClick={this.handleClickRegresar} className="fadeIn sixth" /><br /><br />
                                         </h3>
