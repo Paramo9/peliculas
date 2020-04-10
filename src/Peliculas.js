@@ -5,7 +5,9 @@ class Peliculas extends React.Component
         render()
             {
                 return(
-                    <div>Peliculas contenedor</div>
+                    <div>
+                        <h1 align="center">Películas</h1>
+                    </div>
                 )
             }
     }
