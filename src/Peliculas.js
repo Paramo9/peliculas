@@ -17,8 +17,9 @@ class Peliculas extends React.Component
                 event.preventDefault();
                 var app = firebase.app("firestore")
                 app.storage().ref("Portadas").child("Toy_Story_4_2019.jpg").getDownloadURL().then((url) => {
-                    alert(url)
+                    this.setState({link: url})
                 })
+                this.forceUpdate()
             }
 
         render()
@@ -27,7 +28,7 @@ class Peliculas extends React.Component
                     <div>
                         <h1 align="center">Películas</h1>
                         <input type="button" value ="Ver" id="viewbtn" onClick={this.showImage} />
-                        <img src={this.state.link} height="125px" width="200px"/> 
+                        <img src={this.state.link} width="500px" height="700px" /> 
                     </div>
                 )
             }
