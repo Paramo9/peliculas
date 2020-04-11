@@ -37,11 +37,13 @@
             {
                 width: 90%;
                 margin: 10px !important;
+                text-align: center;
             }
 
         .poster
             {
                 width: 90%;
+                text-align: center;
             }
 
         .poster img
