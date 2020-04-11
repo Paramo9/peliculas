@@ -9,7 +9,7 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: 1, peliculas: [], link: ""}
+                this.state = {pagina: 1, peliculas: []}
             }
 
         componentDidMount(){
@@ -21,11 +21,9 @@ class Peliculas extends React.Component
                             {
                                 app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
                                     var nombre = data.get("nombre") + " - " + data.get("fecha") + ".jpg"
-                                    app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then((url) => {
-                                        alert(url)
-                                        this.setState({link: url})
+                                    app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then((datos) => {
+                                        this.setState({peliculas: this.state.peliculas.concat(<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />)})
                                     })
-                                    this.setState({peliculas: this.state.peliculas.concat(<Pelicula url={this.state.link} nombre={data.get("nombre")} fecha={data.get("fecha")} />)})
                                 })
                             }
                     }
