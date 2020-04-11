@@ -4,6 +4,7 @@ import imagenMenu from './menu.png'
 import { Redirect } from 'react-router-dom'
 import Mi_Perfil from './Mi_Perfil'
 import Peliculas from './Peliculas'
+import firebase from 'firebase'
 
 class Inicio extends React.Component
     {
@@ -14,6 +15,14 @@ class Inicio extends React.Component
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
+            }
+
+        componentDidMount()
+            {
+                var app = firebase.app("firestore")
+                app.firestore().collection("usuarios").get().then((data) => {
+                    alert(data.size())
+                })
             }
 
         handleCerrarSesion(event)
