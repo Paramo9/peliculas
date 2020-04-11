@@ -37,8 +37,7 @@
             {
                 width: 90%;
                 margin: 10px !important;
-                float: left;
-                position: relative;
+                position: absolute;
             }
 
         .poster
@@ -62,5 +61,6 @@
             {
                 width: 90%;
                 margin:10px;
+                position: absolute;
             }
     }
