@@ -20,7 +20,7 @@ class Peliculas extends React.Component
             app.firestore().collection("peliculas").get().then((data) => {
                 numPeliculas = data.size
             })
-            for(let i = numPeliculas-(20*(pagina - 1)); i>numPeliculas-(20*(pagina - 1))-20; i--)
+            for(let i = numPeliculas-(20*(this.state.pagina - 1)); i>numPeliculas-(20*(this.state.pagina - 1))-20; i--)
                 {
                     app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
                         peliculas.push(<Pelicula url="1" nombre={data.get("nombre")} fecha={data.get("fecha")} />)
@@ -34,7 +34,7 @@ class Peliculas extends React.Component
                 return(
                     <div id="contenido">
                         <h1 align="center">Películas</h1>
-                        {}
+                        {this.mostrarpeliculas()}
                     </div>
                 )
             }
