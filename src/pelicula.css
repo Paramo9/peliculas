@@ -38,6 +38,7 @@
                 width: 90%;
                 margin: 10px !important;
                 position: absolute;
+                float: none;
             }
 
         .poster
