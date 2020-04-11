@@ -1,3 +1,13 @@
+.pelicula
+    {
+        color: #555;
+        width: 150px;
+        height: 280px;
+        margin: 5px !important;
+        float: left;
+        position: relative;
+    }
+
 .poster
     {
         width: 150px;
@@ -20,37 +30,5 @@
     {
         width:640px;
         margin:10px;
-    }
-
-@media (max-width: 700px)
-    {
-        .pelicula
-            {
-                color: #555;
-                width: 85%;
-                margin: 5px !important;
-                float: left;
-                position: relative;
-            }
-
-        #contenido
-            {
-                width: 90%;
-            }
-        .poster
-            {
-                width: 85%;
-            }
-        
-        .poster img
-            {
-                width: 85%;
-            }
-        
-        .poster h3
-            {
-                text-align: center;
-                padding:7px 0;
-                font-size: 10px;
-            }
+        text-align: center;
     }
