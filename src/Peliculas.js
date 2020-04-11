@@ -9,7 +9,7 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: 1, peliculas: []}
+                this.state = {pagina: 1, peliculas: [], link: ""}
             }
 
         componentDidMount(){
@@ -19,9 +19,11 @@ class Peliculas extends React.Component
                     {
                         if(i>0)
                             {
-                                alert(this.state.peliculas.length)
                                 app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
-                                    this.setState({peliculas: this.state.peliculas.concat(<Pelicula url="1" nombre={data.get("nombre")} fecha={data.get("fecha")} />)})
+                                    app.storage().ref("Portadas").child().getDownloadURL().then((url) => {
+                                        this.setState({link: url})
+                                    })
+                                    this.setState({peliculas: this.state.peliculas.concat(<Pelicula url={this.state.link} nombre={data.get("nombre")} fecha={data.get("fecha")} />)})
                                 })
                             }
                     }
