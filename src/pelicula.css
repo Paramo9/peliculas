@@ -25,3 +25,10 @@
         padding:7px 0;
         font-size: 10px;
     }
+
+#contenido
+    {
+        width:640px;
+        margin:10px;
+        text-align: center;
+    }

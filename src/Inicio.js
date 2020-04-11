@@ -17,14 +17,6 @@ class Inicio extends React.Component
                 this.handlePeliculas = this.handlePeliculas.bind(this)
             }
 
-        componentDidMount()
-            {
-                var app = firebase.app("firestore")
-                app.firestore().collection("peliculas").doc("2").get().then((data) =>   {
-                    alert(data.get("nombre"))
-                })
-            }
-
         handleCerrarSesion(event)
             {
                 event.preventDefault();

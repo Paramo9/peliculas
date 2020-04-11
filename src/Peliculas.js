@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 import Pelicula from './Pelicula'
+import './pelicula.css'
 
 class Peliculas extends React.Component
     {
@@ -8,30 +9,32 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {link: "", name: "", year: ""}
+                this.state = {pagina: 1}
             }
-        
-        componentDidMount()
-            {
-                var app = firebase.app("firestore")
-                app.storage().ref("Portadas").child("Toy Story 4 - 2019.jpg").getDownloadURL().then((url) => {
-                    this.setState({link: url})
-                })
-                app.firestore().collection('peliculas').get().then((data) => {
-                    data.forEach((doc) => {
-                        var nombre = doc.get("nombre")
-                        var fecha = doc.get("fecha")
-                        this.setState({name: nombre, year: fecha})
+
+        mostrarpeliculas = () => {
+            let peliculas = []
+            let numPeliculas = 0
+            peliculas.push()
+            var app = firebase.app("firestore")
+            app.firestore().collection("peliculas").get().then((data) => {
+                numPeliculas = data.size
+            })
+            for(let i = numPeliculas-(20*(pagina - 1)); i>numPeliculas-(20*(pagina - 1))-20; i--)
+                {
+                    app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
+                        peliculas.push(<Pelicula url="1" nombre={data.get("nombre")} fecha={data.get("fecha")} />)
                     })
-                })
-            }
+                }
+            return peliculas
+        }
 
         render()
             {
                 return(
-                    <div>
+                    <div id="contenido">
                         <h1 align="center">Películas</h1>
-                        <Pelicula url={this.state.link} nombre={this.state.name} fecha={this.state.year} />
+                        {}
                     </div>
                 )
             }
