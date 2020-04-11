@@ -21,7 +21,7 @@ class Inicio extends React.Component
             {
                 var app = firebase.app("firestore")
                 app.firestore().collection("usuarios").get().then((data) => {
-                    alert(data.size())
+                    alert(data.size)
                 })
             }
 
