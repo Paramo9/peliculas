@@ -1,18 +1,26 @@
 .pelicula
     {
-        width: 400;
-        height: 800;
-        margin: 20px;
+        color: #555;
+        width: 150px;
+        height: 250px;
+        margin: 5px !important;
+        float: left;
+        position: relative;
     }
 
-.pelicula img
+.poster
     {
-        position: relative;
-        align-self: center;
+        width: 150px;
     }
 
-.pelicula label
+.poster img
     {
-        position: relative;
-        align-self: center;
+        width: 150px;
+        height: 230px;
+    }
+
+.poster h2
+    {
+        text-align: center;
+        padding:7px 0;
     }

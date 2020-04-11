@@ -7,9 +7,10 @@ class Pelicula extends React.Component
             {
                 return(
                     <div className="pelicula">
-                        <img src={this.props.url} width="260" height="400"/><br />
-                        <label>{this.props.nombre}</label><br />
-                        <label>{this.props.fecha}</label>
+                        <div className="poster">
+                            <img src={this.props.url} />
+                            <h2>{this.props.nombre} - {this.props.fecha}</h2>
+                        </div>
                     </div>
                 )
             }
