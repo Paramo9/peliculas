@@ -28,7 +28,7 @@ class Peliculas extends React.Component
                     <div>
                         <h1 align="center">Películas</h1>
                         <input type="button" value ="Ver" id="viewbtn" onClick={this.showImage} />
-                        <img src={this.state.link} width="400px" height="500px" /> 
+                        <img src={this.state.link} width="90%" /> 
                     </div>
                 )
             }
