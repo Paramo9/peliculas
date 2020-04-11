@@ -20,8 +20,10 @@ class Inicio extends React.Component
         componentDidMount()
             {
                 var app = firebase.app("firestore")
-                app.firestore().collection("usuarios").get().then((data) => {
-                    alert(data.size)
+                app.firestore().collection("peliculas").get().then((data) => {
+                    data.forEach((doc) => {
+                        alert(doc.get("nombre"))
+                    })
                 })
             }
 
