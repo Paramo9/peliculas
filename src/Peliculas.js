@@ -20,6 +20,7 @@ class Peliculas extends React.Component
             app.firestore().collection("peliculas").get().then((data) => {
                 numPeliculas = data.size
             })
+            alert(numPeliculas)
             for(let i = numPeliculas-(20*(this.state.pagina - 1)); i>numPeliculas-(20*(this.state.pagina - 1))-20; i--)
                 {
                     app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
