@@ -30,5 +30,12 @@
     {
         width:640px;
         margin:10px;
-        text-align: center;
+    }
+
+@media (max-width: 700px)
+    {
+        #contenido
+            {
+                width: 90%;
+            }
     }

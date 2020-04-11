@@ -33,9 +33,11 @@ class Peliculas extends React.Component
         render()
             {
                 return(
-                    <div id="contenido">
+                    <div>
                         <h1 align="center">Películas</h1>
-                        {this.state.peliculas}
+                        <div id="contenido">
+                            {this.state.peliculas}
+                        </div>
                     </div>
                 )
             }
