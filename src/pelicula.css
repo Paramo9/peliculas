@@ -3,16 +3,16 @@
         width: 400;
         height: 800;
         margin: 20px;
-        flex-direction: row;
-        align-content: center;
     }
 
 .pelicula img
     {
-        display: flex;
+        position: relative;
+        align-self: center;
     }
 
 .pelicula label
     {
-        display: flex;
+        position: relative;
+        align-self: center;
     }
