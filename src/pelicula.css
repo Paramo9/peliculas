@@ -2,7 +2,7 @@
     {
         color: #555;
         width: 150px;
-        height: 250px;
+        height: 280px;
         margin: 5px !important;
         float: left;
         position: relative;
@@ -19,7 +19,7 @@
         height: 230px;
     }
 
-.poster h2
+.poster h3
     {
         text-align: center;
         padding:7px 0;
