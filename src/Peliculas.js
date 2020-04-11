@@ -25,12 +25,12 @@ class Peliculas extends React.Component
                             }
                     }
             })
-            for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+            /*for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
                 {
                     app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
                         peliculas.push(<Pelicula url="1" nombre={data.get("nombre")} fecha={data.get("fecha")} />)
                     })
-                }
+                }*/
             return peliculas
         }
 
