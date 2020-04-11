@@ -9,7 +9,7 @@ class Pelicula extends React.Component
                     <div className="pelicula">
                         <div className="poster">
                             <img src={this.props.url} />
-                            <h3>{this.props.nombre} - {this.props.fecha}</h3>
+                            <h2>{this.props.nombre} - {this.props.fecha}</h2>
                         </div>
                     </div>
                 )

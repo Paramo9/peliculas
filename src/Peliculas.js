@@ -35,7 +35,7 @@ class Peliculas extends React.Component
                 return(
                     <div>
                         <h1 align="center">Películas</h1>
-                        <div id="contenido" align="center">
+                        <div id="contenido">
                             {this.state.peliculas}
                         </div>
                     </div>

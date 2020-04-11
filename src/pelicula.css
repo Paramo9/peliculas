@@ -1,22 +1,21 @@
 .pelicula
     {
-        color: #555;
-        width: 150px;
-        height: 280px;
-        margin: 5px !important;
+        width: 250px;
+        height: 467px;
+        margin: 10px !important;
         float: left;
         position: relative;
     }
 
 .poster
     {
-        width: 150px;
+        width: 250px;
     }
 
 .poster img
     {
-        width: 150px;
-        height: 230px;
+        width: 250px;
+        height: 384px;
     }
 
 .poster h3
@@ -28,6 +27,6 @@
 
 #contenido
     {
-        width:70%;
+        width:1080px;
         margin:10px;
     }
