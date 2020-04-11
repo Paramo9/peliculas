@@ -16,7 +16,7 @@ class Peliculas extends React.Component
             {
                 event.preventDefault();
                 var app = firebase.app("firestore")
-                app.storage().ref().child("Portadas").child("Toy_Story_4_2019.jpg").getDownloadURL().then((url) => {
+                app.storage().ref("Portadas").child("Toy_Story_4_2019.jpg").getDownloadURL().then((url) => {
                     this.setState({link: url})
                 })
             }
