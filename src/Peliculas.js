@@ -31,7 +31,7 @@ class Peliculas extends React.Component
         }*/
 
         showMovies = () =>  {
-            var app = firebase.app("firebase")
+            var app = firebase.app("firestore")
             app.firestore().collection("peliculas").get().then((data) =>    {
                 let array = []
                 array.push()
