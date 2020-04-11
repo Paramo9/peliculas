@@ -37,7 +37,6 @@
             {
                 width: 90%;
                 margin: 10px !important;
-                position: absolute;
             }
 
         .poster
@@ -48,6 +47,7 @@
         .poster img
             {
                 width: 90%;
+                text-align: center;
             }
 
         .poster h2
@@ -61,6 +61,5 @@
             {
                 width: 90%;
                 margin:10px;
-                position: absolute;
             }
     }
