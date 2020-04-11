@@ -36,7 +36,9 @@ class Peliculas extends React.Component
                     <div>
                         <h1 align="center">Películas</h1>
                         <div id="contenido">
-                            {this.state.peliculas}
+                            {this.state.peliculas.map(item => {
+                                {item}
+                            })}
                         </div>
                     </div>
                 )
