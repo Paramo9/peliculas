@@ -22,7 +22,7 @@ class Peliculas extends React.Component
                                 app.firestore().collection("peliculas").doc(i.toString()).get().then((data) => {
                                     var nombre = data.get("nombre") + " - " + data.get("fecha") + ".jpg"
                                     app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then((datos) => {
-                                        this.setState({peliculas: this.state.peliculas.concat(<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />)})
+                                        this.setState({peliculas: this.state.peliculas.concat([<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
                                     })
                                 })
                             }
