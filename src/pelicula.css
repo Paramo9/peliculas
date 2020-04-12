@@ -54,12 +54,10 @@
         float: right;
     }
 
-.botones a, .botones span {text-decoration: none;margin: 2px;text-shadow: 0 1px 0 #000;height: 2.95em;padding: 13px;background: #313131;}
-.botones a:hover, .botones span.current {box-shadow: 0 0 5px rgba(0,0,0,0.8);}
-.botones span.current {font-weight: 700;}
+.botones span {text-decoration: none;margin: 5px;text-shadow: 0 1px 0 #000;height: 2.5em;padding: 13px;background: #313131;}
 
-.botones a, .botones span{-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
-.botones a, .botones span{color: #fff;}
+.botones span{-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
+.botones span{color: #fff;}
 
 @media (max-width: 500px)
     {
