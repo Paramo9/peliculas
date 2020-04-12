@@ -100,4 +100,13 @@
                 margin-right: 5%;
                 text-align: center;
             }
+        
+        .botones
+            {
+                clear: both;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 50px;
+                width: 95%;
+            }
     }
