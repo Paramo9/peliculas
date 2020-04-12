@@ -9,12 +9,15 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: 1, peliculas: []}
+                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], numPeliculas: 0}
+                this.handleAnterior = this.handleAnterior.bind(this)
+                this.handleSiguiente = this.handleSiguiente.bind(this)
             }
 
         async componentDidMount(){
             var app = firebase.app("firestore")
             await app.firestore().collection("peliculas").get().then(async (data) => {
+                this.setState({numPeliculas: data.size})
                 for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
                     {
                         if(i>0)
@@ -30,6 +33,21 @@ class Peliculas extends React.Component
             })
         }
 
+        handleAnterior(event)
+            {
+                event.preventDefault();
+                if(this.state.pagina!=1)
+                    {
+                        localStorage.setItem("paginaPeliculas", +localStorage.getItem("paginaPeliculas" - +1))
+                        this.forceUpdate()
+                    }
+            }
+
+        handleSiguiente(event)
+            {
+                event.preventDefault();
+            }
+
         render()
             {
                 return(
@@ -39,7 +57,7 @@ class Peliculas extends React.Component
                             {this.state.peliculas}
                         </div>
                         <div className="botones">
-                            <input type="button" value="Anterior" className="botonAnterior" />
+                            <input type="button" value="Anterior" className="botonAnterior" onClick={this.handleAnterior} />
                             <input type="button" value="Siguiente" className="botonSiguiente" />
                         </div>
                     </div>
