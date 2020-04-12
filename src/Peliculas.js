@@ -10,7 +10,6 @@ class Peliculas extends React.Component
             {
                 super(props)
                 this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: []}
-                this.borrar = this.borrar.bind(this)
             }
 
         async componentDidMount(){
@@ -31,7 +30,7 @@ class Peliculas extends React.Component
             })
         }
 
-        borrar()
+        borrar = () =>
             {
                 this.setState({peliculas: []})
                 alert("lol")
