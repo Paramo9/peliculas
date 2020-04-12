@@ -42,11 +42,15 @@
 .botones .botonAnterior
     {
         float: left;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
 .botones .botonSiguiente
     {
         float: right;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
 @media (max-width: 500px)
