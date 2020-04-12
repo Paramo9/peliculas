@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c58db9a23e1cd07c9020fc031e45f38c",
+    "revision": "5acc92b2381b5207e8c67d3cc3a9b2b2",
     "url": "/peliculas/index.html"
   },
   {
-    "revision": "4661b7de912b96fd7419",
-    "url": "/peliculas/static/css/main.ac2c7397.chunk.css"
+    "revision": "b029b0a1fd65b8f38fc4",
+    "url": "/peliculas/static/css/main.a30006d2.chunk.css"
   },
   {
     "revision": "2073da3dd59572c5610b",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/peliculas/static/js/2.3f3b46fe.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4661b7de912b96fd7419",
-    "url": "/peliculas/static/js/main.b197c275.chunk.js"
+    "revision": "b029b0a1fd65b8f38fc4",
+    "url": "/peliculas/static/js/main.c8b8aeeb.chunk.js"
   },
   {
     "revision": "0379f8781f7c7581a6a3",
