@@ -38,7 +38,7 @@ class Peliculas extends React.Component
                 if(this.state.pagina!=1)
                     {
                         alert(this.state.pagina)
-                        localStorage.setItem("paginaPeliculas", +localStorage.getItem("paginaPeliculas" - +1))
+                        localStorage.setItem("paginaPeliculas", +localStorage.getItem("paginaPeliculas") - 1)
                         this.setState({pagina: +this.state.pagina - 1})
                         alert(this.state.pagina)
                         this.forceUpdate()
