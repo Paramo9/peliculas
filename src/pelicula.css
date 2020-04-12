@@ -35,8 +35,8 @@
     {
         width:1080px;
         margin:10px;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
 .botones .botonAnterior
@@ -44,6 +44,7 @@
         float: left;
         margin-top: 50px;
         margin-bottom: 50px;
+        margin-left: 10px;
     }
 
 .botones .botonSiguiente
@@ -51,6 +52,7 @@
         float: right;
         margin-top: 50px;
         margin-bottom: 50px;
+        margin-right: 10px;
     }
 
 @media (max-width: 500px)
