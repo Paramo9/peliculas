@@ -9,8 +9,8 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: []}
-                this.borrar = this.borrar.bind(this)
+                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 2}
+                this.anterior = this.anterior.bind(this)
             }
 
         async componentDidMount(){
@@ -31,11 +31,51 @@ class Peliculas extends React.Component
             })
         }
 
-        borrar(event)
+        async anterior(event)
             {
                 event.preventDefault();
-                this.setState({peliculas: []})
-                alert("lol2")
+                if(this.state.pagina!=1)
+                    {
+                        await this.setState({peliculas: [], pagina: +this.state.pagina - 1})
+                        var app = firebase.app("firestore")
+                        await app.firestore().collection("peliculas").get().then(async (data) => {
+                            for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+                                {
+                                    if(i>0)
+                                        {
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
+                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
+                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
+                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
+                                                })
+                                            })
+                                        }
+                                }
+                        })
+                    }
+            }
+        async anterior(event)
+            {
+                event.preventDefault();
+                if(this.state.pagina != this.state.maxPaginas)
+                    {
+                        await this.setState({peliculas: [], pagina: +this.state.pagina + 1})
+                        var app = firebase.app("firestore")
+                        await app.firestore().collection("peliculas").get().then(async (data) => {
+                            for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+                                {
+                                    if(i>0)
+                                        {
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
+                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
+                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
+                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
+                                                })
+                                            })
+                                        }
+                                }
+                        })
+                    }
             }
 
         render()
@@ -48,7 +88,7 @@ class Peliculas extends React.Component
                             <div className="clear"></div>
                             <br />
                             <div className="botones">
-                                <span className="izquierdo" onClick={this.borrar}>Anterior</span>
+                                <span className="izquierdo" onClick={this.anterior}>Anterior</span>
                                 <span className="derecho">Siguiente</span>
                             </div>
                         </div>
