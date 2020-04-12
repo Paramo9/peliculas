@@ -39,7 +39,9 @@ class Peliculas extends React.Component
                             {this.state.peliculas}
                             <div className="clear"></div>
                             <br />
-                            Hola
+                            <div className="botones">
+                                <ipnut type="button" value="Anterior" />
+                            </div>
                         </div>
                     </div>
                 )

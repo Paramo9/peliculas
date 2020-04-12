@@ -38,11 +38,10 @@
 
 .botones
     {
-        width:1080px;
-        margin:10px;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        display: block;
+        clear: both;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 50px;
     }
 
 .botones .botonAnterior
