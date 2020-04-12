@@ -40,7 +40,7 @@ class Peliculas extends React.Component
                             <div className="clear"></div>
                             <br />
                             <div className="botones">
-                                <ipnut type="button" value="Anterior" />
+                                <span className="pages"> Anterior</span>
                             </div>
                         </div>
                     </div>

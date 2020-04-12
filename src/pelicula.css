@@ -44,21 +44,9 @@
         line-height: 50px;
     }
 
-.botones .botonAnterior
-    {
-        float: left;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        margin-left: 10px;
-    }
-
-.botones .botonSiguiente
-    {
-        float: right;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        margin-right: 10px;
-    }
+.wp-pagenavi a, .wp-pagenavi span {text-decoration: none;margin: 2px;text-shadow: 0 1px 0 #000;height: 2.95em;padding: 13px;background: #313131 url(images/on-sbg.png);}
+.wp-pagenavi a:hover, .wp-pagenavi span.current {box-shadow: 0 0 5px rgba(0,0,0,0.8);}
+.wp-pagenavi span.current {font-weight: 700;}
 
 @media (max-width: 500px)
     {
