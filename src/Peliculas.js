@@ -9,7 +9,7 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 2}
+                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 0}
                 this.anterior = this.anterior.bind(this)
                 this.siguiente = this.siguiente.bind(this)
             }
@@ -17,6 +17,14 @@ class Peliculas extends React.Component
         async componentDidMount(){
             var app = firebase.app("firestore")
             await app.firestore().collection("peliculas").get().then(async (data) => {
+                if(data.size%20>0)
+                    {
+                        this.setState({maxPaginas: +Math.trunc(data.size/20) + 1})
+                    }
+                else
+                    {
+                        this.setState({maxPaginas: data.size/20})
+                    }
                 for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
                     {
                         if(i>0)
