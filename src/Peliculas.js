@@ -11,6 +11,7 @@ class Peliculas extends React.Component
                 super(props)
                 this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 2}
                 this.anterior = this.anterior.bind(this)
+                this.siguiente = this.siguiente.bind(this)
             }
 
         async componentDidMount(){
@@ -54,7 +55,7 @@ class Peliculas extends React.Component
                         })
                     }
             }
-        async anterior(event)
+        async siguiente(event)
             {
                 event.preventDefault();
                 if(this.state.pagina != this.state.maxPaginas)
@@ -89,7 +90,7 @@ class Peliculas extends React.Component
                             <br />
                             <div className="botones">
                                 <span className="izquierdo" onClick={this.anterior}>Anterior</span>
-                                <span className="derecho">Siguiente</span>
+                                <span className="derecho" onClick={this.siguiente}>Siguiente</span>
                             </div>
                         </div>
                     </div>
