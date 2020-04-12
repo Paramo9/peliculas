@@ -37,6 +37,9 @@ class Peliculas extends React.Component
                         <h1 align="center">Películas</h1>
                         <div id="contenido">
                             {this.state.peliculas}
+                            <div className="clear"></div>
+                            <br />
+                            Hola
                         </div>
                     </div>
                 )
