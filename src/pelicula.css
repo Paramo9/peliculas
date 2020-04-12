@@ -37,31 +37,39 @@
             {
                 width: 90%;
                 text-align: center;
+                margin-left: 5%;
+                margin-right: 5%;
             }
 
         .poster
             {
                 width: 90%;
                 text-align: center;
+                margin-left: 5%;
+                margin-right: 5%;
             }
 
         .poster img
             {
                 width: 90%;
                 text-align: center;
+                margin-left: 5%;
+                margin-right: 5%;
             }
 
         .poster h2
             {
                 text-align: center;
-                padding:7px 0;
+                margin-left: 5%;
+                margin-right: 5%;
                 font-size: 20px;
             }
 
         #contenido
             {
                 width: 90%;
-                margin:10px;
+                margin-left: 5%;
+                margin-right: 5%;
                 text-align: center;
             }
     }
