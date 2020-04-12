@@ -40,7 +40,8 @@ class Peliculas extends React.Component
                             <div className="clear"></div>
                             <br />
                             <div className="botones">
-                                <span className="pages">Anteriores</span>
+                                <span className="izquierdo">Anterior</span>
+                                <span className="derecho">Siguiente</span>
                             </div>
                         </div>
                     </div>
