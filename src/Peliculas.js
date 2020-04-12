@@ -17,7 +17,7 @@ class Peliculas extends React.Component
         async componentDidMount(){
             var app = firebase.app("firestore")
             await app.firestore().collection("usuarios").get().then(async (datos1) => {
-                await datos1.forEach((doc) =>  {
+                await datos1.forEach(async (doc) =>  {
                     if(doc.get("email") == localStorage.getItem("email"))
                         {
                             await doc.ref.collection("favoritas").get().then(async (datos2) => {
