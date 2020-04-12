@@ -10,6 +10,7 @@ class Peliculas extends React.Component
             {
                 super(props)
                 this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: []}
+                this.borrar = this.borrar.bind(this)
             }
 
         async componentDidMount(){
@@ -30,10 +31,11 @@ class Peliculas extends React.Component
             })
         }
 
-        borrar = () =>
+        borrar(event)
             {
+                event.preventDefault();
                 this.setState({peliculas: []})
-                alert("lol")
+                alert("lol2")
             }
 
         render()
@@ -46,7 +48,7 @@ class Peliculas extends React.Component
                             <div className="clear"></div>
                             <br />
                             <div className="botones">
-                                <span className="izquierdo" onClick={this.borrar()}>Anterior</span>
+                                <span className="izquierdo" onClick={this.borrar}>Anterior</span>
                                 <span className="derecho">Siguiente</span>
                             </div>
                         </div>
