@@ -43,6 +43,7 @@
     {
         width: 15px;
         height: 10px;
+        margin-left: 10px !important;
         float: left;
     }
 
@@ -50,6 +51,7 @@
     {
         width: 15px;
         height: 10px;
+        margin-right: 10px !important;
         float: right;
     }
 
