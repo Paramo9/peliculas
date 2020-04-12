@@ -54,7 +54,8 @@
         float: right;
     }
 
-.botones span {text-decoration: none;margin: 5px;text-shadow: 0 1px 0 #000;padding: 13px;background: #313131;}
+.botones span:hover{cursor: pointer;}
+.botones span{text-decoration: none;margin: 5px;text-shadow: 0 1px 0 #000;padding: 13px;background: #313131;}
 
 .botones span{-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
 .botones span{color: #fff;}
@@ -103,9 +104,8 @@
         
         .botones
             {
-                clear: both;
-                font-weight: 700;
-                font-size: 30px;
+                font-weight: 400;
+                font-size: 25px;
                 line-height: 50px;
                 width: 95%;
             }
