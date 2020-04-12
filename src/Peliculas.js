@@ -35,6 +35,10 @@ class Peliculas extends React.Component
                 return(
                     <div>
                         <h1 align="center">Películas</h1>
+                        <div className="botones">
+                            <button className="botonAnterior" value="Anterior" />
+                            <button className="botonSiguiente" value="Siguiente" />
+                        </div>
                         <div id="contenido">
                             {this.state.peliculas}
                         </div>

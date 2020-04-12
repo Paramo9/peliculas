@@ -31,6 +31,22 @@
         margin:10px;
     }
 
+.botones
+    {
+        width:1080px;
+        margin:10px;
+    }
+
+.botones .botonAnterior
+    {
+        float: left;
+    }
+
+.botones .botonSiguiente
+    {
+        float: right;
+    }
+
 @media (max-width: 500px)
     {
         .pelicula
