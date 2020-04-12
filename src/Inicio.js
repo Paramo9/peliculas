@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import Mi_Perfil from './Mi_Perfil'
 import Peliculas from './Peliculas'
 import firebase from 'firebase'
+import Series from './Series'
 
 class Inicio extends React.Component
     {
@@ -15,6 +16,7 @@ class Inicio extends React.Component
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
+                this.handleSeries = this.handleSeries.bind(this)
             }
 
         handleCerrarSesion(event)
@@ -44,6 +46,16 @@ class Inicio extends React.Component
                 this.forceUpdate()
             }
 
+        handleSeries(event)
+            {
+                event.preventDefault();
+                localStorage.setItem("mi_perfil", "0")
+                localStorage.setItem("peliculas", "0")
+                localStorage.setItem("series", "1")
+                localStorage.setItem("favoritas", "0")
+                this.forceUpdate()
+            }
+
         render()
             {
                 if(this.state.r1)
@@ -62,7 +74,7 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
-                                            <li>Series</li>
+                                            <li onClick={this.handleSeries}>Series</li>
                                             <li>Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
@@ -85,7 +97,7 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
-                                            <li>Series</li>
+                                            <li onClick={this.handleSeries}>Series</li>
                                             <li>Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
@@ -93,6 +105,29 @@ class Inicio extends React.Component
                                     </nav>
                                 </header>
                                 <Peliculas />
+                            </div>
+                        )
+                    }
+                else if(localStorage.getItem("series") == "1")
+                    {
+                        return(
+                            <div>
+                                <h1 align="center">El Club de la Película</h1>
+                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                <header>
+                                    <input type="checkbox" id="btn-menu" />
+                                    <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
+                                    <nav className="menu">
+                                        <ul>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handleSeries}>Series</li>
+                                            <li>Favoritas</li>
+                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                        </ul>
+                                    </nav>
+                                </header>
+                                <Series />
                             </div>
                         )
                     }
