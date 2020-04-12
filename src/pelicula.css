@@ -42,6 +42,17 @@
         font-weight: 700;
         font-size: 30px;
         line-height: 50px;
+        width: 1080px;
+    }
+
+.izquierdo
+    {
+        float: left;
+    }
+
+.derecho
+    {
+        float: right;
     }
 
 .botones a, .botones span {text-decoration: none;margin: 2px;text-shadow: 0 1px 0 #000;height: 2.95em;padding: 13px;background: #313131;}
