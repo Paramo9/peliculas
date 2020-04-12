@@ -35,19 +35,19 @@
     {
         .pelicula
             {
-                width: 100%;
+                width: 90%;
                 text-align: center;
             }
 
         .poster
             {
-                width: 100%;
+                width: 90%;
                 text-align: center;
             }
 
         .poster img
             {
-                width: 100%;
+                width: 90%;
                 text-align: center;
             }
 
@@ -60,7 +60,7 @@
 
         #contenido
             {
-                width: 100%;
+                width: 90%;
                 margin:10px;
                 text-align: center;
             }
