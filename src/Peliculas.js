@@ -10,8 +10,6 @@ class Peliculas extends React.Component
             {
                 super(props)
                 this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: []}
-                this.handleAnterior = this.handleAnterior.bind(this)
-                this.handleSiguiente = this.handleSiguiente.bind(this)
             }
 
         async componentDidMount(){
@@ -32,24 +30,6 @@ class Peliculas extends React.Component
             })
         }
 
-        handleAnterior(event)
-            {
-                event.preventDefault();
-                if(this.state.pagina!=1)
-                    {
-                        alert(this.state.pagina)
-                        localStorage.setItem("paginaPeliculas", +localStorage.getItem("paginaPeliculas") - 1)
-                        this.setState({pagina: +this.state.pagina - 1})
-                        alert(this.state.pagina)
-                        this.forceUpdate()
-                    }
-            }
-
-        handleSiguiente(event)
-            {
-                event.preventDefault();
-            }
-
         render()
             {
                 return(
@@ -57,11 +37,6 @@ class Peliculas extends React.Component
                         <h1 align="center">Películas</h1>
                         <div id="contenido">
                             {this.state.peliculas}
-                        </div>
-                        <br />
-                        <div className="botones">
-                            <input type="button" value="Anterior" className="botonAnterior" onClick={this.handleAnterior} />
-                            <input type="button" value="Siguiente" className="botonSiguiente" />
                         </div>
                     </div>
                 )
