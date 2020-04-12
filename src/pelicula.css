@@ -41,21 +41,11 @@
 
 .botones .botonAnterior
     {
-        width: 100px;
-        height: 50px;
-        margin-left: 10px !important;
-        margin-top: 50px;
-        margin-bottom: 50px;
         float: left;
     }
 
 .botones .botonSiguiente
     {
-        width: 100px;
-        height: 50px;
-        margin-right: 10px !important;
-        margin-top: 50px;
-        margin-bottom: 50px;
         float: right;
     }
 
