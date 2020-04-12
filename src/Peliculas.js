@@ -36,8 +36,8 @@ class Peliculas extends React.Component
                     <div>
                         <h1 align="center">Películas</h1>
                         <div className="botones">
-                            <input className="botonAnterior" type="button" value="Anterior" />
-                            <input className="botonSiguiente" type="button" value="Siguiente" />
+                            <input className="botonAnterior" type="button" value="Anterior1" />
+                            <input className="botonSiguiente" type="button" value="Siguiente1" />
                         </div><br /><br />
                         <div id="contenido">
                             {this.state.peliculas}
