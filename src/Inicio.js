@@ -25,7 +25,6 @@ class Inicio extends React.Component
         updateFlag = (text) => {
             if(text==1)
                 {
-                    this.setState({infoPelicula: text})
                     this.forceUpdate()
                 }
         }
@@ -44,6 +43,7 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
+                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -54,6 +54,7 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "1")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
+                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -64,6 +65,7 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "1")
                 localStorage.setItem("favoritas", "0")
+                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
         handleFavoritas(event)
@@ -73,6 +75,7 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "1")
+                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -174,7 +177,7 @@ class Inicio extends React.Component
                             </div>
                         )
                     }
-                else if(this.state.infoPelicula==1)
+                else if(localStorage.getItem("infoPelicula") == "1")
                     {
                         return(
                             <div>
@@ -193,7 +196,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Info_Pelicula />
+                                <Info_Pelicula nombre={localStorage.getItem("pelicula")} />
                             </div>
                         )
                     }
