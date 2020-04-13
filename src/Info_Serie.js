@@ -45,7 +45,7 @@ class Info_Serie extends React.Component
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
-                                        await doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                        await doc.ref.collection("seriesFavoritas").get().then((data2) => {
                                             this.setState({seriesFavoritas: data2.size})
                                         })
                                         await doc.ref.collection("seriesFavoritas").doc((+this.state.seriesFavoritas + 1).toString()).set({nombre: this.props.nombre, temporada: this.props.temporada, url: this.props.url})
