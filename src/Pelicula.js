@@ -7,24 +7,19 @@ class Pelicula extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false}
                 this.handleClick = this.handleClick.bind(this)
             }
         
         handleClick(event)
             {
                 event.preventDefault();
-                alert("entra")
                 localStorage.setItem("infoPelicula", "1")
-                this.forceUpdate()
+                alert("prueba")
+                window.location.reload()
             }
 
         render()
             {
-                if(this.state.r1)
-                    {
-                        return <Redirect to={"/peliculas/inicio"} />
-                    }
                 return(
                     <div className="pelicula" align="center">
                         <div className="poster" align="center">
