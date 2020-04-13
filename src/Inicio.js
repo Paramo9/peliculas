@@ -22,7 +22,7 @@ class Inicio extends React.Component
                 this.updateFlag = this.updateFlag.bind(this)
             }
 
-        updateFlag = (text) => {if (text==1) this.forceUpdate()}
+        updateFlag = (text) => {this.forceUpdate()}
 
         handleCerrarSesion(event)
             {
@@ -103,7 +103,7 @@ class Inicio extends React.Component
                     {
                         return(
                             <div>
-                                <h1 align="center">El Club de la Película</h1>
+                                <h1 align="center">El Club de la Películassss</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
                                     <input type="checkbox" id="btn-menu" />
