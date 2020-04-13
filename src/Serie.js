@@ -14,6 +14,7 @@ class Serie extends React.Component
                 event.preventDefault();
                 localStorage.setItem("infoSerie", "1")
                 localStorage.setItem("series", "0")
+                localStorage.setItem("seriesFavoritas", "0")
                 localStorage.setItem("serie", this.props.nombre)
                 localStorage.setItem("temporada", this.props.temporada)
                 localStorage.setItem("url", this.props.url)

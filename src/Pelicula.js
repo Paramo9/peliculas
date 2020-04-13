@@ -14,6 +14,7 @@ class Pelicula extends React.Component
                 event.preventDefault();
                 localStorage.setItem("infoPelicula", "1")
                 localStorage.setItem("peliculas", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
                 localStorage.setItem("pelicula", this.props.nombre)
                 localStorage.setItem("fecha", this.props.fecha)
                 localStorage.setItem("url", this.props.url)
