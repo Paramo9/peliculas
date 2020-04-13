@@ -41,7 +41,7 @@ class Info_Pelicula extends React.Component
                 if(this.state.favorita==0)
                     {
                         app.firestore().collection('usuarios').get().then(async (data) => {
-                            data.forEach((doc) => {
+                            data.forEach(async (doc) => {
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
