@@ -8,7 +8,7 @@ class Info_Pelicula extends React.Component
                     <div>
                         <h1 align="center">{this.props.nombre} - {this.props.fecha}</h1><br /><br />
                         <div align="center">
-                            <img src={this.props.url} width="70%" />
+                            <img src={this.props.url} width="25%" />
                         </div>
                     </div>
                 )
