@@ -9,13 +9,14 @@ class Peliculas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 0}
+                this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 0, listo: 0}
                 this.anterior = this.anterior.bind(this)
                 this.siguiente = this.siguiente.bind(this)
             }
 
         async componentDidMount()
             {
+                this.setState({listo: 0})
                 var app = firebase.app("firestore")
                 await app.firestore().collection("peliculas").get().then(async (data) => {
                     if(data.size%20>0)
@@ -39,6 +40,7 @@ class Peliculas extends React.Component
                                 }
                         }
                 })
+                this.setState({listo: 1})
             }
 
         async anterior(event)
@@ -46,6 +48,7 @@ class Peliculas extends React.Component
                 event.preventDefault();
                 if(this.state.pagina!=1)
                     {
+                        this.setState({listo: 0})
                         await this.setState({peliculas: [], pagina: +this.state.pagina - 1})
                         var app = firebase.app("firestore")
                         await app.firestore().collection("peliculas").get().then(async (data) => {
@@ -62,14 +65,16 @@ class Peliculas extends React.Component
                                         }
                                 }
                         })
+                        this.setState({listo: 1})
                     }
             }
-            
+
         async siguiente(event)
             {
                 event.preventDefault();
                 if(this.state.pagina != this.state.maxPaginas)
                     {
+                        this.setState({listo: 0})
                         await this.setState({peliculas: [], pagina: +this.state.pagina + 1})
                         var app = firebase.app("firestore")
                         await app.firestore().collection("peliculas").get().then(async (data) => {
@@ -86,6 +91,7 @@ class Peliculas extends React.Component
                                         }
                                 }
                         })
+                        this.setState({listo: 1})
                     }
             }
 
