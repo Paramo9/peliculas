@@ -47,7 +47,30 @@ class Info_Pelicula extends React.Component
                                     {
                                         doc.ref.collection("peliculasFavoritas").add({nombre: this.props.nombre, fecha: this.props.fecha, url: this.props.url})
                                         alert("¡Esta película se ha añadido a tus películas favoritas!")
-                                        this.forceUpdate()
+                                        this.setState({favorita: 1, mensajeBoton: "Eliminar favoritas"})
+                                    }
+                            })
+                        })
+                    }
+                else
+                    {
+                        app.firestore().collection("usuarios").get().then((data) => {
+                            data.forEach((doc) => {
+                                var emailf = doc.get("email")
+                                if(localStorage.getItem("email") == emailf)
+                                    {
+                                        doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                            data2.forEach((doc2) => {
+                                                var nombref = doc2.get("nombre")
+                                                var fechaf = doc2.get("fecha")
+                                                if(this.props.nombre==nombref && this.props.fecha==fechaf)
+                                                    {
+                                                        doc2.ref.delete()
+                                                        alert("¡Esta película se ha eliminado de tus peliculas favoritas!")
+                                                        this.setState({favorita: 0, mensajeBoton: "Añadir a favoritass"})
+                                                    }
+                                            })
+                                        })
                                     }
                             })
                         })
