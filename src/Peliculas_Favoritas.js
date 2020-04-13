@@ -23,7 +23,7 @@ class Peliculas_Favoritas extends React.Component
                 await app.firestore().collection("usuarios").get().then(async (data) => {
                     data.forEach(async (doc) => {
                         var emailf = doc.get("email")
-                        if(localStorage.get("email")==emailf)
+                        if(localStorage.getItem("email")==emailf)
                             {
                                 await doc.ref.collection("peliculasFavoritas").get().then(async (data2) => {
                                     if(data2.size%20>0)
