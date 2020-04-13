@@ -8,7 +8,7 @@ class Info_Pelicula extends React.Component
             {
                 super(props)
                 this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas"}
-                this.hanldeFavoritos = this.hanldeFavoritos.bind(this)
+                this.handleFavoritos = this.handleFavoritos.bind(this)
             }
 
         componentDidMount()
@@ -34,7 +34,7 @@ class Info_Pelicula extends React.Component
                 })
             }
 
-        hanldeFavoritos(event)
+        handleFavoritos(event)
             {
                 event.preventDefault();
                 var app = firebase.app("firestore")
@@ -87,7 +87,7 @@ class Info_Pelicula extends React.Component
                         </div>
                         <br />
                         <div align="center">
-                            <input type="button" value={this.state.mensajeBoton} onClick={this.hanldeFavoritos} />
+                            <input type="button" value={this.state.mensajeBoton} onClick={this.handleFavoritos} />
                         </div>
                     </div>
                 )
