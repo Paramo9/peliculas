@@ -190,6 +190,7 @@ class Inicio extends React.Component
                                 </header>
                                 <Info_Pelicula />
                             </div>
+                        )
                     }
             }
     }
