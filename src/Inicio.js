@@ -196,7 +196,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Info_Pelicula nombre={localStorage.getItem("pelicula")} />
+                                <Info_Pelicula nombre={localStorage.getItem("pelicula")} url={localStorage.getItem("url")} fecha={localStorage.getItem("fecha")} />
                             </div>
                         )
                     }
