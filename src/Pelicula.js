@@ -13,6 +13,7 @@ class Pelicula extends React.Component
             {
                 event.preventDefault();
                 localStorage.setItem("infoPelicula", "1")
+                localStorage.setItem("peliculas", "0")
                 this.props.flag2(1)
             }
 

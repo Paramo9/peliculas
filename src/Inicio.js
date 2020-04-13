@@ -25,7 +25,6 @@ class Inicio extends React.Component
         updateFlag = (text) => {
             if(text==1)
                 {
-                    alert("lol")
                     this.setState({infoPelicula: text})
                     this.forceUpdate()
                 }
