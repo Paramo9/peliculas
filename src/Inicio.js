@@ -8,6 +8,8 @@ import firebase from 'firebase'
 import Series from './Series'
 import Info_Pelicula from './Info_Pelicula'
 import Info_Serie from './Info_Serie'
+import Peliculas_Favoritas from './Peliculas_Favoritas'
+import Series_Favoritas from './Series_Favoritas'
 
 class Inicio extends React.Component
     {
@@ -190,7 +192,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                Peliculas Favoritas
+                                <Peliculas_Favoritas flag={this.updateFlagPelicula} />
                             </div>
                         )
                     }
@@ -238,7 +240,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                Series Favoritas
+                                < Series_Favoritas flag={this.updateFlagSerie} />
                             </div>
                         )
                     }

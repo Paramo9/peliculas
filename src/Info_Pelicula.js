@@ -7,7 +7,7 @@ class Info_Pelicula extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas"}
+                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", peliculasFavoritas: 0}
                 this.handleFavoritos = this.handleFavoritos.bind(this)
             }
 
@@ -40,12 +40,15 @@ class Info_Pelicula extends React.Component
                 var app = firebase.app("firestore")
                 if(this.state.favorita==0)
                     {
-                        app.firestore().collection('usuarios').get().then((data) => {
+                        app.firestore().collection('usuarios').get().then(async (data) => {
                             data.forEach((doc) => {
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
-                                        doc.ref.collection("peliculasFavoritas").add({nombre: this.props.nombre, fecha: this.props.fecha, url: this.props.url})
+                                        await doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                            this.setState({peliculasFavoritas: data2.size})
+                                        })
+                                        await doc.ref.collection("peliculasFavoritas").doc((+this.state.peliculasFavoritas + 1).toString()).set({nombre: this.props.nombre, fecha: this.props.fecha, url: this.props.url})
                                         alert("¡Esta película se ha añadido a tus películas favoritas!")
                                         this.setState({favorita: 1, mensajeBoton: "Eliminar de favoritas"})
                                     }
