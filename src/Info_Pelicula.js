@@ -47,7 +47,7 @@ class Info_Pelicula extends React.Component
                                     {
                                         doc.ref.collection("peliculasFavoritas").add({nombre: this.props.nombre, fecha: this.props.fecha, url: this.props.url})
                                         alert("¡Esta película se ha añadido a tus películas favoritas!")
-                                        this.setState({favorita: 1, mensajeBoton: "Eliminar favoritas"})
+                                        this.setState({favorita: 1, mensajeBoton: "Eliminar de favoritas"})
                                     }
                             })
                         })
