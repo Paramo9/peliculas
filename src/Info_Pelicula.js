@@ -7,7 +7,7 @@ class Info_Pelicula extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", peliculasFavoritas: 0}
+                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", peliculasFavoritas: 0, pelicula: ""}
                 this.handleFavoritos = this.handleFavoritos.bind(this)
             }
 
@@ -58,19 +58,33 @@ class Info_Pelicula extends React.Component
                 else
                     {
                         app.firestore().collection("usuarios").get().then((data) => {
-                            data.forEach((doc) => {
+                            data.forEach(async (doc) => {
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
-                                        doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                        await doc.ref.collection("peliculasFavoritas").get().then((data2) => {
                                             data2.forEach((doc2) => {
                                                 var nombref = doc2.get("nombre")
                                                 var fechaf = doc2.get("fecha")
                                                 if(this.props.nombre==nombref && this.props.fecha==fechaf)
                                                     {
+                                                        this.setState({pelicula: doc2.id})
                                                         doc2.ref.delete()
                                                         alert("¡Esta película se ha eliminado de tus peliculas favoritas!")
                                                         this.setState({favorita: 0, mensajeBoton: "Añadir a favoritass"})
+                                                    }
+                                            })
+                                        })
+                                        await doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                            data2.forEach(async (doc2) => {
+                                                if(parseInt(doc2.id)>parseInt(this.state.pelicula))
+                                                    {
+                                                        var nombre = doc2.get("nombre")
+                                                        var fecha = doc2.get("fecha")
+                                                        var url = doc2.get("url")
+                                                        var id = parseInt(doc2.id) - 1
+                                                        await doc2.ref.delete()
+                                                        await doc.ref.collection("peliculasFavoritas").doc(id.toString()).set({nombre: nombre, fecha: fecha, url: url})
                                                     }
                                             })
                                         })
