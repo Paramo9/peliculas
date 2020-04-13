@@ -13,7 +13,7 @@ class Inicio extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false}
+                this.state = {r1: false, r2: false, infoPelicula: 0}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
@@ -22,7 +22,14 @@ class Inicio extends React.Component
                 this.updateFlag = this.updateFlag.bind(this)
             }
 
-        updateFlag = (text) => {this.forceUpdate()}
+        updateFlag = (text) => {
+            if(text==1)
+                {
+                    alert("lol")
+                    this.setState({infoPelicula: text})
+                    this.forceUpdate()
+                }
+        }
 
         handleCerrarSesion(event)
             {
@@ -103,7 +110,7 @@ class Inicio extends React.Component
                     {
                         return(
                             <div>
-                                <h1 align="center">El Club de la Películassss</h1>
+                                <h1 align="center">El Club de la Películasss</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
                                     <input type="checkbox" id="btn-menu" />
@@ -168,7 +175,7 @@ class Inicio extends React.Component
                             </div>
                         )
                     }
-                else if(localStorage.getItem("infoPelicula") == "1")
+                else if(this.state.infoPelicula==1)
                     {
                         return(
                             <div>
