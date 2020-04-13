@@ -12,7 +12,9 @@ class Info_Pelicula extends React.Component
                             <img src={this.props.url}/>
                         </div>
                         <br />
-                        <input type="button" value="Añadir a Favoritos" />
+                        <div align="center">
+                            <input type="button" value="Añadir a Favoritos" />
+                        </div>
                     </div>
                 )
             }

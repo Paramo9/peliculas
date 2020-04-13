@@ -8,7 +8,7 @@
 }
 
 html {
-    background-color: #56baed;
+    background-color: #000000;
   }
 
 @font-face
@@ -21,18 +21,21 @@ h1
   {
     font-family: COPRGTB;
     font-size: xx-large;
+    color: #ffffff;
   }
 
 h2
   {
     font-family: COPRGTB;
     font-size: x-large;
+    color: #ffffff;
   }
 
 h3
   {
     font-family: COPRGTB;
     font-size: larger;
+    color: #ffffff;
   }
 
 /* STRUCTURE */
