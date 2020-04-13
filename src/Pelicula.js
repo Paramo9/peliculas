@@ -12,7 +12,6 @@ class Pelicula extends React.Component
         handleClick(event)
             {
                 event.preventDefault();
-                alert("lol1")
                 this.props.flag2(1)
             }
 
