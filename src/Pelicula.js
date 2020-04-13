@@ -12,6 +12,7 @@ class Pelicula extends React.Component
         handleClick(event)
             {
                 event.preventDefault();
+                localStorage.setItem("infoPelicula", "1")
                 this.props.flag2(1)
             }
 

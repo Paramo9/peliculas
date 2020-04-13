@@ -13,7 +13,7 @@ class Inicio extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false, infoPelicula: 0}
+                this.state = {r1: false, r2: false}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
@@ -22,12 +22,7 @@ class Inicio extends React.Component
                 this.updateFlag = this.updateFlag.bind(this)
             }
 
-        updateFlag(text)
-            {
-                this.setState({infoPelicula: text})
-                this.forceUpdate()
-            }
-        //updateFlag = (text) => {this.setState({infoPelicula: text})}
+        updateFlag = (text) => {if (text==1) this.forceUpdate()}
 
         handleCerrarSesion(event)
             {
@@ -173,7 +168,7 @@ class Inicio extends React.Component
                             </div>
                         )
                     }
-                else if(this.state.infoPelicula==1)
+                else if(localStorage.getItem("infoPelicula") == "1")
                     {
                         return(
                             <div>
