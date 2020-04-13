@@ -46,7 +46,7 @@ class Peliculas extends React.Component
         async anterior(event)
             {
                 event.preventDefault();
-                if(this.state.pagina!=1)
+                if(this.state.pagina!=1 && this.state.listo==1)
                     {
                         this.setState({listo: 0})
                         await this.setState({peliculas: [], pagina: +this.state.pagina - 1})
@@ -72,7 +72,7 @@ class Peliculas extends React.Component
         async siguiente(event)
             {
                 event.preventDefault();
-                if(this.state.pagina != this.state.maxPaginas)
+                if(this.state.pagina != this.state.maxPaginas && this.state.listo==1)
                     {
                         this.setState({listo: 0})
                         await this.setState({peliculas: [], pagina: +this.state.pagina + 1})
