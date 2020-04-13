@@ -13,13 +13,16 @@ class Inicio extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false, borrar: 0}
+                this.state = {r1: false, r2: false, infoPelicula = 0}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
                 this.handleFavoritas = this.handleFavoritas.bind(this)
+                this.updateFlag = this.updateFlag
             }
+
+        updateFlag = (text) => {this.setState({infoPelicula: text})}
 
         handleCerrarSesion(event)
             {
@@ -104,7 +107,7 @@ class Inicio extends React.Component
                     {
                         return(
                             <div>
-                                <h1 align="center">El Club de la Película</h1>
+                                <h1 align="center">El Club de la Película {this.state.infoPelicula}</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
                                     <input type="checkbox" id="btn-menu" />
@@ -119,7 +122,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Peliculas borrar={this.state.borrar} />
+                                <Peliculas flag={this.updateFlag} />
                             </div>
                         )
                     }

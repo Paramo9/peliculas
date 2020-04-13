@@ -12,7 +12,7 @@ class Pelicula extends React.Component
         handleClick(event)
             {
                 event.preventDefault();
-                alert("lol")
+                alert("lol2")
                 this.props.borrar(1)
             }
 
