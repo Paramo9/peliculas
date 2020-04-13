@@ -14,31 +14,32 @@ class Peliculas extends React.Component
                 this.siguiente = this.siguiente.bind(this)
             }
 
-        async componentDidMount(){
-            var app = firebase.app("firestore")
-            await app.firestore().collection("peliculas").get().then(async (data) => {
-                if(data.size%20>0)
-                    {
-                        this.setState({maxPaginas: +Math.trunc(data.size/20) + 1})
-                    }
-                else
-                    {
-                        this.setState({maxPaginas: data.size/20})
-                    }
-                for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
-                    {
-                        if(i>0)
-                            {
-                                await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
-                                    var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
-                                    await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                        this.setState({peliculas: this.state.peliculas.concat([<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
+        async componentDidMount()
+            {
+                var app = firebase.app("firestore")
+                await app.firestore().collection("peliculas").get().then(async (data) => {
+                    if(data.size%20>0)
+                        {
+                            this.setState({maxPaginas: +Math.trunc(data.size/20) + 1})
+                        }
+                    else
+                        {
+                            this.setState({maxPaginas: data.size/20})
+                        }
+                    for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+                        {
+                            if(i>0)
+                                {
+                                    await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
+                                        var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
+                                        await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
+                                            this.setState({peliculas: this.state.peliculas.concat([<Pelicula url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
+                                        })
                                     })
-                                })
-                            }
-                    }
-            })
-        }
+                                }
+                        }
+                })
+            }
 
         async anterior(event)
             {
@@ -63,6 +64,7 @@ class Peliculas extends React.Component
                         })
                     }
             }
+            
         async siguiente(event)
             {
                 event.preventDefault();
