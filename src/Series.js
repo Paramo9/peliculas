@@ -102,7 +102,7 @@ class Series extends React.Component
                 return(
                     <div>
                         <h1 align="center">Series</h1>
-                        <div id="contenido">
+                        <div id="contenido" align="center">
                             {this.state.series}
                             <div className="clear"></div>
                             <br />
