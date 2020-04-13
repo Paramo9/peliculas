@@ -19,10 +19,15 @@ class Inicio extends React.Component
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
                 this.handleFavoritas = this.handleFavoritas.bind(this)
-                this.updateFlag = this.updateFlag
+                this.updateFlag = this.updateFlag.bind(this)
             }
 
-        updateFlag = (text) => {this.setState({infoPelicula: text}); this.forceUpdate();}
+        updateFlag(text)
+            {
+                this.setState({infoPelicula: text})
+                this.forceUpdate()
+            }
+        //updateFlag = (text) => {this.setState({infoPelicula: text})}
 
         handleCerrarSesion(event)
             {
