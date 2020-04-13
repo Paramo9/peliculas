@@ -5,7 +5,6 @@ import './pelicula.css'
 
 class Peliculas extends React.Component
     {
-
         constructor(props)
             {
                 super(props)

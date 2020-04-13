@@ -7,22 +7,31 @@ import Peliculas from './Peliculas'
 import firebase from 'firebase'
 import Series from './Series'
 import Info_Pelicula from './Info_Pelicula'
+import Info_Serie from './Info_Serie'
 
 class Inicio extends React.Component
     {
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false, infoPelicula: 0}
+                this.state = {r1: false, r2: false}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
                 this.handleFavoritas = this.handleFavoritas.bind(this)
-                this.updateFlag = this.updateFlag
+                this.updateFlagPelicula = this.updateFlagPelicula
+                this.updateFlagSerie = this.updateFlagSerie
             }
 
-        updateFlag = (text) => {
+        updateFlagPelicula = (text) => {
+            if(text==1)
+                {
+                    this.forceUpdate()
+                }
+        }
+
+        updateFlagSerie = (text) => {
             if(text==1)
                 {
                     this.forceUpdate()
@@ -44,6 +53,7 @@ class Inicio extends React.Component
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
                 this.forceUpdate()
             }
 
@@ -55,6 +65,7 @@ class Inicio extends React.Component
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
                 this.forceUpdate()
             }
 
@@ -66,6 +77,7 @@ class Inicio extends React.Component
                 localStorage.setItem("series", "1")
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
                 this.forceUpdate()
             }
         handleFavoritas(event)
@@ -76,6 +88,7 @@ class Inicio extends React.Component
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "1")
                 localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
                 this.forceUpdate()
             }
 
@@ -127,7 +140,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Peliculas flag={this.updateFlag} />
+                                <Peliculas flag={this.updateFlagPelicula} />
                             </div>
                         )
                     }
@@ -150,7 +163,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Series />
+                                <Series flag={this.updateFlagSerie} />
                             </div>
                         )
                     }
@@ -197,6 +210,29 @@ class Inicio extends React.Component
                                     </nav>
                                 </header>
                                 <Info_Pelicula nombre={localStorage.getItem("pelicula")} url={localStorage.getItem("url")} fecha={localStorage.getItem("fecha")} />
+                            </div>
+                        )
+                    }
+                else if(localStorage.getItem("infoSerie") == "1")
+                    {
+                        return(
+                            <div>
+                                <h1 align="center">El Club de la Película</h1>
+                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                <header>
+                                    <input type="checkbox" id="btn-menu" />
+                                    <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
+                                    <nav className="menu">
+                                        <ul>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handleSeries}>Series</li>
+                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                        </ul>
+                                    </nav>
+                                </header>
+                                <Info_Serie nombre={localStorage.getItem("serie")} url={localStorage.getItem("url")} temporada={localStorage.getItem("temporada")} />
                             </div>
                         )
                     }

@@ -11,7 +11,10 @@ class Series extends React.Component
                 this.state = {pagina: localStorage.getItem("paginaSeries"), series: [], maxPaginas: 0, listo: 0}
                 this.anterior = this.anterior.bind(this)
                 this.siguiente = this.siguiente.bind(this)
+                this.updateFlag = this.updateFlag
             }
+
+        updateFlag = (text) => {this.props.flag(text)}
 
         async componentDidMount()
             {
@@ -33,7 +36,7 @@ class Series extends React.Component
                                     await app.firestore().collection("series").doc(i.toString()).get().then(async (data) => {
                                         var nombre = await data.get("nombre") + " - Temporada " + data.get("temporada") + ".jpg"
                                         await app.storage().ref("Series").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                            this.setState({series: this.state.series.concat([<Serie url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
+                                            this.setState({series: this.state.series.concat([<Serie flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
                                         })
                                     })
                                 }
@@ -58,7 +61,7 @@ class Series extends React.Component
                                             await app.firestore().collection("series").doc(i.toString()).get().then(async (data) => {
                                                 var nombre = await data.get("nombre") + " - Temporada " + data.get("temporada") + ".jpg"
                                                 await app.storage().ref("Series").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                                    this.setState({series: this.state.series.concat([<Serie url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
+                                                    this.setState({series: this.state.series.concat([<Serie flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
                                                 })
                                             })
                                         }
@@ -84,7 +87,7 @@ class Series extends React.Component
                                             await app.firestore().collection("series").doc(i.toString()).get().then(async (data) => {
                                                 var nombre = await data.get("nombre") + " - Temporada " + data.get("temporada") + ".jpg"
                                                 await app.storage().ref("Series").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                                    this.setState({series: this.state.series.concat([<Serie url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
+                                                    this.setState({series: this.state.series.concat([<Serie flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} temporada={data.get("temporada")} />])})
                                                 })
                                             })
                                         }
