@@ -1,5 +1,6 @@
 import React from 'react'
 import './pelicula.css'
+import firebase from 'firebase'
 
 class Info_Pelicula extends React.Component
     {
