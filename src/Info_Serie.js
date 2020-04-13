@@ -7,7 +7,7 @@ class Info_Serie extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", seriesFavoritas: 0}
+                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", seriesFavoritas: 0, serie: ""}
                 this.handleFavoritos = this.handleFavoritos.bind(this)
             }
 
@@ -58,19 +58,33 @@ class Info_Serie extends React.Component
                 else
                     {
                         app.firestore().collection("usuarios").get().then((data) => {
-                            data.forEach((doc) => {
+                            data.forEach(async (doc) => {
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
-                                        doc.ref.collection("seriesFavoritas").get().then((data2) => {
+                                        await doc.ref.collection("seriesFavoritas").get().then((data2) => {
                                             data2.forEach((doc2) => {
                                                 var nombref = doc2.get("nombre")
                                                 var temporadaf = doc2.get("temporada")
                                                 if(this.props.nombre==nombref && this.props.temporada==temporadaf)
                                                     {
+                                                        this.setState({serie: doc2.id})
                                                         doc2.ref.delete()
                                                         alert("¡Esta serie se ha eliminado de tus series favoritas!")
                                                         this.setState({favorita: 0, mensajeBoton: "Añadir a favoritass"})
+                                                    }
+                                            })
+                                        })
+                                        await doc.ref.collection("seriesFavoritas").get().then((data2) => {
+                                            data2.forEach(async (doc2) => {
+                                                if(parseInt(doc2.id)>parseInt(this.state.serie))
+                                                    {
+                                                        var nombre = doc2.get("nombre")
+                                                        var temporada = doc2.get("temporada")
+                                                        var url = doc2.get("url")
+                                                        var id = parseInt(doc2.id) - 1
+                                                        await doc2.ref.delete()
+                                                        await doc.ref.collection("seriesFavoritas").doc(id.toString()).set({nombre: nombre, temporada: temporada, url: url})
                                                     }
                                             })
                                         })
