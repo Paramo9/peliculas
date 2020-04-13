@@ -97,6 +97,26 @@ class Peliculas extends React.Component
                     }
             }
 
+        showBotones = (pagina) => {
+            let botones = []
+            botones.push()
+            if(this.state.maxPaginas!=1)
+                {
+                    if(this.state.maxPaginas==2)
+                        {
+                            if(pagina==this.state.pagina)
+                                {
+                                    botones.push(<span>&lt;&lt;</span>)
+                                }
+                            else
+                                {
+                                    botones.push(<span>&gt;&gt;</span>)
+                                }
+                        }
+                }
+            return botones
+        }
+
         render()
             {
                 return(
@@ -107,8 +127,7 @@ class Peliculas extends React.Component
                             <div className="clear"></div>
                             <br />
                             <div className="botones">
-                                <span className="izquierdo" onClick={this.anterior}>Anterior</span>
-                                <span className="derecho" onClick={this.siguiente}>Siguiente</span>
+                                {this.showBotones(this.state.pagina)}
                             </div>
                         </div>
                     </div>
