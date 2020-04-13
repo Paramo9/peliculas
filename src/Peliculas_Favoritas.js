@@ -21,7 +21,7 @@ class Peliculas_Favoritas extends React.Component
                 this.setState({listo: 0})
                 var app = firebase.app("firestore")
                 await app.firestore().collection("usuarios").get().then(async (data) => {
-                    data.forEach((doc) => {
+                    data.forEach(async (doc) => {
                         var emailf = doc.get("email")
                         if(localStorage.get("email")==emailf)
                             {
