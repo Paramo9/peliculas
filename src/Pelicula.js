@@ -12,8 +12,8 @@ class Pelicula extends React.Component
         handleClick(event)
             {
                 event.preventDefault();
-                alert("lol2")
-                this.props.borrar(1)
+                alert("lol1")
+                this.props.flag2(1)
             }
 
         render()
