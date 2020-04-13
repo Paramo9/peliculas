@@ -3,6 +3,28 @@ import './pelicula.css'
 
 class Info_Pelicula extends React.Component
     {
+        constructor(props)
+            {
+                super(props)
+                this.hanldeFavoritos = this.hanldeFavoritos.bind(this)
+            }
+
+        hanldeFavoritos(event)
+            {
+                event.preventDefault();
+                var app = firebase.app("firestore")
+                app.firestore().collection('usuarios').get().then((data) => {
+                    data.forEach((doc) => {
+                        var emailf = doc.get("email")
+                        if(localStorage.getItem("email") == emailf)
+                            {
+                                doc.ref.collection("peliculasFavoritas").add({nombre: this.props.nombre, fecha: this.props.fecha, url: this.props.url})
+                                alert("¡Esta película se ha añadido a tus películas favoritas!")
+                            }
+                    })
+                })
+            }
+
         render()
             {
                 return(
@@ -13,7 +35,7 @@ class Info_Pelicula extends React.Component
                         </div>
                         <br />
                         <div align="center">
-                            <input type="button" value="Añadir a Favoritos" />
+                            <input type="button" value="Añadir a Favoritos" onClick={this.hanldeFavoritos} />
                         </div>
                     </div>
                 )
