@@ -25,8 +25,8 @@ class Serie extends React.Component
                 return(
                     <div className="pelicula" align="center">
                         <div className="poster" align="center">
-                            <img src={this.props.url} />
-                            <h2>{this.props.nombre} - Temporada {this.props.temporada}</h2>
+                            <img src={this.props.url} onClick={this.handleClick} />
+                            <h2 onClick={this.handleClick}>{this.props.nombre} - Temporada {this.props.temporada}</h2>
                         </div>
                     </div>
                 )
