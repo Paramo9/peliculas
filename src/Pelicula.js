@@ -3,13 +3,26 @@ import './pelicula.css'
 
 class Pelicula extends React.Component
     {
+        constructor(props)
+            {
+                super(props)
+                this.handleClick = this.handleClick.bind(this)
+            }
+        
+        handleClick(event)
+            {
+                event.preventDefault();
+                alert("lol")
+                this.props.borrar(1)
+            }
+
         render()
             {
                 return(
                     <div className="pelicula" align="center">
                         <div className="poster" align="center">
-                            <img src={this.props.url} />
-                            <h2>{this.props.nombre} - {this.props.fecha} ({this.props.borrar})</h2>
+                            <img src={this.props.url} onClick={this.handleClick} />
+                            <h2 onClick={this.handleClick}>{this.props.nombre} - {this.props.fecha}</h2>
                         </div>
                     </div>
                 )
