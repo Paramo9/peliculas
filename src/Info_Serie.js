@@ -9,7 +9,7 @@ class Info_Serie extends React.Component
                     <div>
                         <h1 align="center">{this.props.nombre} - Temporada - {this.props.temporada}</h1><br /><br />
                         <div align="center" className="principal">
-                            <img src={this.props.url} width="25%" />
+                            <img src={this.props.url}/>
                         </div>
                     </div>
                 )
