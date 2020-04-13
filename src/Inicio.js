@@ -13,7 +13,7 @@ class Inicio extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false, infoPelicula = 0}
+                this.state = {r1: false, r2: false, infoPelicula: 0}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
