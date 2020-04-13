@@ -14,8 +14,9 @@ class Pelicula extends React.Component
         handleClick(event)
             {
                 event.preventDefault();
+                alert("entra")
                 localStorage.setItem("infoPelicula", "1")
-                this.setState({r1: true})
+                this.forceUpdate()
             }
 
         render()
