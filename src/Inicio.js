@@ -13,7 +13,7 @@ class Inicio extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {r1: false, r2: false}
+                this.state = {r1: false, r2: false, borrar: 0}
                 this.handleCerrarSesion = this.handleCerrarSesion.bind(this)
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
@@ -119,7 +119,7 @@ class Inicio extends React.Component
                                         </ul>
                                     </nav>
                                 </header>
-                                <Peliculas />
+                                <Peliculas borrar={this.state.borrar} />
                             </div>
                         )
                     }
