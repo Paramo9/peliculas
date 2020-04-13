@@ -9,8 +9,8 @@ class Peliculas_Favoritas extends React.Component
             {
                 super(props)
                 this.state = {pagina: localStorage.getItem("paginaPeliculasFavoritas"), peliculas: [], maxPaginas: 0, listo: 0}
-                this.anterior = this.anterior.bind(this)
-                this.siguiente = this.siguiente.bind(this)
+                //this.anterior = this.anterior.bind(this)
+                //this.siguiente = this.siguiente.bind(this)
                 this.updateFlag = this.updateFlag
             }
 

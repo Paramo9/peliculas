@@ -7,7 +7,7 @@ class Info_Serie extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas"}
+                this.state = {favorita: 0, mensajeBoton: "Añadir a favoritas", seriesFavoritas: 0}
                 this.handleFavoritos = this.handleFavoritos.bind(this)
             }
 
@@ -40,12 +40,15 @@ class Info_Serie extends React.Component
                 var app = firebase.app("firestore")
                 if(this.state.favorita==0)
                     {
-                        app.firestore().collection('usuarios').get().then((data) => {
-                            data.forEach((doc) => {
+                        app.firestore().collection('usuarios').get().then(async (data) => {
+                            data.forEach(async (doc) => {
                                 var emailf = doc.get("email")
                                 if(localStorage.getItem("email") == emailf)
                                     {
-                                        doc.ref.collection("seriesFavoritas").add({nombre: this.props.nombre, temporada: this.props.temporada, url: this.props.url})
+                                        await doc.ref.collection("peliculasFavoritas").get().then((data2) => {
+                                            this.setState({seriesFavoritas: data2.size})
+                                        })
+                                        await doc.ref.collection("seriesFavoritas").doc((+this.state.seriesFavoritas + 1).toString()).set({nombre: this.props.nombre, temporada: this.props.temporada, url: this.props.url})
                                         alert("¡Esta serie se ha añadido a tus series favoritas!")
                                         this.setState({favorita: 1, mensajeBoton: "Eliminar de favoritas"})
                                     }
