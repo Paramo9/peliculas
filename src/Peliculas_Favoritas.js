@@ -8,7 +8,7 @@ class Peliculas_Favoritas extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: localStorage.getItem("paginaPeliculasFavoritas"), peliculas: [], maxPaginas: 0, listo: 0}
+                this.state = {pagina: localStorage.getItem("paginaPeliculasFavoritas"), peliculas: [], maxPaginas: 0, listo: 0, botones: []}
                 //this.anterior = this.anterior.bind(this)
                 //this.siguiente = this.siguiente.bind(this)
                 this.updateFlag = this.updateFlag
@@ -50,6 +50,25 @@ class Peliculas_Favoritas extends React.Component
                 this.setState({listo: 1})
             }
 
+        showBotones = (pagina) => {
+            let botones = []
+            botones.push()
+            if(this.state.maxPaginas!=1)
+                {
+                    if(this.state.maxPaginas==2)
+                        {
+                            if(pagina==this.state.pagina)
+                                {
+                                    botones.push(<span>&lt;&lt;</span>)
+                                }
+                            else
+                                {
+                                    botones.push(<span>&gt;&gt;</span>)
+                                }
+                        }
+                }
+        }
+
         render()
             {
                 return(
@@ -59,6 +78,9 @@ class Peliculas_Favoritas extends React.Component
                             {this.state.peliculas}
                             <div className="clear"></div>
                             <br />
+                            <div className="botones">
+                                {this.showBotones(this.state.pagina)}
+                            </div>
                         </div>
                     </div>
                 )
