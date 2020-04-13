@@ -19,7 +19,7 @@ class Inicio extends React.Component
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
                 this.handleFavoritas = this.handleFavoritas.bind(this)
-                this.updateFlag = this.updateFlag.bind(this)
+                this.updateFlag = this.updateFlag
             }
 
         updateFlag = (text) => {
@@ -110,7 +110,7 @@ class Inicio extends React.Component
                     {
                         return(
                             <div>
-                                <h1 align="center">El Club de la Películasss</h1>
+                                <h1 align="center">El Club de la Película</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
                                     <input type="checkbox" id="btn-menu" />
