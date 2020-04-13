@@ -19,9 +19,10 @@ class Inicio extends React.Component
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
-                this.handleFavoritas = this.handleFavoritas.bind(this)
                 this.updateFlagPelicula = this.updateFlagPelicula
                 this.updateFlagSerie = this.updateFlagSerie
+                this.handlePeliculasFavoritas = this.handlePeliculasFavoritas.bind(this)
+                this.handleSeriesFavoritas = this.handleSeriesFavoritas.bind(this)
             }
 
         updateFlagPelicula = (text) => {
@@ -54,6 +55,8 @@ class Inicio extends React.Component
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
                 localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
+                localStorage.setItem("seriesFavoritas", "0")
                 this.forceUpdate()
             }
 
@@ -66,6 +69,8 @@ class Inicio extends React.Component
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
                 localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
+                localStorage.setItem("seriesFavoritas", "0")
                 this.forceUpdate()
             }
 
@@ -78,17 +83,36 @@ class Inicio extends React.Component
                 localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
                 localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
+                localStorage.setItem("seriesFavoritas", "0")
                 this.forceUpdate()
             }
-        handleFavoritas(event)
+
+        handlePeliculasFavoritas(event)
             {
                 event.preventDefault();
                 localStorage.setItem("mi_perfil", "0")
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
-                localStorage.setItem("favoritas", "1")
+                localStorage.setItem("favoritas", "0")
                 localStorage.setItem("infoPelicula", "0")
                 localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "1")
+                localStorage.setItem("seriesFavoritas", "0")
+                this.forceUpdate()
+            }
+
+        handleSeriesFavoritas(event)
+            {
+                event.preventDefault();
+                localStorage.setItem("mi_perfil", "0")
+                localStorage.setItem("peliculas", "0")
+                localStorage.setItem("series", "0")
+                localStorage.setItem("favoritas", "0")
+                localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
+                localStorage.setItem("seriesFavoritas", "1")
                 this.forceUpdate()
             }
 
@@ -110,8 +134,9 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
@@ -133,14 +158,39 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
                                     </nav>
                                 </header>
                                 <Peliculas flag={this.updateFlagPelicula} />
+                            </div>
+                        )
+                    }
+                else if(localStorage.getItem("peliculasFavoritas") == "1")
+                    {
+                        return(
+                            <div>
+                                <h1 align="center">El Club de la Película</h1>
+                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                <header>
+                                    <input type="checkbox" id="btn-menu" />
+                                    <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
+                                    <nav className="menu">
+                                        <ul>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                            <li onClick={this.handleSeries}>Series</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                        </ul>
+                                    </nav>
+                                </header>
+                                Peliculas Favoritas
                             </div>
                         )
                     }
@@ -156,8 +206,9 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
@@ -167,7 +218,7 @@ class Inicio extends React.Component
                             </div>
                         )
                     }
-                else if(localStorage.getItem("favoritas") == "1")
+                else if(localStorage.getItem("seriesFavoritas") == "1")
                     {
                         return(
                             <div>
@@ -179,14 +230,15 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
                                     </nav>
                                 </header>
-                                Favoritas
+                                Series Favoritas
                             </div>
                         )
                     }
@@ -202,8 +254,9 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
@@ -225,8 +278,9 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
-                                            <li onClick={this.handleFavoritas}>Favoritas</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                             <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                             <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                         </ul>
