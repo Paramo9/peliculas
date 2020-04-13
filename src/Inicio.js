@@ -22,7 +22,7 @@ class Inicio extends React.Component
                 this.updateFlag = this.updateFlag
             }
 
-        updateFlag = (text) => {this.setState({infoPelicula: text})}
+        updateFlag = (text) => {this.setState({infoPelicula: text}); this.forceUpdate();}
 
         handleCerrarSesion(event)
             {
@@ -38,7 +38,6 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
-                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -49,7 +48,6 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "1")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "0")
-                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -60,7 +58,6 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "1")
                 localStorage.setItem("favoritas", "0")
-                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
         handleFavoritas(event)
@@ -70,7 +67,6 @@ class Inicio extends React.Component
                 localStorage.setItem("peliculas", "0")
                 localStorage.setItem("series", "0")
                 localStorage.setItem("favoritas", "1")
-                localStorage.setItem("infoPelicula", "0")
                 this.forceUpdate()
             }
 
@@ -107,7 +103,7 @@ class Inicio extends React.Component
                     {
                         return(
                             <div>
-                                <h1 align="center">El Club de la Película {this.state.infoPelicula}</h1>
+                                <h1 align="center">El Club de la Película</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
                                     <input type="checkbox" id="btn-menu" />
@@ -172,7 +168,7 @@ class Inicio extends React.Component
                             </div>
                         )
                     }
-                else if(localStorage.getItem("infoPelicula") == "1")
+                else if(this.state.infoPelicula==1)
                     {
                         return(
                             <div>

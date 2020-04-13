@@ -56,7 +56,6 @@ class Login extends React.Component
                                 localStorage.setItem("favoritas", "0")
                                 localStorage.setItem("paginaPeliculas", 1)
                                 localStorage.setItem("paginaSeries", 1)
-                                localStorage.setItem("infoPelicula", "0")
                                 this.setState({r2: true})
                             }
                     })
