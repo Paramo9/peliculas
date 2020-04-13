@@ -101,7 +101,7 @@ class Peliculas extends React.Component
             {
                 return(
                     <div>
-                        <h1 align="center">Películas {this.state.borrar}</h1>
+                        <h1 align="center">Películas</h1>
                         <div id="contenido" align="center">
                             {this.state.peliculas}
                             <div className="clear"></div>

@@ -53,7 +53,14 @@ class Peliculas_Favoritas extends React.Component
         render()
             {
                 return(
-                    <div></div>
+                    <div>
+                        <h1 align="center">Películas</h1>
+                        <div id="contenido" align="center">
+                            {this.state.peliculas}
+                            <div className="clear"></div>
+                            <br />
+                        </div>
+                    </div>
                 )
             }
     }
