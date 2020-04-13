@@ -28,9 +28,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "webpack-dev-server": "webpack-dev-server",
-    "dev": "webpack-dev-server --mode=development",
-    "prod": "webpack --mode=production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
