@@ -14,7 +14,7 @@ class Pelicula extends React.Component
             {
                 event.preventDefault();
                 localStorage.setItem("infoPelicula", "1")
-                alert("prueba")
+                alert("prueba2")
                 window.location.reload()
             }
 
