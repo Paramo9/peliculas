@@ -8,13 +8,14 @@ class Series extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {pagina: localStorage.getItem("paginaSeries"), series: [], maxPaginas: 0}
+                this.state = {pagina: localStorage.getItem("paginaSeries"), series: [], maxPaginas: 0, listo: 0}
                 this.anterior = this.anterior.bind(this)
                 this.siguiente = this.siguiente.bind(this)
             }
 
         async componentDidMount()
             {
+                this.setState({listo: 0})
                 var app = firebase.app("firestore")
                 await app.firestore().collection("series").get().then(async (data) => {
                     if(data.size%20>0)
@@ -38,13 +39,15 @@ class Series extends React.Component
                                 }
                         }
                 })
+                this.setState({listo: 1})
             }
             
         async anterior(event)
             {
                 event.preventDefault();
-                if(this.state.pagina!=1)
+                if(this.state.pagina!=1 && this.state.listo==1)
                     {
+                        this.setState({listo: 0})
                         await this.setState({series: [], pagina: +this.state.pagina - 1})
                         var app = firebase.app("firestore")
                         await app.firestore().collection("series").get().then(async (data) => {
@@ -61,14 +64,16 @@ class Series extends React.Component
                                         }
                                 }
                         })
+                        this.setState({listo: 1})
                     }
             }
 
         async siguiente(event)
             {
                 event.preventDefault();
-                if(this.state.pagina != this.state.maxPaginas)
+                if(this.state.pagina!=this.state.maxPaginas && this.state.listo==1)
                     {
+                        this.setState({listo: 0})
                         await this.setState({series: [], pagina: +this.state.pagina + 1})
                         var app = firebase.app("firestore")
                         await app.firestore().collection("series").get().then(async (data) => {
@@ -85,6 +90,7 @@ class Series extends React.Component
                                         }
                                 }
                         })
+                        this.setState({listo: 1})
                     }
             }
 
