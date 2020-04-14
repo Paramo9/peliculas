@@ -11,6 +11,7 @@ class Peliculas extends React.Component
                 this.state = {pagina: localStorage.getItem("paginaPeliculas"), peliculas: [], maxPaginas: 0, listo: 0}
                 this.anterior = this.anterior.bind(this)
                 this.siguiente = this.siguiente.bind(this)
+                this.handleClick = this.handleClick.bind(this)
                 this.updateFlag = this.updateFlag
             }
         
@@ -97,6 +98,15 @@ class Peliculas extends React.Component
                     }
             }
 
+        async handleClick(event)
+            {
+                event.preventDefault();
+                if(this.state.listo==1 && event.target.value!=this.state.pagina)
+                    {
+                        alert(event.target.value)
+                    }
+            }
+
         showBotones = (pagina) => {
             let botones = []
             botones.push()
@@ -119,7 +129,7 @@ class Peliculas extends React.Component
                                 {
                                     for(let i=1; i<=this.state.maxPaginas; i++)
                                         {
-                                            botones.push(<span>{i}</span>)
+                                            botones.push(<span value={i} onClick={this.handleClick}>{i}</span>)
                                         }
                                     botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
@@ -128,7 +138,7 @@ class Peliculas extends React.Component
                                     botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
                                     for(let i=1; i<=this.state.maxPaginas; i++)
                                         {
-                                            botones.push(<span>{i}</span>)
+                                            botones.push(<span value={i} onClick={this.handleClick}>{i}</span>)
                                         }
                                 }
                             else
@@ -136,7 +146,7 @@ class Peliculas extends React.Component
                                     botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
                                     for(let i=1; i<=this.state.maxPaginas; i++)
                                         {
-                                            botones.push(<span>{i}</span>)
+                                            botones.push(<span value={i} onClick={this.handleClick}>{i}</span>)
                                         }
                                     botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
