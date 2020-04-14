@@ -103,7 +103,7 @@ class Peliculas extends React.Component
                 event.preventDefault();
                 if(this.state.listo==1 && event.target.value!=this.state.pagina)
                     {
-                        alert(event.target.value)
+                        alert(event.target.getAttribute("value"))
                     }
             }
 
