@@ -113,6 +113,34 @@ class Peliculas extends React.Component
                                     botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
                         }
+                    else if(this.state.maxPaginas>2 && this.state.maxPaginas<10)
+                        {
+                            if(pagina==1)
+                                {
+                                    for(let i=1; i<=this.state.maxPaginas; i++)
+                                        {
+                                            botones.push(<span>{i}</span>)
+                                        }
+                                    botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
+                                }
+                            else if(pagina==this.state.maxPaginas)
+                                {
+                                    botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
+                                    for(let i=1; i<=this.state.maxPaginas; i++)
+                                        {
+                                            botones.push(<span>{i}</span>)
+                                        }
+                                }
+                            else
+                                {
+                                    botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
+                                    for(let i=1; i<=this.state.maxPaginas; i++)
+                                        {
+                                            botones.push(<span>{i}</span>)
+                                        }
+                                    botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
+                                }
+                        }
                 }
             return botones
         }
