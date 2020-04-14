@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase'
 import Pelicula from './Pelicula'
 import './pelicula.css'
+import Cargando from './Cargando'
 
 class Peliculas_Favoritas extends React.Component
     {
