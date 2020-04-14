@@ -177,6 +177,11 @@ class Series extends React.Component
                 return(
                     <div>
                         <h1 align="center">Series</h1>
+                        <div className="clear"></div>
+                        <br />
+                        <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
+                        <div className="clear"></div>
+                        <br />
                         <div id="contenido" align="center">
                             {this.state.series}
                             <div className="clear"></div>
