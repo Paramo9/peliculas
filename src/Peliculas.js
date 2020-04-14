@@ -205,7 +205,9 @@ class Peliculas extends React.Component
                         <h1 align="center">Películas</h1>
                         <div className="clear"></div>
                         <br />
-                        {this.showPage(this.state.listo)}
+                        <div>
+                            {this.showPage(this.state.listo)}
+                        </div>
                     </div>
                 )
             }
