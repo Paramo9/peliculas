@@ -216,24 +216,50 @@ class Peliculas_Favoritas extends React.Component
             return botones
         }
 
+        
+
+        showPage = (estado) => {
+            if(estado==0)
+                {
+                    return(
+                        <div>
+                            <h1 align="center">Películas Favoritas</h1>
+                            <div className="clear"></div>
+                            <br />
+                            <div>
+                                <Cargando />
+                            </div>
+                        </div>
+                    )
+                }
+            else
+                {
+                    return(
+                        <div>
+                            <h1 align="center">Películas Favoritas</h1>
+                            <div className="clear"></div>
+                            <br />
+                            <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
+                            <div className="clear"></div>
+                            <br />
+                            <div id="contenido" align="center">
+                                {this.state.peliculas}
+                                <div className="clear"></div>
+                                <br />
+                                <div className="botones">
+                                    {this.showBotones(this.state.pagina)}
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+        }
+
         render()
             {
                 return(
                     <div>
-                        <h1 align="center">Películas Favoritas</h1>
-                        <div className="clear"></div>
-                        <br />
-                        <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
-                        <div className="clear"></div>
-                        <br />
-                        <div id="contenido" align="center">
-                            {this.state.peliculas}
-                            <div className="clear"></div>
-                            <br />
-                            <div className="botones">
-                                {this.showBotones(this.state.pagina)}
-                            </div>
-                        </div>
+                        {this.showPage(this.state.listo)}
                     </div>
                 )
             }
