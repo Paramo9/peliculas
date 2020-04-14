@@ -176,12 +176,24 @@ class Peliculas extends React.Component
         showPage = (estado) => {
             if(estado==0)
                 {
-                    return <Cargando />
+                    return(
+                        <div>
+                            <h1 align="center">Películas</h1>
+                            <div className="clear"></div>
+                            <br />
+                            <div>
+                                <Cargando />
+                            </div>
+                        </div>
+                    )
                 }
             else
                 {
                     return(
                         <div>
+                            <h1 align="center">Películas</h1>
+                            <div className="clear"></div>
+                            <br />
                             <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
                             <div className="clear"></div>
                             <br />
@@ -202,12 +214,7 @@ class Peliculas extends React.Component
             {
                 return(
                     <div>
-                        <h1 align="center">Películas</h1>
-                        <div className="clear"></div>
-                        <br />
-                        <div>
-                            {this.showPage(this.state.listo)}
-                        </div>
+                        {this.showPage(this.state.listo)}
                     </div>
                 )
             }
