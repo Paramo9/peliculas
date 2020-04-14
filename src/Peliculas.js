@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from 'firebase'
 import Pelicula from './Pelicula'
 import './pelicula.css'
+import Cargando from './Cargando'
 
 class Peliculas extends React.Component
     {
@@ -172,6 +173,31 @@ class Peliculas extends React.Component
             return botones
         }
 
+        showPage = (estado) => {
+            if(estado==0)
+                {
+                    return <Cargando />
+                }
+            else
+                {
+                    return(
+                        <div>
+                            <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
+                            <div className="clear"></div>
+                            <br />
+                            <div id="contenido" align="center">
+                                {this.state.peliculas}
+                                <div className="clear"></div>
+                                <br />
+                                <div className="botones">
+                                    {this.showBotones(this.state.pagina)}
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+        }
+
         render()
             {
                 return(
@@ -179,17 +205,7 @@ class Peliculas extends React.Component
                         <h1 align="center">Películas</h1>
                         <div className="clear"></div>
                         <br />
-                        <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
-                        <div className="clear"></div>
-                        <br />
-                        <div id="contenido" align="center">
-                            {this.state.peliculas}
-                            <div className="clear"></div>
-                            <br />
-                            <div className="botones">
-                                {this.showBotones(this.state.pagina)}
-                            </div>
-                        </div>
+                        {this.showPage(this.state.listo)}
                     </div>
                 )
             }
