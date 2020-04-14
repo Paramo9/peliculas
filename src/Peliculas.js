@@ -101,9 +101,26 @@ class Peliculas extends React.Component
         async handleClick(event)
             {
                 event.preventDefault();
-                if(this.state.listo==1 && event.target.value!=this.state.pagina)
+                if(this.state.listo==1 && parseInt(event.target.getAttribute("value"))!=this.state.pagina)
                     {
-                        alert(event.target.getAttribute("value"))
+                        this.setState({listo: 0})
+                        this.setState({peliculas: [], pagina: parseInt(event.target.getAttribute("value"))})
+                        var app = firebase.app("firestore")
+                        await app.firestore().collection("peliculas").get().then(async (data) => {
+                            for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+                                {
+                                    if(i>0)
+                                        {
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
+                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
+                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
+                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
+                                                })
+                                            })
+                                        }
+                                }
+                        })
+                        this.setState({listo: 1})
                     }
             }
 
