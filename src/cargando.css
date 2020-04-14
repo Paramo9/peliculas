@@ -1,7 +1,6 @@
 .ring
     {
-        position: relative;
-        top: 50%;
+        position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 150px;
@@ -23,7 +22,7 @@
 .ring:before
     {
         content: '';
-        position: relative;
+        position: absolute;
         top: -3px;
         left: -3px;
         width: 100%;
