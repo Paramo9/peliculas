@@ -106,11 +106,11 @@ class Peliculas extends React.Component
                         {
                             if(pagina==this.state.maxPaginas)
                                 {
-                                    botones.push(<span>&lt;&lt;</span>)
+                                    botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
                                 }
                             else
                                 {
-                                    botones.push(<span>&gt;&gt;</span>)
+                                    botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
                         }
                 }
