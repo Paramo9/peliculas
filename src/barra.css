@@ -12,7 +12,7 @@ ul, ol {
     float:left;
 }
 
-.nav li a {
+.nav li{
     background-color:#4A94AB;
     color:#fff;
     text-decoration:none;
@@ -20,7 +20,7 @@ ul, ol {
     display:block;
 }
 
-.nav li a:hover {
+.nav li:hover {
     background-color:rgba(0, 0, 0, 0.3);
 }
 
