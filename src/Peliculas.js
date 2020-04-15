@@ -31,17 +31,12 @@ class Peliculas extends React.Component
                         {
                             this.setState({maxPaginas: data.size/20})
                         }
-                    for(let i=1; i<=81; i++)
-                    //for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
+                    for(let i = data.size-(20*(this.state.pagina - 1)); i>data.size-(20*(this.state.pagina - 1))-20; i--)
                         {
                             if(i>0)
                                 {
                                     await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data2) => {
-                                        var nombre = await data2.get("nombre") + " - " + data2.get("fecha") + ".jpg"
-                                        await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                            await app.firestore().collection("peliculas").doc(i.toString()).set({nombre: data2.get("nombre"), fecha: data2.get("fecha"), url: datos})
-                                            this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={datos} nombre={data2.get("nombre")} fecha={data2.get("fecha")} />])})
-                                        })
+                                        this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={data2.get("url")} nombre={data2.get("nombre")} fecha={data2.get("fecha")} />])})
                                     })
                                 }
                         }
@@ -62,11 +57,8 @@ class Peliculas extends React.Component
                                 {
                                     if(i>0)
                                         {
-                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
-                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
-                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
-                                                })
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data2) => {
+                                                this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={data2.get("url")} nombre={data2.get("nombre")} fecha={data2.get("fecha")} />])})
                                             })
                                         }
                                 }
@@ -88,11 +80,8 @@ class Peliculas extends React.Component
                                 {
                                     if(i>0)
                                         {
-                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
-                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
-                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
-                                                })
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data2) => {
+                                                this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={data2.get("url")} nombre={data2.get("nombre")} fecha={data2.get("fecha")} />])})
                                             })
                                         }
                                 }
@@ -114,11 +103,8 @@ class Peliculas extends React.Component
                                 {
                                     if(i>0)
                                         {
-                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data) => {
-                                                var nombre = await data.get("nombre") + " - " + data.get("fecha") + ".jpg"
-                                                await app.storage().ref("Portadas").child(nombre.toString()).getDownloadURL().then(async (datos) => {
-                                                    this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={datos} nombre={data.get("nombre")} fecha={data.get("fecha")} />])})
-                                                })
+                                            await app.firestore().collection("peliculas").doc(i.toString()).get().then(async (data2) => {
+                                                this.setState({peliculas: this.state.peliculas.concat([<Pelicula flag2={this.updateFlag} url={data2.get("url")} nombre={data2.get("nombre")} fecha={data2.get("fecha")} />])})
                                             })
                                         }
                                 }
