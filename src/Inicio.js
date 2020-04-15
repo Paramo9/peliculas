@@ -139,7 +139,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -169,7 +169,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -199,7 +199,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -229,7 +229,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -259,7 +259,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -289,7 +289,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
@@ -319,7 +319,7 @@ class Inicio extends React.Component
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
-                                            <li onClick={this.handleSeries}>
+                                            <li>
                                                 <label onClick={this.handleSeries}>Series</label>
                                                 <ul>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
