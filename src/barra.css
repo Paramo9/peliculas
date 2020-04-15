@@ -51,6 +51,13 @@ header
 .menu li ul li
     {
         position: relative;
+        text-align: center;
+        flex-grow: 1;
+        display: block;
+        padding: 15px 20px;
+        color: #fff;
+        text-decoration: none;
+        background: #4A94AB;
     }
 
 .menu li ul li ul
