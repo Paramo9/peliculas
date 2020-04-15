@@ -42,7 +42,10 @@ header
 
 .menu li:hover > ul
     {
-        display: block;
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        display: flex;
     }
 
 .menu li ul li
