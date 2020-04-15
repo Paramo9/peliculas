@@ -31,6 +31,7 @@ header
     {
         cursor: pointer;
         background: rgba(0, 0, 0, 0.3);
+        min-width: 140px;
     }
 
 .menu li ul
@@ -58,4 +59,10 @@ header
         color: #fff;
         text-decoration: none;
         background: #4A94AB;
+    }
+
+.menu li ul li ul
+    {
+        right:-140px;
+        top:0px;
     }
