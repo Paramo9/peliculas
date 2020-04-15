@@ -154,28 +154,20 @@ class Inicio extends React.Component
                             <div>
                                 <h1 align="center">El Club de la Película</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <div id="header">
-                                    <ul className="nav">
-                                        <li>
-                                            Películas
-                                            <ul>
-                                                <li>Películas Favoritas</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Series
-                                            <ul>
-                                                <li>Series Favoritas</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Mi Perfil
-                                            <ul>
-                                                <li>Cerrar Sesión</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <header>
+                                    <input type="checkbox" id="btn-menu" />
+                                    <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
+                                    <nav className="menu">
+                                        <ul>
+                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                            <li onClick={this.handleSeries}>Series</li>
+                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                        </ul>
+                                    </nav>
+                                </header>
                                 <Peliculas flag={this.updateFlagPelicula} />
                             </div>
                         )
