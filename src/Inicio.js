@@ -176,7 +176,7 @@ class Inicio extends React.Component
                                         </li>
                                     </ul>
                                 </div>
-                                <Peliculasl flag={this.updateFlagPelicula} />
+                                <Peliculas flag={this.updateFlagPelicula} />
                             </div>
                         )
                     }
