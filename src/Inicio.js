@@ -124,229 +124,466 @@ class Inicio extends React.Component
                     {
                         return <Redirect to={"/peliculas/login"} />
                     }
-                if(localStorage.getItem("mi_perfil") == "1")
+                if(localStorage.getItem("nivel") == "usuario")
                     {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
+                        if(localStorage.getItem("mi_perfil") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                Series
+                                            </nav>
+                                        </header>
+                                        <Mi_Perfil />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("peliculas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Mi_Perfil />
-                            </div>
-                        )
+                                            </nav>
+                                        </header>
+                                        <Peliculas flag={this.updateFlagPelicula} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("peliculasFavoritas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        <Peliculas_Favoritas flag={this.updateFlagPelicula} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("series") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        <Series flag={this.updateFlagSerie} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("seriesFavoritas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        < Series_Favoritas flag={this.updateFlagSerie} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("infoPelicula") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        <Info_Pelicula nombre={localStorage.getItem("pelicula")} url={localStorage.getItem("url")} fecha={localStorage.getItem("fecha")} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("infoSerie") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        <Info_Serie nombre={localStorage.getItem("serie")} url={localStorage.getItem("url")} temporada={localStorage.getItem("temporada")} />
+                                    </div>
+                                )
+                            }
                     }
-                else if(localStorage.getItem("peliculas") == "1")
+                else if(localStorage.getItem("nivel") == "administrador")
                     {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
+                        if(localStorage.getItem("mi_perfil") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                Series
+                                            </nav>
+                                        </header>
+                                        <Mi_Perfil />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("peliculas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Peliculas flag={this.updateFlagPelicula} />
-                            </div>
-                        )
-                    }
-                else if(localStorage.getItem("peliculasFavoritas") == "1")
-                    {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
+                                            </nav>
+                                        </header>
+                                        <Peliculas flag={this.updateFlagPelicula} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("peliculasFavoritas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                Series
+                                            </nav>
+                                        </header>
+                                        <Peliculas_Favoritas flag={this.updateFlagPelicula} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("series") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Peliculas_Favoritas flag={this.updateFlagPelicula} />
-                            </div>
-                        )
-                    }
-                else if(localStorage.getItem("series") == "1")
-                    {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
+                                            </nav>
+                                        </header>
+                                        <Series flag={this.updateFlagSerie} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("seriesFavoritas") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                Series
+                                            </nav>
+                                        </header>
+                                        < Series_Favoritas flag={this.updateFlagSerie} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("infoPelicula") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Series flag={this.updateFlagSerie} />
-                            </div>
-                        )
-                    }
-                else if(localStorage.getItem("seriesFavoritas") == "1")
-                    {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
+                                            </nav>
+                                        </header>
+                                        <Info_Pelicula nombre={localStorage.getItem("pelicula")} url={localStorage.getItem("url")} fecha={localStorage.getItem("fecha")} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("infoSerie") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
                                                 <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
-                                            </li>
-                                            <li>
-                                                Series
-                                                <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
-                                                </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                < Series_Favoritas flag={this.updateFlagSerie} />
-                            </div>
-                        )
-                    }
-                else if(localStorage.getItem("infoPelicula") == "1")
-                    {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
-                                                <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                Series
-                                                <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
-                                                </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Info_Pelicula nombre={localStorage.getItem("pelicula")} url={localStorage.getItem("url")} fecha={localStorage.getItem("fecha")} />
-                            </div>
-                        )
-                    }
-                else if(localStorage.getItem("infoSerie") == "1")
-                    {
-                        return(
-                            <div>
-                                <h1 align="center">El Club de la Película</h1>
-                                <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
-                                <header>
-                                    <nav className="menu">
-                                        <ul>
-                                            <li>
-                                                Películas
-                                                <ul>
-                                                    <li onClick={this.handlePeliculas}>Películas</li>
-                                                    <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                Series
-                                                <ul>
-                                                    <li onClick={this.handleSeries}>Series</li>
-                                                    <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
-                                                </ul>
-                                            </li>
-                                            <li onClick={this.handleMiPerfil}>Mi Perfil</li>
-                                            <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
-                                        </ul>
-                                    </nav>
-                                </header>
-                                <Info_Serie nombre={localStorage.getItem("serie")} url={localStorage.getItem("url")} temporada={localStorage.getItem("temporada")} />
-                            </div>
-                        )
+                                            </nav>
+                                        </header>
+                                        <Info_Serie nombre={localStorage.getItem("serie")} url={localStorage.getItem("url")} temporada={localStorage.getItem("temporada")} />
+                                    </div>
+                                )
+                            }
                     }
             }
     }
