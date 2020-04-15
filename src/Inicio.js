@@ -134,14 +134,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -164,14 +166,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -194,14 +198,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -224,14 +230,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -254,14 +262,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -284,14 +294,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
@@ -314,14 +326,16 @@ class Inicio extends React.Component
                                     <nav className="menu">
                                         <ul>
                                             <li>
-                                                <label onClick={this.handlePeliculas}>Películas</label>
+                                                Películas
                                                 <ul>
+                                                    <li onClick={this.handlePeliculas}>Películas</li>
                                                     <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <label onClick={this.handleSeries}>Series</label>
+                                                Series
                                                 <ul>
+                                                    <li onClick={this.handleSeries}>Series</li>
                                                     <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                 </ul>
                                             </li>
