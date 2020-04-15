@@ -155,8 +155,6 @@ class Inicio extends React.Component
                                 <h1 align="center">El Club de la Película</h1>
                                 <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
                                 <header>
-                                    <input type="checkbox" id="btn-menu" />
-                                    <label htmlFor="btn-menu"><img src={imagenMenu} width="30px" height="30px" alt="" /></label>
                                     <nav className="menu">
                                         <ul>
                                             <li onClick={this.handlePeliculas}>Películas</li>
