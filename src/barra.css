@@ -3,87 +3,46 @@ body
         margin: 0;
     }
 
-header
+#header
     {
         width: 100%;
         background: #4A94AB;
     }
 
-#btn-menu
-    {
-        display: none;
-
-    }
-
-header label
-    {
-        display: none;
-        width: 50px;
-        height: 50px;
-        padding: 10px;
-        border-right: 1px solid #fff;
-    }
-
-header label:hover
-    {
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.3);
-
-    }
-
-.menu ul
-    {
-        margin: 0;
-        list-style: none;
-        padding: 0;
-        display: flex;
-    }
-
-.menu li
-    {
-        text-align: center;
-        flex-grow: 1;
-        display: block;
-        padding: 15px 20px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-.menu li:hover
-    {
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.3);
+    ul, ol {
+        list-style:none;
     }
     
-@media (max-width: 768px)
-    {
-        header label
-            {
-                display: block;
-            }
-
-        .menu
-            {
-                position: absolute;
-                background: #4A94AB;
-                width: 70%;
-                margin-left: -70%;
-                transition: all 0.5s;
-            }
-        
-        .menu ul
-            {
-                flex-direction: column;
-            }
-        
-        .menu li
-            {
-                border-top: 1px solid #fff;
-
-            }
-
-        #btn-menu:checked ~ .menu
-            {
-                margin: 0;
-            }
+    .nav > li {
+        float:left;
+    }
+    
+    .nav li a {
+        color:#fff;
+        text-decoration:none;
+        padding:10px 12px;
+        display:block;
+    }
+    
+    .nav li a:hover {
+        cursor: pointer;
+    }
+    
+    .nav li ul {
+        display:none;
+        position:absolute;
+        min-width:140px;
+    }
+    
+    .nav li:hover > ul {
+        display:block;
+    }
+    
+    .nav li ul li {
+        position:relative;
+    }
+    
+    .nav li ul li ul {
+        right:-140px;
+        top:0px;
     }
