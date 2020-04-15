@@ -157,7 +157,7 @@ class Inicio extends React.Component
                                 <header>
                                     <nav className="menu">
                                         <ul>
-                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                            <li onClick={this.handlePeliculas}>Películas<ul><li>Películas Favoritas</li></ul></li>
                                             <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
                                             <li onClick={this.handleSeries}>Series</li>
                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
