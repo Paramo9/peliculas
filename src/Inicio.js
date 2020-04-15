@@ -10,6 +10,7 @@ import Info_Pelicula from './Info_Pelicula'
 import Info_Serie from './Info_Serie'
 import Peliculas_Favoritas from './Peliculas_Favoritas'
 import Series_Favoritas from './Series_Favoritas'
+import Subir from './Subir'
 
 class Inicio extends React.Component
     {
@@ -21,10 +22,11 @@ class Inicio extends React.Component
                 this.handleMiPerfil = this.handleMiPerfil.bind(this)
                 this.handlePeliculas = this.handlePeliculas.bind(this)
                 this.handleSeries = this.handleSeries.bind(this)
-                this.updateFlagPelicula = this.updateFlagPelicula
-                this.updateFlagSerie = this.updateFlagSerie
                 this.handlePeliculasFavoritas = this.handlePeliculasFavoritas.bind(this)
                 this.handleSeriesFavoritas = this.handleSeriesFavoritas.bind(this)
+                this.handleSubir = this.handleSubir.bind(this)
+                this.updateFlagPelicula = this.updateFlagPelicula
+                this.updateFlagSerie = this.updateFlagSerie
             }
 
         updateFlagPelicula = (text) => {
@@ -59,6 +61,7 @@ class Inicio extends React.Component
                 localStorage.setItem("infoSerie", "0")
                 localStorage.setItem("peliculasFavoritas", "0")
                 localStorage.setItem("seriesFavoritas", "0")
+                localStorage.setItem("subir", "0")
                 this.forceUpdate()
             }
 
@@ -73,6 +76,7 @@ class Inicio extends React.Component
                 localStorage.setItem("infoSerie", "0")
                 localStorage.setItem("peliculasFavoritas", "0")
                 localStorage.setItem("seriesFavoritas", "0")
+                localStorage.setItem("subir", "0")
                 this.forceUpdate()
             }
 
@@ -87,6 +91,7 @@ class Inicio extends React.Component
                 localStorage.setItem("infoSerie", "0")
                 localStorage.setItem("peliculasFavoritas", "0")
                 localStorage.setItem("seriesFavoritas", "0")
+                localStorage.setItem("subir", "0")
                 this.forceUpdate()
             }
 
@@ -101,6 +106,7 @@ class Inicio extends React.Component
                 localStorage.setItem("infoSerie", "0")
                 localStorage.setItem("peliculasFavoritas", "1")
                 localStorage.setItem("seriesFavoritas", "0")
+                localStorage.setItem("subir", "0")
                 this.forceUpdate()
             }
 
@@ -115,6 +121,22 @@ class Inicio extends React.Component
                 localStorage.setItem("infoSerie", "0")
                 localStorage.setItem("peliculasFavoritas", "0")
                 localStorage.setItem("seriesFavoritas", "1")
+                localStorage.setItem("subir", "0")
+                this.forceUpdate()
+            }
+
+        handleSubir(event)
+            {
+                event.preventDefault();
+                localStorage.setItem("mi_perfil", "0")
+                localStorage.setItem("peliculas", "0")
+                localStorage.setItem("series", "0")
+                localStorage.setItem("favoritas", "0")
+                localStorage.setItem("infoPelicula", "0")
+                localStorage.setItem("infoSerie", "0")
+                localStorage.setItem("peliculasFavoritas", "0")
+                localStorage.setItem("seriesFavoritas", "0")
+                localStorage.setItem("subir", "1")
                 this.forceUpdate()
             }
 
@@ -376,7 +398,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -409,7 +431,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -442,7 +464,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -475,7 +497,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -508,7 +530,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -541,7 +563,7 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
@@ -574,13 +596,46 @@ class Inicio extends React.Component
                                                             <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
                                                         </ul>
                                                     </li>
-                                                    <li>Subir</li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
                                                     <li onClick={this.handleMiPerfil}>Mi Perfil</li>
                                                     <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
                                                 </ul>
                                             </nav>
                                         </header>
                                         <Info_Serie nombre={localStorage.getItem("serie")} url={localStorage.getItem("url")} temporada={localStorage.getItem("temporada")} />
+                                    </div>
+                                )
+                            }
+                        else if(localStorage.getItem("subir") == "1")
+                            {
+                                return(
+                                    <div>
+                                        <h1 align="center">El Club de la Película</h1>
+                                        <h2 align="center">La primer regla del Club de la Película es no hablar del Club de la Película</h2>
+                                        <header>
+                                            <nav className="menu">
+                                                <ul>
+                                                    <li>
+                                                        Películas
+                                                        <ul>
+                                                            <li onClick={this.handlePeliculas}>Películas</li>
+                                                            <li onClick={this.handlePeliculasFavoritas}>Películas Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        Series
+                                                        <ul>
+                                                            <li onClick={this.handleSeries}>Series</li>
+                                                            <li onClick={this.handleSeriesFavoritas}>Series Favoritas</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li onClick={this.handleSubir}>Subir</li>
+                                                    <li onClick={this.handleMiPerfil}>Mi Perfil</li>
+                                                    <li onClick={this.handleCerrarSesion}>Cerrar Sesión</li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                        <Subir />
                                     </div>
                                 )
                             }
