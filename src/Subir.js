@@ -18,7 +18,7 @@ class Subir extends React.Component
         mostrarArchivos = (archivos) => {
             let files = []
             files.push()
-            if(archivos[0])
+            if(archivos!=null)
                 {
                     for(let i=0; i<archivos.length; i++)
                         {
