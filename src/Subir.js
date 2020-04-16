@@ -13,8 +13,20 @@ class Subir extends React.Component
         handleChange(event)
             {
                 this.setState({archivos: event.target.files})
-                alert(this.state.archivos.length)
             }
+
+        mostrarArchivos = (archivos) => {
+            let files = []
+            files.push()
+            if(archivos[0])
+                {
+                    for(let i=0; i<archivos.length; i++)
+                        {
+                            files.push(<h3 align="center">{archivs[i].name}</h3><br/>)
+                        }
+                }
+            return files
+        }
 
         render()
             {
@@ -25,6 +37,7 @@ class Subir extends React.Component
                             <div id="formContent">
                                 <h2 align="center">Subir Películas</h2>
                                 <input type="file" id="archivos" name="archivos" multiple onChange={this.handleChange} /><br /><br />
+                                {this.mostrarArchivos(this.state.archivos)}
                                 <input type="button" value="Subir Películas" /><br /><br />
                             </div>
                         </div>

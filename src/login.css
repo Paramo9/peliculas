@@ -57,13 +57,21 @@ h3
     color: #000000;
   }
 
+.wrapper h3
+  {
+    font-family: COPRGTB;
+    font-size: x-large;
+    color: #000000;
+  }
+
+
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 700px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
