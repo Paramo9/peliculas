@@ -23,7 +23,6 @@ class Subir extends React.Component
                     for(let i=0; i<archivos.length; i++)
                         {
                             files.push(<h3 align="center">{archivos[i].name}</h3>)
-                            files.push(<br />)
                         }
                 }
             return files
