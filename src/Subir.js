@@ -8,7 +8,8 @@ class Subir extends React.Component
                     <div>
                         <h1 align="center">Subir</h1><br /><br />
                         <h2 align="center">Subir Películas</h2>
-                        <div align="center"><input type="file" /></div>
+                        <label for="archivos">Elegir Archivos</label>
+                        <div align="center"><input type="file" id="archivos" name="archivos" multiple /></div>
                     </div>
                 )
             }
