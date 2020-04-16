@@ -2,6 +2,19 @@ import React from 'react'
 
 class Subir extends React.Component
     {
+
+        constructor(props)
+            {
+                super(props)
+                this.state = {archivos: null}
+                this.handleChange = this.handleChange.bind(this)
+            }
+
+        handleChange(event)
+            {
+                this.setState({archivos: event.target.files[0].name})
+            }
+
         render()
             {
                 return(
@@ -10,10 +23,11 @@ class Subir extends React.Component
                         <div className="wrapper">
                             <div id="formContent">
                                 <h2 align="center">Subir Películas</h2>
-                                <input type="file" id="archivos" name="archivos" multiple /><br /><br />
+                                <input type="file" id="archivos" name="archivos" multiple onChange={this.handleChange} /><br /><br />
                                 <input type="button" value="Subir Películas" /><br /><br />
                             </div>
                         </div>
+                        <h1>{this.state.archivos}</h1>
                     </div>
                 )
             }
