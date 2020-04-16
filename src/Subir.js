@@ -13,7 +13,7 @@ class Subir extends React.Component
         handleChange(event)
             {
                 this.setState({archivos: event.target.files})
-                alert(this.state.archivos.size)
+                alert(this.state.archivos.length)
             }
 
         render()
