@@ -1,4 +1,5 @@
 import React from 'react'
+import firebase from 'firebase'
 
 class Subir extends React.Component
     {
@@ -8,11 +9,26 @@ class Subir extends React.Component
                 super(props)
                 this.state = {archivos: null}
                 this.handleChange = this.handleChange.bind(this)
+                this.handleSubirPeliculas = this.handleSubirPeliculas.bind(this)
             }
 
         handleChange(event)
             {
                 this.setState({archivos: event.target.files})
+            }
+
+        handleSubirPeliculas(event)
+            {
+                event.preventDefault();
+                if(this.state.archivos!=null)
+                    {
+                        var app = firebase.app("firestore")
+                        for(let i=0; i<this.state.archivos.length; i++)
+                            {
+                                const lol = i
+                                alert(lol)
+                            }
+                    }
             }
 
         mostrarArchivos = (archivos) => {
@@ -38,7 +54,7 @@ class Subir extends React.Component
                                 <h2 align="center">Subir Películas</h2>
                                 <input type="file" id="archivos" name="archivos" multiple onChange={this.handleChange} /><br /><br />
                                 {this.mostrarArchivos(this.state.archivos)}
-                                <input type="button" value="Subir Películas" /><br /><br />
+                                <input type="button" value="Subir Películas" onClick={this.handleSubirPeliculas} /><br /><br />
                             </div>
                         </div>
                     </div>
