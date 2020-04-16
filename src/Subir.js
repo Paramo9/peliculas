@@ -12,7 +12,7 @@ class Subir extends React.Component
 
         handleChange(event)
             {
-                this.setState({archivos: event.target.files[0].name})
+                this.setState({archivos: event.target.files})
             }
 
         render()
@@ -27,7 +27,7 @@ class Subir extends React.Component
                                 <input type="button" value="Subir Películas" /><br /><br />
                             </div>
                         </div>
-                        <h1>{this.state.archivos}</h1>
+                        <h1 align="center">{this.state.archivos[0].name}</h1>
                     </div>
                 )
             }
