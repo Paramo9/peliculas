@@ -7,7 +7,7 @@ class Subir extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {archivos: null}
+                this.state = {archivos: null, peliculas}
                 this.handleChange = this.handleChange.bind(this)
                 this.handleSubirPeliculas = this.handleSubirPeliculas.bind(this)
             }
@@ -17,17 +17,24 @@ class Subir extends React.Component
                 this.setState({archivos: event.target.files})
             }
 
-        handleSubirPeliculas(event)
+        async handleSubirPeliculas(event)
             {
                 event.preventDefault();
                 if(this.state.archivos!=null)
                     {
-                        var app = firebase.app("firestore")
+                        alert(this.state.archivos[0].name.substring(0, +this.state.archivos[0].name.length - 11))
+                        /*var app = firebase.app("firestore")
                         for(let i=0; i<this.state.archivos.length; i++)
                             {
-                                const lol = i
-                                alert(lol)
-                            }
+                                await app.storage().ref(`Portadas/${this.state.archivos[i].name}`).put(this.state.archivos[i])
+                                await app.storage().ref("Portadas").child(this.state.archivos[i].name).getDownloadURL().then(async (data) => {
+                                    await app.firestore().collection("peliculas").get().then(async (data2) => {
+                                        this.setState({peliculas: data2.size})
+                                    })
+                                    var nombre = this.state.archivos[i].name.substring(0, +this.state.archivos[i].length - )
+                                    await app.firestore().collection("peliculas").doc((+this.state.peliculas + 1).toString()).set({nombre: })
+                                })
+                            }*/
                     }
             }
 
