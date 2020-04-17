@@ -22,7 +22,7 @@ class Subir extends React.Component
                 event.preventDefault();
                 if(this.state.archivos!=null)
                     {
-                        alert(this.state.archivos[0].name.substring(0, +this.state.archivos[0].name.length - 11))
+                        alert(this.state.archivos[0].name.substring(+this.state.archivos[0].name.length - 7, +this.state.archivos[0].name.length - 3))
                         /*var app = firebase.app("firestore")
                         for(let i=0; i<this.state.archivos.length; i++)
                             {
@@ -31,7 +31,8 @@ class Subir extends React.Component
                                     await app.firestore().collection("peliculas").get().then(async (data2) => {
                                         this.setState({peliculas: data2.size})
                                     })
-                                    var nombre = this.state.archivos[i].name.substring(0, +this.state.archivos[i].length - )
+                                    var nombre = this.state.archivos[i].name.substring(0, +this.state.archivos[0].name.length - 11)
+                                    var fecha = 
                                     await app.firestore().collection("peliculas").doc((+this.state.peliculas + 1).toString()).set({nombre: })
                                 })
                             }*/
