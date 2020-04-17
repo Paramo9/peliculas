@@ -7,7 +7,7 @@ class Subir extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {archivos: null, peliculas}
+                this.state = {archivos: null, peliculas: 0}
                 this.handleChange = this.handleChange.bind(this)
                 this.handleSubirPeliculas = this.handleSubirPeliculas.bind(this)
             }
