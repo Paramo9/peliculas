@@ -7,14 +7,21 @@ class Subir extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {archivosPeliculas: null, peliculas: 0}
+                this.state = {archivosPeliculas: null, peliculas: 0, archivosSeries: null, series: 0}
                 this.handleChangePeliculas = this.handleChangePeliculas.bind(this)
                 this.handleSubirPeliculas = this.handleSubirPeliculas.bind(this)
+                this.handleChangeSeries = this.handleChangeSeries.bind(this)
+                this.handleSubirSeries = this.handleSubirSeries.bind(this)
             }
 
         handleChangePeliculas(event)
             {
                 this.setState({archivosPeliculas: event.target.files})
+            }
+
+        handleChangeSeries(event)
+            {
+                this.setState({archivosSeries: event.target.files})
             }
 
         async handleSubirPeliculas(event)
@@ -48,6 +55,37 @@ class Subir extends React.Component
                     }
             }
 
+        async handleSubirSeries(event)
+            {
+                event.preventDefault();
+                if(this.state.archivosSeries!=null)
+                    {
+                        var app = firebase.app("firestore")
+                        for(let i=0; i<this.state.archivosSeries.length; i++)
+                            {
+                                await app.storage().ref(`Series/${this.state.archivosSeries[i].name}`).put(this.state.archivosSeries[i])
+                                await app.storage().ref("Series").child(this.state.archivosSeries[i].name).getDownloadURL().then(async (data) => {
+                                    await app.firestore().collection("series").get().then(async (data2) => {
+                                        this.setState({series: data2.size})
+                                    })
+                                    var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - 11)
+                                    var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
+                                    await app.firestore().collection("series").doc((+this.state.series + 1).toString()).set({nombre: nombre, temporada: temporada, url: data})
+                                })
+                            }
+                        if(this.state.archivosSeries.length==1)
+                            {
+                                alert("¡La serie se ha subido con éxito!")
+                                this.forceUpdate()
+                            }
+                        else
+                            {
+                                alert("¡Las series se han subido con éxito!")
+                                this.forceUpdate()
+                            }
+                    }
+            }
+
         mostrararchivosPeliculas = (archivosPeliculas) => {
             let files = []
             files.push()
@@ -56,6 +94,19 @@ class Subir extends React.Component
                     for(let i=0; i<archivosPeliculas.length; i++)
                         {
                             files.push(<h3 align="center">{archivosPeliculas[i].name}</h3>)
+                        }
+                }
+            return files
+        }
+
+        mostrararchivosSeries = (archivosSeries) => {
+            let files = []
+            files.push()
+            if(archivosSeries!=null)
+                {
+                    for(let i=0; i<archivosSeries.length; i++)
+                        {
+                            files.push(<h3 align="center">{archivosSeries[i].name}</h3>)
                         }
                 }
             return files
@@ -71,14 +122,15 @@ class Subir extends React.Component
                                 <h2 align="center">Subir Películas</h2>
                                 <input type="file" id="archivosPeliculas" name="archivosPeliculas" multiple onChange={this.handleChangePeliculas} /><br /><br />
                                 {this.mostrararchivosPeliculas(this.state.archivosPeliculas)}
-                                <input type="button" value="Subir Películas" onClick={this.handleSubirPeliculas} /><br /><br />
+                                <input type="button" value="Subir" onClick={this.handleSubirPeliculas} /><br /><br />
                             </div>
                         </div>
                         <div className="wrapper">
                             <div id="formContent">
                                 <h2 align="center">Subir Series</h2>
-                                <input type="file" id="archivosSeries" name="archivosSeries" multiple /><br /><br />
-                                <input type="button" value="Subir Películas" /><br /><br />
+                                <input type="file" id="archivosSeries" name="archivosSeries" multiple onChange={this.handleChangeSeries} /><br /><br />
+                                {this.mostrararchivosSeries(this.state.archivosSeries)}
+                                <input type="button" value="Subir" /><br /><br />
                             </div>
                         </div>
                     </div>
