@@ -22,8 +22,7 @@ class Subir extends React.Component
                 event.preventDefault();
                 if(this.state.archivos!=null)
                     {
-                        alert(this.state.archivos[0].name.substring(+this.state.archivos[0].name.length - 7, +this.state.archivos[0].name.length - 3))
-                        /*var app = firebase.app("firestore")
+                        var app = firebase.app("firestore")
                         for(let i=0; i<this.state.archivos.length; i++)
                             {
                                 await app.storage().ref(`Portadas/${this.state.archivos[i].name}`).put(this.state.archivos[i])
@@ -32,10 +31,18 @@ class Subir extends React.Component
                                         this.setState({peliculas: data2.size})
                                     })
                                     var nombre = this.state.archivos[i].name.substring(0, +this.state.archivos[0].name.length - 11)
-                                    var fecha = 
-                                    await app.firestore().collection("peliculas").doc((+this.state.peliculas + 1).toString()).set({nombre: })
+                                    var fecha = this.state.archivos[0].name.substring(+this.state.archivos[0].name.length - 8, +this.state.archivos[0].name.length - 4)
+                                    await app.firestore().collection("peliculas").doc((+this.state.peliculas + 1).toString()).set({nombre: nombre, fecha: fecha, url: data})
                                 })
-                            }*/
+                            }
+                        if(this.state.archivos.length==1)
+                            {
+                                alert("¡La película se ha subido con éxito!")
+                            }
+                        else
+                            {
+                                alert("¡Las películas se han subido con éxito!")
+                            }
                     }
             }
 
