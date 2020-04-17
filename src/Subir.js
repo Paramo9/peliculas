@@ -7,53 +7,55 @@ class Subir extends React.Component
         constructor(props)
             {
                 super(props)
-                this.state = {archivos: null, peliculas: 0}
-                this.handleChange = this.handleChange.bind(this)
+                this.state = {archivosPeliculas: null, peliculas: 0}
+                this.handleChangePeliculas = this.handleChangePeliculas.bind(this)
                 this.handleSubirPeliculas = this.handleSubirPeliculas.bind(this)
             }
 
-        handleChange(event)
+        handleChangePeliculas(event)
             {
-                this.setState({archivos: event.target.files})
+                this.setState({archivosPeliculas: event.target.files})
             }
 
         async handleSubirPeliculas(event)
             {
                 event.preventDefault();
-                if(this.state.archivos!=null)
+                if(this.state.archivosPeliculas!=null)
                     {
                         var app = firebase.app("firestore")
-                        for(let i=0; i<this.state.archivos.length; i++)
+                        for(let i=0; i<this.state.archivosPeliculas.length; i++)
                             {
-                                await app.storage().ref(`Portadas/${this.state.archivos[i].name}`).put(this.state.archivos[i])
-                                await app.storage().ref("Portadas").child(this.state.archivos[i].name).getDownloadURL().then(async (data) => {
+                                await app.storage().ref(`Portadas/${this.state.archivosPeliculas[i].name}`).put(this.state.archivosPeliculas[i])
+                                await app.storage().ref("Portadas").child(this.state.archivosPeliculas[i].name).getDownloadURL().then(async (data) => {
                                     await app.firestore().collection("peliculas").get().then(async (data2) => {
                                         this.setState({peliculas: data2.size})
                                     })
-                                    var nombre = await this.state.archivos[i].name.substring(0, +this.state.archivos[i].name.length - 11)
-                                    var fecha = await this.state.archivos[i].name.substring(+this.state.archivos[i].name.length - 8, +this.state.archivos[i].name.length - 4)
+                                    var nombre = await this.state.archivosPeliculas[i].name.substring(0, +this.state.archivosPeliculas[i].name.length - 11)
+                                    var fecha = await this.state.archivosPeliculas[i].name.substring(+this.state.archivosPeliculas[i].name.length - 8, +this.state.archivosPeliculas[i].name.length - 4)
                                     await app.firestore().collection("peliculas").doc((+this.state.peliculas + 1).toString()).set({nombre: nombre, fecha: fecha, url: data})
                                 })
                             }
-                        if(this.state.archivos.length==1)
+                        if(this.state.archivosPeliculas.length==1)
                             {
                                 alert("¡La película se ha subido con éxito!")
+                                this.forceUpdate()
                             }
                         else
                             {
                                 alert("¡Las películas se han subido con éxito!")
+                                this.forceUpdate()
                             }
                     }
             }
 
-        mostrarArchivos = (archivos) => {
+        mostrararchivosPeliculas = (archivosPeliculas) => {
             let files = []
             files.push()
-            if(archivos!=null)
+            if(archivosPeliculas!=null)
                 {
-                    for(let i=0; i<archivos.length; i++)
+                    for(let i=0; i<archivosPeliculas.length; i++)
                         {
-                            files.push(<h3 align="center">{archivos[i].name}</h3>)
+                            files.push(<h3 align="center">{archivosPeliculas[i].name}</h3>)
                         }
                 }
             return files
@@ -67,9 +69,16 @@ class Subir extends React.Component
                         <div className="wrapper">
                             <div id="formContent">
                                 <h2 align="center">Subir Películas</h2>
-                                <input type="file" id="archivos" name="archivos" multiple onChange={this.handleChange} /><br /><br />
-                                {this.mostrarArchivos(this.state.archivos)}
+                                <input type="file" id="archivosPeliculas" name="archivosPeliculas" multiple onChange={this.handleChangePeliculas} /><br /><br />
+                                {this.mostrararchivosPeliculas(this.state.archivosPeliculas)}
                                 <input type="button" value="Subir Películas" onClick={this.handleSubirPeliculas} /><br /><br />
+                            </div>
+                        </div>
+                        <div className="wrapper">
+                            <div id="formContent">
+                                <h2 align="center">Subir Series</h2>
+                                <input type="file" id="archivosSeries" name="archivosSeries" multiple /><br /><br />
+                                <input type="button" value="Subir Películas" /><br /><br />
                             </div>
                         </div>
                     </div>
