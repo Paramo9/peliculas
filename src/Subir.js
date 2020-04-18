@@ -68,6 +68,7 @@ class Subir extends React.Component
                                     await app.firestore().collection("series").get().then(async (data2) => {
                                         this.setState({series: data2.size})
                                     })*/
+                                    for(let i=0; i<this.state.archivosSeries.length; i++){
                                     var t = 0;
                                     for(let j=this.state.archivosSeries[i].name.length-1; j>0; j--)
                                         {
@@ -77,6 +78,7 @@ class Subir extends React.Component
                                                 }
                                         }
 
+                                    }
                                     var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t -2)
                                     alert(nombre)
                                     //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
