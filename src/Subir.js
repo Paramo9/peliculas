@@ -141,7 +141,7 @@ class Subir extends React.Component
                                 <h2 align="center">Subir Series</h2>
                                 <input type="file" id="archivosSeries" name="archivosSeries" multiple onChange={this.handleChangeSeries} /><br /><br />
                                 {this.mostrararchivosSeries(this.state.archivosSeries)}
-                                <input type="button" value="Subir" /><br /><br />
+                                <input type="button" value="Subir" onClick={this.handleSubirSeries} /><br /><br />
                             </div>
                         </div>
                     </div>
