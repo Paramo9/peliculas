@@ -78,7 +78,7 @@ class Subir extends React.Component
                                         }
                                     var nombre = await this.state.archivosSeries[i].name.substring(0, +t - 13)
                                     var temporada = await this.state.archivosSeries[i].name.substring(+t, +this.state.archivosSeries.length - 5)
-                                    alert(nombre)
+                                    alert(temporada)
                                     }
                                     //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
                                     /*await app.firestore().collection("series").doc((+this.state.series + 1).toString()).set({nombre: nombre, temporada: temporada, url: data})
