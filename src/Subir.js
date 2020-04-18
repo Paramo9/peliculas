@@ -77,10 +77,9 @@ class Subir extends React.Component
                                                     t = j
                                                 }
                                         }
-
-                                    }
                                     var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t -2)
                                     alert(nombre)
+                                    }
                                     //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
                                     /*await app.firestore().collection("series").doc((+this.state.series + 1).toString()).set({nombre: nombre, temporada: temporada, url: data})
                                 })
