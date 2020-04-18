@@ -70,9 +70,9 @@ class Subir extends React.Component
                                     })*/
                                     for(let i=0; i<this.state.archivosSeries.length; i++){
                                     var t = 0;
-                                    for(let j=this.state.archivosSeries[i].name.length-1; j>0; j--)
+                                    for(let j=+this.state.archivosSeries[i].name.length-1; j>0; j--)
                                         {
-                                            if(this.state.archivosSeries[i].name.charAt(j) == ' ')
+                                            if(this.state.archivosSeries[i].name.charAt(j) === ' ')
                                                 {
                                                     t = j
                                                     break
