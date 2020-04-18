@@ -78,7 +78,7 @@ class Subir extends React.Component
                                         }
                                     var nombre = await this.state.archivosSeries[i].name.substring(0, +t - 13)
                                     alert(t)
-                                    var temporada = await this.state.archivosSeries[i].name.substring(+t - 1, +this.state.archivosSeries.length-2)
+                                    var temporada = await this.state.archivosSeries[i].name.substring(+t - 1, +this.state.archivosSeries[i].name.length-4)
                                     alert(temporada)
                                     }
                                     //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
