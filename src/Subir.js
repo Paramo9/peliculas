@@ -60,17 +60,27 @@ class Subir extends React.Component
                 event.preventDefault();
                 if(this.state.archivosSeries!=null)
                     {
-                        var app = firebase.app("firestore")
+                        /*var app = firebase.app("firestore")
                         for(let i=0; i<this.state.archivosSeries.length; i++)
                             {
                                 await app.storage().ref(`Series/${this.state.archivosSeries[i].name}`).put(this.state.archivosSeries[i])
                                 await app.storage().ref("Series").child(this.state.archivosSeries[i].name).getDownloadURL().then(async (data) => {
                                     await app.firestore().collection("series").get().then(async (data2) => {
                                         this.setState({series: data2.size})
-                                    })
-                                    var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - 11)
-                                    var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
-                                    await app.firestore().collection("series").doc((+this.state.series + 1).toString()).set({nombre: nombre, temporada: temporada, url: data})
+                                    })*/
+                                    var t = 0;
+                                    for(let j=this.state.archivosSeries[i].name.length-1; j>0; j--)
+                                        {
+                                            if(this.state.archivosSeries[i].name.charAt(j) == ' ')
+                                                {
+                                                    t = j
+                                                }
+                                        }
+
+                                    var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t -2)
+                                    alert(nombre)
+                                    //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
+                                    /*await app.firestore().collection("series").doc((+this.state.series + 1).toString()).set({nombre: nombre, temporada: temporada, url: data})
                                 })
                             }
                         if(this.state.archivosSeries.length==1)
@@ -82,7 +92,7 @@ class Subir extends React.Component
                             {
                                 alert("¡Las series se han subido con éxito!")
                                 this.forceUpdate()
-                            }
+                            }*/
                     }
             }
 
