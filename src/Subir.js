@@ -75,9 +75,10 @@ class Subir extends React.Component
                                             if(this.state.archivosSeries[i].name.charAt(j) == ' ')
                                                 {
                                                     t = j
+                                                    break
                                                 }
                                         }
-                                    var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t -2)
+                                    var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t)
                                     alert(nombre)
                                     }
                                     //var temporada = await this.state.archivosSeries[i].name.substring(+this.state.archivosSeries[i].name.length - 8, +this.state.archivosSeries[i].name.length - 4)
