@@ -74,6 +74,7 @@ class Subir extends React.Component
                                     while(this.state.archivosSeries[i].name.charAt(j) != ' ')
                                         {
                                             t = j;
+                                            j = j-1
                                         }
                                     var nombre = await this.state.archivosSeries[i].name.substring(0, +this.state.archivosSeries[i].name.length - +t + 1)
                                     alert(nombre)
