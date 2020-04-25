@@ -116,7 +116,7 @@ class Peliculas extends React.Component
         showBotones = (pagina) => {
             let botones = []
             botones.push()
-            if(this.state.maxPaginas!=1)
+            if(this.state.maxPaginas!=1 && this.state.maxPaginas!=0)
                 {
                     if(this.state.maxPaginas==2)
                         {
@@ -129,7 +129,36 @@ class Peliculas extends React.Component
                                     botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
                         }
-                    else if(this.state.maxPaginas>2 && this.state.maxPaginas<10)
+                    else
+                        {
+                            var decena = +Math.trunc(pagina/ 10)
+                            botones.push(<span value="1" onClick={this.handleClick}>Primera</span>)
+                            botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
+                            for(let i=+decena-3; i<=decena; i++)
+                                {
+                                    if(i>0)
+                                        {
+                                            botones.push(<span value={i*10} onClick={this.handleClick}>{i*10}</span>)
+                                        }
+                                }
+                            for(let i=1; i<=9; i++)
+                                {
+                                    if(+decena+i<=this.state.maxPaginas)
+                                        {
+                                            botones.push(<span value={+decena+i} onClick={this.handleClick}>{+decena+i}</span>)
+                                        }
+                                }
+                            for(let i=+decena+1; i<=+decena+3; i++)
+                                {
+                                    if(i*10<=this.state.maxPaginas)
+                                        {
+                                            botones.push(<span value={i*10} onClick={this.handleClick}>{i*10}</span>)
+                                        }
+                                }
+                            botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
+                            botones.push(<span value={this.state.maxPaginas} onClick={this.handleClick}>Última</span>)
+                        }
+                    /*if(this.state.maxPaginas>2 && this.state.maxPaginas<10)
                         {
                             if(pagina==1)
                                 {
@@ -156,7 +185,7 @@ class Peliculas extends React.Component
                                         }
                                     botones.push(<span onClick={this.siguiente}>&gt;&gt;</span>)
                                 }
-                        }
+                        }*/
                 }
             return botones
         }
