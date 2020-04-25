@@ -134,7 +134,7 @@ class Peliculas extends React.Component
                             var decena = +Math.trunc(pagina/ 10)
                             botones.push(<span value="1" onClick={this.handleClick}>Primera</span>)
                             botones.push(<span onClick={this.anterior}>&lt;&lt;</span>)
-                            for(let i=+decena-3; i<=decena; i++)
+                            for(let i=+decena-2; i<=decena; i++)
                                 {
                                     if(i>0)
                                         {
@@ -143,9 +143,9 @@ class Peliculas extends React.Component
                                 }
                             for(let i=1; i<=9; i++)
                                 {
-                                    if(+decena+i<=this.state.maxPaginas)
+                                    if(+decena*10+i<=this.state.maxPaginas)
                                         {
-                                            botones.push(<span value={+decena+i} onClick={this.handleClick}>{+decena+i}</span>)
+                                            botones.push(<span value={+decena*10+i} onClick={this.handleClick}>{+decena*10+i}</span>)
                                         }
                                 }
                             for(let i=+decena+1; i<=+decena+3; i++)
