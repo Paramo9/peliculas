@@ -186,12 +186,14 @@ class Peliculas extends React.Component
                             <h2 align="center">Página: {this.state.pagina} de {this.state.maxPaginas}</h2>
                             <div className="clear"></div>
                             <br />
-                            <div id="contenido" align="center">
-                                {this.state.peliculas}
-                                <div className="clear"></div>
-                                <br />
-                                <div className="botones">
-                                    {this.showBotones(this.state.pagina)}
+                            <div id="caja">
+                                <div id="contenido" align="center">
+                                    {this.state.peliculas}
+                                    <div className="clear"></div>
+                                    <br />
+                                    <div className="botones">
+                                        {this.showBotones(this.state.pagina)}
+                                    </div>
                                 </div>
                                 <div id="sidebar">
                                     <h3 className="titulo">Películas por año</h3>

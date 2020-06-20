@@ -30,10 +30,17 @@
         font-size: 20px;
     }
 
+#caja
+    {
+        margin: 20px auto;
+
+    }
+
 #contenido
     {
         width:1080px;
         margin: 10px auto;
+        float: left;
     }
 
 .clear
@@ -79,7 +86,7 @@
 
 #sidebar
     {
-        width: 315px;
+        width: 500px;
         float: right;
         margin: 5px;
     }
