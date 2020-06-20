@@ -193,6 +193,9 @@ class Peliculas extends React.Component
                                 <div className="botones">
                                     {this.showBotones(this.state.pagina)}
                                 </div>
+                                <div id="sidebar">
+                                    <h3 className="titulo">Películas por año</h3>
+                                </div>
                             </div>
                         </div>
                     )
