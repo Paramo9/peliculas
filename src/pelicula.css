@@ -77,6 +77,13 @@
         border-radius: 3px;
     }
 
+#sidebar
+    {
+        width: 315px;
+        float: right;
+        margin: 5px;
+    }
+
 h3.titulo
     {
         border-radius: 3px;
